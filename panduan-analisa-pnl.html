@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panduan Baca P&amp;L versi Branch Manager &middot; Next BM School 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#13181C; --emer:#00A39D; --emer-d:#00595A; --emer-l:#4FBDB6;
+  --gold:#F8AD3C; --gold-l:#FCC15A; --rust:#C24A2C;
+  --paper:#FBF8F1; --paper-d:#F4EEDF; --band:#EAF7F6; --card:#FFFFFF;
+  --line:#E4DECB; --muted:#6C7670;
+  --shadow:0 1px 2px rgba(19,24,28,.06),0 8px 28px rgba(19,24,28,.09);
+  --shadow-lg:0 2px 6px rgba(19,24,28,.08),0 24px 60px rgba(19,24,28,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);
+  background:var(--paper);line-height:1.62;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(circle at 12% 8%,rgba(0,163,157,.05),transparent 38%),
+    radial-gradient(circle at 88% 92%,rgba(248,173,60,.05),transparent 42%);
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+h1,h2,h3,.disp{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01em}
+.mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;background:rgba(251,248,241,.93);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;
+  height:58px;gap:18px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:14px}
+.brand .dot{width:11px;height:11px;border-radius:50%;
+  background:var(--emer);box-shadow:0 0 0 4px rgba(0,163,157,.16)}
+.navlinks{display:flex;gap:4px;flex-wrap:wrap}
+.navlinks a{
+  font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;
+  padding:6px 11px;border-radius:7px;transition:.18s;white-space:nowrap;
+}
+.navlinks a:hover{color:var(--emer-d);background:var(--band)}
+@media(max-width:880px){.navlinks{display:none}}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;overflow:hidden;
+  background:linear-gradient(160deg,#063B3A 0%,#00595A 52%,#0A5350 100%);
+  color:#FBF8F1;padding:78px 0 70px}
+.hero::before{content:"";position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px 56px),
+    repeating-linear-gradient(0deg,rgba(255,255,255,.045) 0 1px,transparent 1px 56px);
+  mask-image:radial-gradient(circle at 72% 36%,#000,transparent 72%)}
+.hero::after{content:"";position:absolute;right:-130px;top:-130px;
+  width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(248,173,60,.34),transparent 68%)}
+.hero .wrap{position:relative;z-index:2}
+.hero .eyebrow{color:var(--gold-l)}
+.hero h1{font-size:clamp(2.5rem,5.4vw,4.05rem);line-height:1.04;
+  margin:18px 0 20px;color:#FFFFFF;max-width:18ch}
+.hero h1 em{font-style:italic;color:var(--gold-l)}
+.hero .lead{font-size:18.5px;max-width:60ch;color:#D4EEEC}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;
+  letter-spacing:.05em;padding:7px 14px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.28);color:#EAF7F6}
+.chip.solid{background:var(--gold);border-color:var(--gold);color:#13181C;
+  font-weight:600}
+
+/* ---------- SECTION SCAFFOLD ---------- */
+section{padding:64px 0;border-bottom:1px solid rgba(228,222,203,.55)}
+section:last-of-type{border-bottom:none}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+.sec-num{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;
+  color:var(--gold);border:1.5px solid var(--gold);border-radius:7px;
+  padding:3px 9px;flex:none}
+.sec-head h2{font-size:clamp(1.7rem,3vw,2.35rem);line-height:1.12}
+.sec-intro{font-size:17px;color:#3A4946;max-width:66ch;margin:14px 0 34px}
+.sec-intro strong{color:var(--emer-d);font-weight:700}
+
+/* ---------- MINDSET ---------- */
+.flip-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:760px){.flip-grid{grid-template-columns:1fr}}
+.flip{border-radius:15px;padding:28px 26px;position:relative}
+.flip.old{background:var(--paper-d);border:1px solid var(--line)}
+.flip.new{background:linear-gradient(155deg,#00A39D,#007E79);color:#EAF7F6;
+  box-shadow:var(--shadow)}
+.flip .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+.flip.old .tag{color:var(--rust)}
+.flip.new .tag{color:var(--gold-l)}
+.flip h3{font-size:1.4rem;margin:10px 0 12px}
+.flip.new h3{color:#FFFFFF}
+.flip p{font-size:14.5px}
+.flip.old p{color:#4B544F}
+.flip ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:9px}
+.flip li{font-size:13.8px;padding-left:22px;position:relative}
+.flip li::before{position:absolute;left:0;top:1px;font-weight:700}
+.flip.old li::before{content:"\2715";color:var(--rust);font-size:11px}
+.flip.new li::before{content:"\2713";color:var(--gold-l)}
+.bridge{margin-top:24px;background:var(--card);border:1px solid var(--line);
+  border-left:4px solid var(--gold);border-radius:0 12px 12px 0;
+  padding:20px 24px;font-size:15.5px}
+.bridge b{font-family:'Fraunces',serif;font-weight:600;color:var(--emer-d)}
+
+/* ---------- FLOW 3 SHEET ---------- */
+.flow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;
+  counter-reset:fl}
+@media(max-width:820px){.flow{grid-template-columns:1fr}}
+.flowcard{background:var(--card);border:1px solid var(--line);
+  border-radius:15px;padding:26px 24px 24px;position:relative;
+  box-shadow:var(--shadow);transition:.2s}
+.flowcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.flowcard::before{counter-increment:fl;content:"0" counter(fl);
+  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  color:#fff;background:var(--emer);width:34px;height:34px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center}
+.flowcard h3{font-size:1.28rem;margin:15px 0 4px}
+.flowcard .role{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--gold);
+  font-weight:600;margin-bottom:11px}
+.flowcard p{font-size:13.8px;color:#444F4C}
+.flowcard .ask{margin-top:14px;padding-top:14px;
+  border-top:1px dashed var(--line);font-size:13px}
+.flowcard .ask b{color:var(--emer-d);font-family:'Fraunces',serif;
+  font-weight:600}
+.flow-arrow{text-align:center;color:var(--gold);font-size:22px;margin:2px 0}
+@media(min-width:821px){.flow-arrow{display:none}}
+
+/* ---------- DECODER ---------- */
+.decoder{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:840px){.decoder{grid-template-columns:1fr}}
+.lr-sheet{background:var(--card);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
+  align-self:start}
+.lr-grouphead{background:var(--emer);color:#EAF7F6;
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;padding:9px 18px}
+.lr-line{display:flex;justify-content:space-between;align-items:center;
+  gap:12px;padding:11px 18px;border-bottom:1px solid var(--paper-d);
+  cursor:pointer;transition:.15s;font-size:14px}
+.lr-line:hover{background:var(--band)}
+.lr-line.active{background:var(--emer-d);color:#EAF7F6}
+.lr-line.active .lr-val{color:var(--gold-l)}
+.lr-line .lr-val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;
+  color:var(--muted);font-weight:500}
+.lr-cm{display:flex;justify-content:space-between;align-items:center;
+  padding:14px 18px;background:linear-gradient(100deg,#00A39D,#007E79);
+  color:#FFFFFF;font-family:'Fraunces',serif;font-weight:600;font-size:15px}
+.lr-cm .lr-val{font-family:'IBM Plex Mono',monospace;color:var(--gold-l);
+  font-size:15px}
+.decode-panel{background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:28px 26px;box-shadow:var(--shadow);
+  min-height:330px;position:relative}
+.decode-panel .ph{color:var(--muted);font-size:14.5px;
+  display:flex;flex-direction:column;gap:10px;height:100%;
+  justify-content:center;text-align:center;padding:30px 10px}
+.decode-panel .ph .big{font-family:'Fraunces',serif;font-size:1.3rem;
+  color:var(--emer-d)}
+.dp-kicker{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold)}
+.dp-title{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;
+  margin:7px 0 4px;color:var(--emer-d)}
+.dp-side{display:inline-block;font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:5px;
+  letter-spacing:.05em;margin-bottom:14px}
+.dp-side.pend{background:rgba(0,163,157,.13);color:var(--emer-d)}
+.dp-side.beban{background:rgba(194,74,44,.13);color:var(--rust)}
+.dp-body{font-size:14.5px;color:#3A4946;margin-bottom:16px}
+.dp-row{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--paper-d)}
+.dp-row .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;flex:none;width:96px;padding-top:2px}
+.dp-row .txt{font-size:13.8px;color:#3A4946}
+.ctrl-meter{display:flex;gap:5px;margin-top:6px}
+.ctrl-meter span{height:7px;flex:1;border-radius:3px;background:var(--paper-d)}
+.ctrl-meter span.on{background:var(--gold)}
+.ctrl-cap{font-family:'IBM Plex Mono',monospace;font-size:11px;
+  color:var(--muted);margin-top:5px}
+
+/* ---------- KONSEP ---------- */
+.konsep-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.konsep-grid{grid-template-columns:1fr}}
+.konsep{background:var(--card);border:1px solid var(--line);
+  border-radius:15px;padding:0;overflow:hidden;box-shadow:var(--shadow)}
+.konsep-top{padding:22px 24px 18px;border-bottom:1px solid var(--paper-d)}
+.konsep .kn{font-family:'IBM Plex Mono',monospace;font-size:11px;
+  font-weight:600;color:var(--gold);letter-spacing:.1em}
+.konsep h3{font-size:1.32rem;margin:7px 0 8px}
+.konsep-top p{font-size:14px;color:#444F4C}
+.konsep-demo{padding:20px 24px;background:var(--paper)}
+.twoway{display:flex;align-items:stretch;gap:0;border-radius:10px;
+  overflow:hidden;border:1px solid var(--line)}
+.twoway>div{flex:1;padding:14px 15px;font-size:12.7px}
+.twoway .credit{background:rgba(0,163,157,.12)}
+.twoway .charge{background:rgba(194,74,44,.1)}
+.twoway .h{font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  display:block;margin-bottom:5px}
+.twoway .credit .h{color:var(--emer-d)}
+.twoway .charge .h{color:var(--rust)}
+.twoway .v{font-family:'IBM Plex Mono',monospace;font-size:16px;
+  font-weight:600;color:var(--ink)}
+.kstack{display:flex;flex-direction:column;gap:7px}
+.kbar{display:flex;align-items:center;gap:10px;font-size:12.5px}
+.kbar .kt{flex:none;width:96px;font-family:'IBM Plex Mono',monospace;
+  font-size:11px;color:var(--muted)}
+.kbar .ktrk{flex:1;height:18px;background:var(--paper-d);border-radius:5px;
+  overflow:hidden}
+.kbar .kfill{height:100%;border-radius:5px;display:flex;align-items:center;
+  padding-left:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  font-weight:600;color:#fff;white-space:nowrap}
+.bopo-gauge{height:30px;border-radius:7px;position:relative;
+  background:linear-gradient(90deg,#00A39D 0%,#4FBDB6 55%,#F8AD3C 78%,#C24A2C 100%);
+  overflow:visible}
+.bopo-needle{position:absolute;top:-6px;width:3px;height:42px;
+  background:var(--ink);border-radius:2px;transform:translateX(-50%)}
+.bopo-needle::after{content:attr(data-v);position:absolute;top:-19px;left:50%;
+  transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;font-weight:600;white-space:nowrap}
+.bopo-scale{display:flex;justify-content:space-between;
+  font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--muted);
+  margin-top:6px}
+.triview{display:flex;gap:10px}
+.triview>div{flex:1;text-align:center;padding:13px 8px;border-radius:9px;
+  background:var(--card);border:1px solid var(--line)}
+.triview .tv{font-family:'IBM Plex Mono',monospace;font-size:17px;
+  font-weight:600;color:var(--emer-d)}
+.triview .tl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+  margin-top:4px}
+.triview .tc{font-size:11px;color:#444F4C;margin-top:6px;line-height:1.4}
+
+/* ---------- SIMULATOR ---------- */
+.sim{background:linear-gradient(165deg,#063B3A,#00595A);border-radius:20px;
+  padding:34px 32px;color:#EAF7F6;box-shadow:var(--shadow-lg);
+  position:relative;overflow:hidden}
+.sim::after{content:"";position:absolute;left:-90px;bottom:-90px;
+  width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(248,173,60,.22),transparent 70%)}
+.sim-head{display:flex;justify-content:space-between;align-items:flex-end;
+  gap:18px;flex-wrap:wrap;position:relative;z-index:2;margin-bottom:24px}
+.sim-head h3{font-size:1.5rem;color:#FFFFFF}
+.sim-head .eyebrow{color:var(--gold-l)}
+.branchpick{display:flex;gap:6px;flex-wrap:wrap}
+.branchpick button{font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+  font-weight:500;padding:7px 12px;border-radius:8px;cursor:pointer;
+  border:1px solid rgba(255,255,255,.26);background:transparent;
+  color:#D4EEEC;transition:.16s}
+.branchpick button:hover{border-color:var(--gold-l)}
+.branchpick button.on{background:var(--gold);border-color:var(--gold);
+  color:#13181C;font-weight:600}
+.sim-body{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;
+  position:relative;z-index:2}
+@media(max-width:860px){.sim-body{grid-template-columns:1fr}}
+.sim-panel{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);
+  border-radius:14px;padding:20px 20px 14px}
+.sim-panel .pt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--gold-l);
+  font-weight:600;margin-bottom:14px}
+.lever{margin-bottom:15px}
+.lever-top{display:flex;justify-content:space-between;align-items:baseline;
+  margin-bottom:4px}
+.lever-name{font-size:12.8px;font-weight:600;color:#EAF7F6}
+.lever-val{font-family:'IBM Plex Mono',monospace;font-size:13px;
+  font-weight:600;color:var(--gold-l)}
+.lever input[type=range]{width:100%;-webkit-appearance:none;appearance:none;
+  height:5px;border-radius:3px;background:rgba(255,255,255,.2);outline:none}
+.lever input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;
+  appearance:none;width:17px;height:17px;border-radius:50%;
+  background:var(--gold-l);cursor:pointer;border:3px solid #063B3A;
+  box-shadow:0 1px 5px rgba(0,0,0,.35)}
+.lever input[type=range]::-moz-range-thumb{width:17px;height:17px;
+  border-radius:50%;background:var(--gold-l);cursor:pointer;
+  border:3px solid #063B3A}
+.lever-base{font-family:'IBM Plex Mono',monospace;font-size:9.8px;
+  color:#9AA39C;margin-top:3px}
+.lever.disiplin .lever-name::before{content:"\25C6 ";color:var(--gold-l);
+  font-size:9px;vertical-align:middle}
+.cluster-tag{font-family:'IBM Plex Mono',monospace;font-size:9.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:#9AA39C;
+  margin:4px 0 10px;font-weight:600}
+.readout{display:flex;flex-direction:column;gap:13px}
+.cm-big{background:rgba(0,0,0,.18);border-radius:13px;padding:20px 22px;
+  text-align:center;border:1px solid rgba(255,255,255,.1)}
+.cm-big .cl{font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l);
+  font-weight:600}
+.cm-big .cv{font-family:'IBM Plex Mono',monospace;font-size:2.7rem;
+  font-weight:600;color:#FFFFFF;line-height:1.1;margin:5px 0 2px}
+.cm-big .cd{font-family:'IBM Plex Mono',monospace;font-size:13px;
+  font-weight:600}
+.cm-big .cd.up{color:var(--gold-l)} .cm-big .cd.dn{color:#E79A86}
+.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.11);
+  border-radius:10px;padding:12px 13px}
+.mini .ml{font-family:'IBM Plex Mono',monospace;font-size:9.3px;
+  letter-spacing:.09em;text-transform:uppercase;color:#9AA39C;font-weight:600}
+.mini .mv{font-family:'IBM Plex Mono',monospace;font-size:18px;
+  font-weight:600;color:#EAF7F6;margin-top:3px}
+.verdict{border-radius:11px;padding:13px 16px;font-size:13px;
+  display:flex;align-items:center;gap:10px;font-weight:600}
+.verdict.ok{background:rgba(248,173,60,.2);color:var(--gold-l);
+  border:1px solid rgba(248,173,60,.45)}
+.verdict.no{background:rgba(194,74,44,.22);color:#E79A86;
+  border:1px solid rgba(194,74,44,.45)}
+.verdict .vi{font-family:'IBM Plex Mono',monospace;font-size:11px;
+  flex:none}
+.sim-reset{margin-top:6px;background:transparent;border:1px solid rgba(255,255,255,.26);
+  color:#D4EEEC;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  font-weight:500;padding:8px 14px;border-radius:8px;cursor:pointer;
+  transition:.16s;width:100%}
+.sim-reset:hover{border-color:var(--gold-l);color:var(--gold-l)}
+.decomp{margin-top:18px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.11);border-radius:12px;padding:16px 18px;
+  position:relative;z-index:2}
+.decomp .pt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--gold-l);
+  font-weight:600;margin-bottom:12px}
+.dc-row{display:flex;align-items:center;gap:12px;margin-bottom:7px;
+  font-size:12px}
+.dc-row .dn{flex:none;width:170px;color:#D4EEEC}
+@media(max-width:520px){.dc-row .dn{width:120px}}
+.dc-track{flex:1;height:16px;background:rgba(0,0,0,.22);border-radius:4px;
+  position:relative;overflow:hidden}
+.dc-mid{position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:rgba(255,255,255,.3)}
+.dc-fill{position:absolute;top:0;bottom:0;height:100%}
+.dc-fill.pos{background:linear-gradient(90deg,var(--emer-l),var(--gold-l))}
+.dc-fill.neg{background:linear-gradient(90deg,#D9694A,#C24A2C)}
+.dc-val{flex:none;width:62px;text-align:right;
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;
+  color:#EAF7F6}
+
+/* ---------- PROTOKOL ---------- */
+.proto{display:flex;flex-direction:column;gap:0;
+  border-left:2px solid var(--line);margin-left:8px;padding-left:0}
+.pstep{display:grid;grid-template-columns:auto 1fr;gap:20px;
+  padding:0 0 26px 26px;position:relative}
+.pstep:last-child{padding-bottom:0}
+.pstep::before{content:"";position:absolute;left:-9px;top:2px;width:16px;
+  height:16px;border-radius:50%;background:var(--paper);
+  border:3px solid var(--emer)}
+.pstep .pmin{font-family:'IBM Plex Mono',monospace;font-size:11px;
+  font-weight:600;color:#fff;background:var(--emer-d);border-radius:6px;
+  padding:4px 10px;height:fit-content;white-space:nowrap;letter-spacing:.04em}
+.pstep h3{font-size:1.18rem;margin-bottom:4px}
+.pstep p{font-size:14px;color:#444F4C}
+.pstep .where{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
+  color:var(--gold);font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;margin-top:6px}
+
+/* ---------- ARKETIPE ---------- */
+.ark-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
+.ark-tabs button{font-family:'IBM Plex Mono',monospace;font-size:12px;
+  font-weight:500;padding:9px 16px;border-radius:9px;cursor:pointer;
+  border:1px solid var(--line);background:var(--card);color:var(--muted);
+  transition:.16s}
+.ark-tabs button:hover{border-color:var(--emer-l);color:var(--emer-d)}
+.ark-tabs button.on{background:var(--emer);border-color:var(--emer);
+  color:#FFFFFF;font-weight:600}
+.ark-panel{background:var(--card);border:1px solid var(--line);
+  border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.ark-banner{padding:24px 28px;color:#EAF7F6;
+  background:linear-gradient(120deg,#00A39D,#007E79);
+  display:flex;justify-content:space-between;align-items:center;
+  gap:16px;flex-wrap:wrap}
+.ark-banner h3{font-size:1.6rem;color:#FFFFFF}
+.ark-banner .ab-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+  color:#D4EEEC}
+.ark-banner .ab-cm{text-align:right;font-family:'IBM Plex Mono',monospace}
+.ark-banner .ab-cm .v{font-size:1.7rem;font-weight:600;color:var(--gold-l)}
+.ark-banner .ab-cm .l{font-size:9.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:#9AA39C}
+.ark-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:680px){.ark-grid{grid-template-columns:1fr}}
+.ark-cell{padding:20px 26px;border-top:1px solid var(--paper-d)}
+.ark-cell:nth-child(even){border-left:1px solid var(--paper-d)}
+@media(max-width:680px){.ark-cell:nth-child(even){border-left:none}}
+.ark-cell .ac-h{font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  color:var(--gold);margin-bottom:7px}
+.ark-cell p{font-size:13.7px;color:#3A4946}
+.ark-cell.focus{background:rgba(0,163,157,.045)}
+.ark-cell.focus .ac-h{color:var(--emer-d)}
+
+/* ---------- CLOSING ---------- */
+.closing{background:var(--ink);color:#D4EEEC;text-align:center;
+  padding:62px 0}
+.closing h2{font-size:clamp(1.6rem,3vw,2.2rem);color:#FFFFFF;
+  max-width:24ch;margin:14px auto 16px}
+.closing h2 em{font-style:italic;color:var(--gold-l)}
+.closing p{max-width:54ch;margin:0 auto;font-size:15px;color:#A8C6C2}
+.closing .eyebrow{color:var(--gold-l)}
+.foot{background:#13181C;color:#7E8C88;font-size:12px;padding:22px 0;
+  text-align:center;font-family:'IBM Plex Mono',monospace;letter-spacing:.03em}
+
+/* ---------- PRINT ---------- */
+@media print{
+  body{background:#fff;font-size:11pt}
+  .topbar,.sim-reset,.branchpick,.ark-tabs,.flow-arrow{display:none}
+  .hero{background:#00A39D !important;-webkit-print-color-adjust:exact;
+    print-color-adjust:exact;padding:36px 0}
+  section{padding:26px 0;page-break-inside:avoid;border-bottom:1px solid #ccc}
+  .sim,.flip.new,.ark-banner,.lr-cm{-webkit-print-color-adjust:exact;
+    print-color-adjust:exact}
+  .decode-panel,.konsep,.flowcard,.sim-panel{box-shadow:none}
+}
+.reveal{opacity:0;transform:translateY(20px);
+  transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span>P&amp;L versi BM &middot; Panduan Baca</div>
+    <nav class="navlinks">
+      <a href="#mindset">Mindset</a>
+      <a href="#alur">Alur Baca</a>
+      <a href="#decoder">Decoder L/R</a>
+      <a href="#konsep">4 Konsep</a>
+      <a href="#simulator">Simulator</a>
+      <a href="#protokol">Protokol 5 Menit</a>
+      <a href="#arketipe">Per Arketipe</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Next BM School 2026 &middot; Branch Banking Simulation</div>
+    <h1>Membaca P&amp;L bukan tugas akhir bulan. Itu <em>cara seorang BM berpikir.</em></h1>
+    <p class="lead">Panduan ini melatih Anda membaca P&amp;L versi Branch Manager dengan cepat dan percaya diri, lalu menerjemahkan setiap angka menjadi keputusan cabang yang bisa dipertanggungjawabkan.</p>
+    <div class="hero-meta">
+      <span class="chip solid">Lapis 2 &middot; Instrumen Branch Manager</span>
+      <span class="chip">3 Sheet Kerja</span>
+      <span class="chip">4 Konsep Inti</span>
+      <span class="chip">Simulator Tuas CM</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 01 MINDSET ===== -->
+<section id="mindset">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>Mindset: dari pelapor menjadi pengambil keputusan</h2>
+    </div>
+    <p class="sec-intro">Banyak orang membuka P&amp;L untuk menjawab pertanyaan atasan. Seorang Branch Manager membukanya untuk menjawab pertanyaannya sendiri. Pergeseran kecil ini mengubah segalanya. <strong>Contribution Margin adalah papan skor cabang Anda</strong>, dan papan skor dibaca oleh orang yang sedang bertanding, bukan oleh penonton.</p>
+    <div class="flip-grid">
+      <div class="flip old">
+        <span class="tag">Cara lama</span>
+        <h3>P&amp;L sebagai laporan</h3>
+        <p>Dokumen yang disusun supaya terlihat rapi saat ditanya. Dibaca dari atas ke bawah, lalu ditutup.</p>
+        <ul>
+          <li>Fokus pada angka akhir, bukan penyebabnya</li>
+          <li>Beban dilihat sebagai daftar, bukan tuas</li>
+          <li>Dibuka sebulan sekali saat diminta</li>
+          <li>Pertanyaan: apakah angka saya aman</li>
+        </ul>
+      </div>
+      <div class="flip new">
+        <span class="tag">Cara BM</span>
+        <h3>P&amp;L sebagai instrumen</h3>
+        <p>Panel kendali yang dibaca untuk memutuskan langkah berikutnya. Dibaca dari CM, lalu ditelusuri ke sumbernya.</p>
+        <ul>
+          <li>Fokus pada apa yang menggerakkan CM</li>
+          <li>Setiap pos beban diuji: tuas atau jangkar</li>
+          <li>Dibuka setiap pekan sebagai kebiasaan</li>
+          <li>Pertanyaan: keputusan apa yang CM minta</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bridge">
+      <b>Inti pergeseran.</b> P&amp;L versi BM sengaja dirancang untuk cara kedua. Tiga sheet-nya tidak menyusun laporan, melainkan memandu sebuah alur berpikir: di mana posisi saya, dari mana angka itu lahir, dan ke mana saya akan membawanya.
+    </div>
+  </div>
+</section>
+
+<!-- ===== 02 ALUR BACA ===== -->
+<section id="alur">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>Alur baca tiga sheet</h2>
+    </div>
+    <p class="sec-intro">P&amp;L versi BM punya tiga sheet, dan urutannya bukan kebetulan. Baca berurutan, karena tiap sheet menjawab satu pertanyaan dan menyiapkan pertanyaan berikutnya.</p>
+    <div class="flow">
+      <div class="flowcard">
+        <h3>Posisi Cabang</h3>
+        <div class="role">Di mana saya berdiri</div>
+        <p>Potret cabang dalam satu layar: enam indikator diagnostic, empat KPI snapshot, tren CM empat kuartal, dan Branch Performance Meter. Sheet ini juga mengisi Slide Diagnostic pada Business Plan.</p>
+        <div class="ask"><b>Pertanyaan kunci:</b> apakah cabang ini sehat, dan ke arah mana tren CM bergerak?</div>
+      </div>
+      <div class="flow-arrow">&darr;</div>
+      <div class="flowcard">
+        <h3>Laba Rugi Saya</h3>
+        <div class="role">Dari mana CM lahir</div>
+        <p>L/R versi terbaca, dua kolom: realisasi YTD dan baseline setahun. Sebelas baris pendapatan dan beban, masing-masing dengan catatan singkat. Di sinilah CM dibongkar menjadi penyebabnya.</p>
+        <div class="ask"><b>Pertanyaan kunci:</b> pos mana penyumbang terbesar, dan pos mana yang paling bisa saya gerakkan?</div>
+      </div>
+      <div class="flow-arrow">&darr;</div>
+      <div class="flowcard">
+        <h3>Rencana Bisnis</h3>
+        <div class="role">Ke mana saya bawa</div>
+        <p>Kalkulator perencanaan. BM mengisi tujuh target Dual Mandate, sheet memproyeksikan L/R penuh, lalu membandingkan Proyeksi CM dengan Acuan RBB cabang.</p>
+        <div class="ask"><b>Pertanyaan kunci:</b> rencana saya menutup gap RBB atau belum, dan dengan tuas apa?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 03 DECODER ===== -->
+<section id="decoder">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>Decoder Laba Rugi</h2>
+    </div>
+    <p class="sec-intro">Sebelas baris pada Laba Rugi tidak setara. Sebagian adalah tuas yang bisa Anda gerakkan, sebagian jangkar yang nyaris tetap. Klik tiap baris untuk membaca artinya, seberapa besar kendali BM atasnya, dan bagaimana ia menggerakkan CM.</p>
+    <div class="decoder">
+      <div class="lr-sheet" id="lrSheet">
+        <div class="lr-grouphead">A &middot; Pendapatan Operasional</div>
+        <div class="lr-line" data-k="margin"><span>Pendapatan Margin Pembiayaan</span><span class="lr-val">terbesar</span></div>
+        <div class="lr-line" data-k="ftpcr"><span>FTP Credit DPK</span><span class="lr-val">imbalan</span></div>
+        <div class="lr-line" data-k="fbi"><span>Fee-Based Income</span><span class="lr-val">tanpa risiko</span></div>
+        <div class="lr-line" data-k="lain"><span>Pendapatan Operasional Lain</span><span class="lr-val">kecil</span></div>
+        <div class="lr-grouphead">B &middot; Beban Operasional</div>
+        <div class="lr-line" data-k="bhsl"><span>Bagi Hasil ke Nasabah DPK</span><span class="lr-val">biaya dana</span></div>
+        <div class="lr-line" data-k="ftpch"><span>FTP Charge Pembiayaan</span><span class="lr-val">biaya dana</span></div>
+        <div class="lr-line" data-k="peg"><span>Beban Pegawai</span><span class="lr-val">jangkar</span></div>
+        <div class="lr-line" data-k="sewa"><span>Beban Sewa Gedung</span><span class="lr-val">jangkar</span></div>
+        <div class="lr-line" data-k="opx"><span>Beban Operasional Lainnya</span><span class="lr-val">semi-tetap</span></div>
+        <div class="lr-line" data-k="mkt"><span>Beban Marketing dan Promosi</span><span class="lr-val">tuas</span></div>
+        <div class="lr-line" data-k="ppap"><span>PPAP Penyisihan Risiko</span><span class="lr-val">cermin risiko</span></div>
+        <div class="lr-cm"><span>Contribution Margin</span><span class="lr-val">papan skor</span></div>
+      </div>
+      <div class="decode-panel" id="decodePanel">
+        <div class="ph">
+          <span class="big">Pilih satu baris</span>
+          <span>Klik baris mana pun di Laba Rugi untuk membongkar maknanya.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 KONSEP ===== -->
+<section id="konsep">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>Empat konsep yang harus terasa nyata</h2>
+    </div>
+    <p class="sec-intro">Empat ide ini sering hanya dihafal. Padahal kalau benar-benar dipahami, keempatnya mengubah cara Anda membaca tiap baris P&amp;L. Berikut keempatnya, dengan demonstrasi singkat.</p>
+    <div class="konsep-grid">
+
+      <div class="konsep">
+        <div class="konsep-top">
+          <span class="kn">KONSEP 01</span>
+          <h3>FTP dua arah</h3>
+          <p>Treasury menetapkan harga dana dua arah. DPK yang cabang himpun menghasilkan FTP Credit. Pembiayaan yang cabang salurkan menanggung FTP Charge. Cabang adalah pembeli sekaligus penjual dana.</p>
+        </div>
+        <div class="konsep-demo">
+          <div class="twoway">
+            <div class="credit">
+              <span class="h">FTP Credit &middot; DPK menghasilkan</span>
+              <span class="v">4,0%</span>
+              <div style="margin-top:5px;color:#444F4C">Imbalan Treasury atas setiap rupiah DPK. Inilah alasan menghimpun dana tetap bernilai walau tidak langsung disalurkan.</div>
+            </div>
+            <div class="charge">
+              <span class="h">FTP Charge &middot; Pembiayaan membayar</span>
+              <span class="v">5,0%</span>
+              <div style="margin-top:5px;color:#444F4C">Biaya dana Treasury untuk mendanai pembiayaan. Margin sejati adalah margin akad dikurangi angka ini.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="konsep">
+        <div class="konsep-top">
+          <span class="kn">KONSEP 02</span>
+          <h3>PPAP dan kolektibilitas</h3>
+          <p>PPAP bukan beban administratif. Ia cadangan kerugian yang besarnya mengikuti kualitas aset. Semakin banyak pembiayaan turun kolektibilitas, semakin besar PPAP menggerus CM.</p>
+        </div>
+        <div class="konsep-demo">
+          <div class="kstack">
+            <div class="kbar"><span class="kt">Lancar</span><div class="ktrk"><div class="kfill" style="width:14%;background:#00A39D">0,5%</div></div></div>
+            <div class="kbar"><span class="kt">Dlm Perhatian</span><div class="ktrk"><div class="kfill" style="width:24%;background:#4FBDB6">5%</div></div></div>
+            <div class="kbar"><span class="kt">Kurang Lancar</span><div class="ktrk"><div class="kfill" style="width:48%;background:#F8AD3C">15%</div></div></div>
+            <div class="kbar"><span class="kt">Diragukan</span><div class="ktrk"><div class="kfill" style="width:72%;background:#D9694A">50%</div></div></div>
+            <div class="kbar"><span class="kt">Macet</span><div class="ktrk"><div class="kfill" style="width:96%;background:#C24A2C">100%</div></div></div>
+          </div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:11px;font-family:'IBM Plex Mono',monospace">Ilustrasi tarif penyisihan per kolektibilitas. Satu nasabah jatuh ke Macet menyita cadangan sebesar pokoknya.</div>
+        </div>
+      </div>
+
+      <div class="konsep">
+        <div class="konsep-top">
+          <span class="kn">KONSEP 03</span>
+          <h3>BOPO, ukuran efisiensi</h3>
+          <p>BOPO membandingkan total beban operasional dengan total pendapatan. Ia menjawab satu pertanyaan: berapa rupiah beban yang Anda keluarkan untuk menghasilkan seratus rupiah pendapatan.</p>
+        </div>
+        <div class="konsep-demo">
+          <div class="bopo-gauge">
+            <div class="bopo-needle" data-v="83,9%" style="left:80%"></div>
+          </div>
+          <div class="bopo-scale"><span>70%</span><span>80%</span><span>85% batas</span><span>95%</span><span>105%</span></div>
+          <div style="font-size:11.5px;color:var(--muted);margin-top:10px;font-family:'IBM Plex Mono',monospace">Di bawah 85% tergolong sehat. Mendekati atau melewati 100% berarti cabang nyaris tidak menyisakan margin.</div>
+        </div>
+      </div>
+
+      <div class="konsep">
+        <div class="konsep-top">
+          <span class="kn">KONSEP 04</span>
+          <h3>CM: absolut, persen, dan delta</h3>
+          <p>Satu angka CM bisa dibaca tiga cara. Ketiganya benar, dan ketiganya menjawab pertanyaan berbeda. Seorang BM tahu kapan memakai yang mana.</p>
+        </div>
+        <div class="konsep-demo">
+          <div class="triview">
+            <div>
+              <div class="tv">Rp 1.450</div>
+              <div class="tl">Absolut</div>
+              <div class="tc">Berapa rupiah CM. Ukuran kontribusi nyata cabang.</div>
+            </div>
+            <div>
+              <div class="tv">2,50%</div>
+              <div class="tl">Persen</div>
+              <div class="tc">CM atas outstanding. Ukuran kualitas, adil lintas ukuran cabang.</div>
+            </div>
+            <div>
+              <div class="tv">+72,5</div>
+              <div class="tl">Delta</div>
+              <div class="tc">Perubahan dari baseline. Ukuran kemajuan, dasar leaderboard.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== 05 SIMULATOR ===== -->
+<section id="simulator">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>Simulator tuas Contribution Margin</h2>
+    </div>
+    <p class="sec-intro">Inilah inti panduan ini. Pilih cabang Anda, lalu gerakkan tujuh tuas Dual Mandate dan amati CM berubah seketika. Rumus di balik layar identik dengan sheet Rencana Bisnis pada P&amp;L versi BM. Tanda berlian menandai tuas Cluster Disiplin Kontrol.</p>
+    <div class="sim">
+      <div class="sim-head">
+        <div>
+          <div class="eyebrow">Live Projection Engine</div>
+          <h3>Gerakkan tuas, baca dampaknya</h3>
+        </div>
+        <div class="branchpick" id="branchPick"></div>
+      </div>
+      <div class="sim-body">
+        <div class="sim-panel">
+          <div class="pt">Cluster Pertumbuhan Bisnis</div>
+          <div id="leversGrow"></div>
+          <div class="pt" style="margin-top:6px">Cluster Disiplin Kontrol</div>
+          <div id="leversDisiplin"></div>
+          <button class="sim-reset" id="simReset">Kembalikan ke baseline</button>
+        </div>
+        <div class="readout">
+          <div class="cm-big">
+            <div class="cl">Proyeksi Contribution Margin Setahun</div>
+            <div class="cv" id="cmValue">0</div>
+            <div class="cd up" id="cmDelta">+0 vs baseline</div>
+          </div>
+          <div class="mini-grid">
+            <div class="mini"><div class="ml">CM % Outstanding</div><div class="mv" id="cmPct">0%</div></div>
+            <div class="mini"><div class="ml">BOPO</div><div class="mv" id="bopoV">0%</div></div>
+            <div class="mini"><div class="ml">Acuan RBB CM</div><div class="mv" id="rbbV">0</div></div>
+            <div class="mini"><div class="ml">Proyeksi vs RBB</div><div class="mv" id="vsRbb">0</div></div>
+          </div>
+          <div class="verdict no" id="verdict"><span class="vi">&mdash;</span><span id="verdictText">Atur tuas untuk mulai</span></div>
+        </div>
+      </div>
+      <div class="decomp">
+        <div class="pt">Dekomposisi pendorong delta CM</div>
+        <div id="decompRows"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 06 PROTOKOL ===== -->
+<section id="protokol">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">06</span>
+      <h2>Protokol baca lima menit</h2>
+    </div>
+    <p class="sec-intro">Anda tidak akan selalu punya waktu lama. Protokol ini memastikan bahwa dalam lima menit, sebelum rapat atau sebelum ronde simulasi, Anda sudah memegang gambaran cabang yang utuh.</p>
+    <div class="proto">
+      <div class="pstep">
+        <span class="pmin">Menit 1</span>
+        <div>
+          <h3>Ambil posisi</h3>
+          <p>Lihat CM Setahun dan empat KPI snapshot. Tangkap satu kalimat: cabang ini sehat, perlu perhatian, atau tertekan.</p>
+          <div class="where">Sheet Posisi Cabang</div>
+        </div>
+      </div>
+      <div class="pstep">
+        <span class="pmin">Menit 2</span>
+        <div>
+          <h3>Baca arah tren</h3>
+          <p>Periksa tren CM empat kuartal. Garisnya naik, mendatar, atau menurun. Arah lebih penting daripada satu titik.</p>
+          <div class="where">Sheet Posisi Cabang</div>
+        </div>
+      </div>
+      <div class="pstep">
+        <span class="pmin">Menit 3</span>
+        <div>
+          <h3>Bongkar sumber CM</h3>
+          <p>Buka Laba Rugi. Tandai satu pos pendapatan terbesar dan satu pos beban terbesar. Itu pusat gravitasi cabang Anda.</p>
+          <div class="where">Sheet Laba Rugi Saya</div>
+        </div>
+      </div>
+      <div class="pstep">
+        <span class="pmin">Menit 4</span>
+        <div>
+          <h3>Pisahkan tuas dari jangkar</h3>
+          <p>Dari sebelas baris, tetapkan dua yang paling bisa Anda gerakkan pekan ini. Abaikan jangkar seperti sewa dan pegawai.</p>
+          <div class="where">Sheet Laba Rugi Saya</div>
+        </div>
+      </div>
+      <div class="pstep">
+        <span class="pmin">Menit 5</span>
+        <div>
+          <h3>Uji rencana terhadap RBB</h3>
+          <p>Lihat Proyeksi CM dan bandingkan dengan Acuan RBB. Bila masih di bawah, catat tuas mana yang akan menutup gap.</p>
+          <div class="where">Sheet Rencana Bisnis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 07 ARKETIPE ===== -->
+<section id="arketipe">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="sec-num">07</span>
+      <h2>Cara baca menurut arketipe cabang</h2>
+    </div>
+    <p class="sec-intro">Lima cabang dalam simulasi punya struktur P&amp;L sama, tetapi titik mulai berbeda. Setiap arketipe meminta mata yang berbeda. Pilih arketipe untuk melihat apa yang harus dibaca lebih dulu.</p>
+    <div class="ark-tabs" id="arkTabs"></div>
+    <div class="ark-panel" id="arkPanel"></div>
+  </div>
+</section>
+
+<!-- ===== CLOSING ===== -->
+<div class="closing">
+  <div class="wrap">
+    <div class="eyebrow">Penutup</div>
+    <h2>Angka tidak memutuskan apa pun. <em>Branch Manager yang memutuskan.</em></h2>
+    <p>P&amp;L versi BM hanya menerangi pilihan. Keberanian menarik tuas yang tepat, dan menahan diri dari jalan pintas yang menggerus cabang, tetap ada di tangan Anda.</p>
+  </div>
+</div>
+<div class="foot">
+  Next BM School 2026 &middot; Branch Banking Simulation &middot; Panduan Baca P&amp;L versi Branch Manager &middot; Lapis 2 &middot; Dokumen pembelajaran, angka fiktif
+</div>
+
+<script>
+/* ============ DATA: 5 CABANG ============ */
+/* rate & baseline diturunkan persis dari P&L versi BM (Bagian C Rencana Bisnis) */
+const BR = {
+  Borobudur:{kelas:"B3",ark:"Mature",lok:"Magelang, Jawa Tengah",
+    out:58000,dpk:78000,casaPct:.705128,fbi:620,npf:.020,opex:2590,mkt:350,lain:180,
+    marginR:.08735345,ftpcrR:.04,ftpchR:.05,casaR:.00941818,depoR:.02982609,cov:.425,
+    cmBase:1449.5,rbbCm:1523},
+  Prambanan:{kelas:"B3",ark:"Tumbuh",lok:"Klaten, Jawa Tengah",
+    out:55000,dpk:70000,casaPct:.707143,fbi:580,npf:.018,opex:2190,mkt:301,lain:170,
+    marginR:.08609545,ftpcrR:.04,ftpchR:.05,casaR:.00953535,depoR:.02975610,cov:.41666667,
+    cmBase:1549.75,rbbCm:1705},
+  Diponegoro:{kelas:"B4",ark:"Recovery",lok:"Semarang, Jawa Tengah",
+    out:44000,dpk:52000,casaPct:.701923,fbi:320,npf:.039,opex:1960,mkt:269,lain:110,
+    marginR:.08789205,ftpcrR:.04,ftpchR:.05,casaR:.00954795,depoR:.02964516,cov:.38461538,
+    cmBase:480.25,rbbCm:557},
+  "Gajah Mada":{kelas:"B4",ark:"Greenfield",lok:"Mojokerto, Jawa Timur",
+    out:30000,dpk:38000,casaPct:.665789,fbi:250,npf:.015,opex:1700,mkt:235,lain:90,
+    marginR:.08840833,ftpcrR:.04,ftpchR:.05,casaR:.00946640,depoR:.02977165,cov:.46666667,
+    cmBase:249.65,rbbCm:280},
+  Majapahit:{kelas:"B3",ark:"Premium",lok:"Trowulan, Jawa Timur",
+    out:70000,dpk:95000,casaPct:.694737,fbi:880,npf:.014,opex:2490,mkt:335,lain:240,
+    marginR:.08576429,ftpcrR:.04,ftpchR:.05,casaR:.00956818,depoR:.02975862,cov:.51428571,
+    cmBase:2600,rbbCm:2704}
+};
+const ORDER=["Borobudur","Prambanan","Diponegoro","Gajah Mada","Majapahit"];
+
+/* ============ DECODER ============ */
+const DECODE={
+  margin:{side:"pend",t:"Pendapatan Margin Pembiayaan",
+    body:"Selisih margin dari setiap akad pembiayaan. Inilah mesin pendapatan utama cabang, biasanya pos terbesar di seluruh P&L.",
+    ctrl:4,ctrlc:"Tinggi. Bergerak lewat volume penyaluran dan disiplin penetapan margin akad.",
+    cm:"Naik bila outstanding tumbuh atau margin blended membaik. Tuas pertumbuhan paling kuat."},
+  ftpcr:{side:"pend",t:"FTP Credit DPK",
+    body:"Imbalan dari Treasury atas dana pihak ketiga yang cabang himpun. Bukti bahwa menghimpun DPK menghasilkan, walau dana itu tidak langsung disalurkan.",
+    ctrl:3,ctrlc:"Menengah. Bergerak lewat pertumbuhan DPK, tarifnya ditetapkan Treasury.",
+    cm:"Naik seiring DPK tumbuh. Pasangan alami dari pertumbuhan funding."},
+  fbi:{side:"pend",t:"Fee-Based Income",
+    body:"Pendapatan dari bancassurance, Hasanah Card, remitansi, dan jasa lain. Pendapatan tanpa modal dan tanpa konsekuensi PPAP.",
+    ctrl:4,ctrlc:"Tinggi. Bergerak lewat aktivasi nasabah dan cross-sell, tanpa menambah risiko aset.",
+    cm:"Naik langsung rupiah per rupiah. Sumber CM paling bersih karena tidak menanggung risiko."},
+  lain:{side:"pend",t:"Pendapatan Operasional Lain",
+    body:"Provisi dan jasa lain di luar kategori utama. Porsinya kecil dan relatif stabil.",
+    ctrl:1,ctrlc:"Rendah. Mengikuti aktivitas, jarang menjadi fokus keputusan.",
+    cm:"Pengaruh kecil. Tidak diandalkan sebagai tuas."},
+  bhsl:{side:"beban",t:"Bagi Hasil ke Nasabah DPK",
+    body:"Imbalan yang dibayarkan ke nasabah dana. Inilah biaya dana versi nasabah, besarnya mengikuti komposisi CASA dan Deposito.",
+    ctrl:3,ctrlc:"Menengah. Bergerak lewat bauran funding. Memperbesar CASA menurunkan biaya ini.",
+    cm:"Turun bila CASA Ratio naik, karena CASA jauh lebih murah daripada Deposito."},
+  ftpch:{side:"beban",t:"FTP Charge Pembiayaan",
+    body:"Biaya dana dari Treasury untuk mendanai pembiayaan. Pasangan bayangan dari pertumbuhan outstanding.",
+    ctrl:2,ctrlc:"Rendah sampai menengah. Tarif ditetapkan Treasury, volume mengikuti penyaluran.",
+    cm:"Naik otomatis saat outstanding tumbuh. Margin sejati adalah margin akad dikurangi pos ini."},
+  peg:{side:"beban",t:"Beban Pegawai",
+    body:"Beban tetap terbesar cabang. Penting dibaca, tetapi bukan tuas CM jangka pendek.",
+    ctrl:1,ctrlc:"Rendah. Memangkasnya merusak indikator People dan moral tim.",
+    cm:"Hampir tidak digerakkan. Perlakukan sebagai jangkar, bukan tuas."},
+  sewa:{side:"beban",t:"Beban Sewa Gedung",
+    body:"Beban tetap yang terikat kontrak. Praktis tidak bisa digerakkan dalam horizon simulasi.",
+    ctrl:0,ctrlc:"Sangat rendah. Jangkar murni.",
+    cm:"Tidak relevan sebagai tuas. Abaikan saat mencari ruang gerak."},
+  opx:{side:"beban",t:"Beban Operasional Lainnya",
+    body:"Listrik, telepon, alat tulis, transport. Semi-tetap, dengan ruang efisiensi yang kecil namun nyata.",
+    ctrl:2,ctrlc:"Rendah sampai menengah. Ada ruang disiplin, tetapi terbatas.",
+    cm:"Naik sedikit bila dikelola ketat. Disiplin, bukan terobosan."},
+  mkt:{side:"beban",t:"Beban Marketing dan Promosi",
+    body:"Biaya akuisisi nasabah baru. Inilah pos yang paling menggoda untuk dipangkas, dan paling berbahaya bila dipangkas sembarangan.",
+    ctrl:4,ctrlc:"Tinggi. Sepenuhnya keputusan BM, justru karena itu butuh kehati-hatian.",
+    cm:"Memangkasnya menaikkan CM tahun ini, tetapi menggerus akuisisi dan menekan CM tahun depan."},
+  ppap:{side:"beban",t:"PPAP Penyisihan Risiko",
+    body:"Cadangan kerugian pembiayaan. Cermin kualitas aset, besarnya mengikuti NPF dan kolektibilitas, bukan keputusan administratif.",
+    ctrl:3,ctrlc:"Menengah. Bergerak lewat disiplin penyaluran dan penagihan, bukan lewat pembukuan.",
+    cm:"Turun bila NPF membaik. Pada cabang Recovery, inilah penekan CM terbesar."}
+};
+const lrSheet=document.getElementById("lrSheet");
+const decodePanel=document.getElementById("decodePanel");
+lrSheet.querySelectorAll(".lr-line").forEach(line=>{
+  line.addEventListener("click",()=>{
+    lrSheet.querySelectorAll(".lr-line").forEach(l=>l.classList.remove("active"));
+    line.classList.add("active");
+    const d=DECODE[line.dataset.k];
+    const meter=Array.from({length:4},(_,i)=>
+      '<span class="'+(i<d.ctrl?'on':'')+'"></span>').join("");
+    decodePanel.innerHTML=
+      '<div class="dp-kicker">Decoder baris</div>'+
+      '<div class="dp-title">'+d.t+'</div>'+
+      '<span class="dp-side '+d.side+'">'+(d.side==="pend"?"Sisi Pendapatan":"Sisi Beban")+'</span>'+
+      '<div class="dp-body">'+d.body+'</div>'+
+      '<div class="dp-row"><span class="lbl">Kendali BM</span><span class="txt">'+
+        '<div class="ctrl-meter">'+meter+'</div>'+
+        '<div class="ctrl-cap">'+d.ctrlc+'</div></span></div>'+
+      '<div class="dp-row"><span class="lbl">Dampak ke CM</span><span class="txt">'+d.cm+'</span></div>';
+  });
+});
+
+/* ============ SIMULATOR ============ */
+const LEVERS=[
+  {k:"out",name:"Pembiayaan Outstanding",cluster:"grow",unit:"jt",min:.7,max:1.35,step:500},
+  {k:"dpk",name:"DPK Total",cluster:"grow",unit:"jt",min:.7,max:1.35,step:500},
+  {k:"casaPct",name:"CASA Ratio",cluster:"grow",unit:"pct",min:.5,max:.85,abs:true,step:.005},
+  {k:"fbi",name:"Fee-Based Income",cluster:"grow",unit:"jt",min:.6,max:1.6,step:5},
+  {k:"npf",name:"NPF Gross",cluster:"disiplin",unit:"pct",min:.005,max:.06,abs:true,step:.001},
+  {k:"opex",name:"Beban Operasional non-marketing",cluster:"disiplin",unit:"jt",min:.85,max:1.15,step:10},
+  {k:"mkt",name:"Beban Marketing dan Promosi",cluster:"disiplin",unit:"jt",min:.4,max:1.6,step:5}
+];
+let CUR="Borobudur";
+let state={};
+
+function fmt(n){return Math.round(n).toLocaleString("id-ID");}
+function fmt1(n){return (Math.round(n*10)/10).toLocaleString("id-ID",
+  {minimumFractionDigits:1,maximumFractionDigits:1});}
+function pct(n){return (n*100).toLocaleString("id-ID",
+  {minimumFractionDigits:1,maximumFractionDigits:1})+"%";}
+
+function baseVal(b,k){return b[k];}
+
+function project(b,s){
+  const pend=s.out*b.marginR + s.dpk*b.ftpcrR + s.fbi + b.lain;
+  const casaAmt=s.casaPct*s.dpk, depoAmt=s.dpk-casaAmt;
+  const bhsl=casaAmt*b.casaR + depoAmt*b.depoR;
+  const ftpch=s.out*b.ftpchR;
+  const ppap=s.out*s.npf*b.cov;
+  const beban=bhsl+ftpch+s.opex+s.mkt+ppap;
+  const cm=pend-beban;
+  return {pend,beban,cm,cmPct:cm/s.out,bopo:beban/pend,bhsl,ftpch,ppap};
+}
+
+function buildLevers(){
+  const g=document.getElementById("leversGrow");
+  const d=document.getElementById("leversDisiplin");
+  g.innerHTML="";d.innerHTML="";
+  const b=BR[CUR];
+  LEVERS.forEach(L=>{
+    const base=baseVal(b,L.k);
+    const lo=L.abs?L.min:base*L.min;
+    const hi=L.abs?L.max:base*L.max;
+    const wrap=document.createElement("div");
+    wrap.className="lever"+(L.cluster==="disiplin"?" disiplin":"");
+    wrap.innerHTML=
+      '<div class="lever-top"><span class="lever-name">'+L.name+'</span>'+
+      '<span class="lever-val" id="lv_'+L.k+'"></span></div>'+
+      '<input type="range" id="rg_'+L.k+'" min="'+lo+'" max="'+hi+'" '+
+      'step="'+L.step+'" value="'+state[L.k]+'">'+
+      '<div class="lever-base" id="lb_'+L.k+'"></div>';
+    (L.cluster==="grow"?g:d).appendChild(wrap);
+    wrap.querySelector("input").addEventListener("input",e=>{
+      state[L.k]=parseFloat(e.target.value);render();
+    });
+  });
+}
+function resetState(){
+  const b=BR[CUR];state={};
+  LEVERS.forEach(L=>state[L.k]=baseVal(b,L.k));
+}
+function render(){
+  const b=BR[CUR];
+  LEVERS.forEach(L=>{
+    const v=state[L.k];
+    const disp=L.unit==="pct"?pct(v):"Rp "+fmt(v);
+    const base=baseVal(b,L.k);
+    const baseDisp=L.unit==="pct"?pct(base):"Rp "+fmt(base);
+    document.getElementById("lv_"+L.k).textContent=disp;
+    document.getElementById("lb_"+L.k).textContent="Baseline "+baseDisp;
+    const rg=document.getElementById("rg_"+L.k);
+    if(rg && parseFloat(rg.value)!==v) rg.value=v;
+  });
+  const P=project(b,state);
+  const delta=P.cm-b.cmBase;
+  document.getElementById("cmValue").textContent=fmt(P.cm);
+  const cd=document.getElementById("cmDelta");
+  cd.textContent=(delta>=0?"+":"")+fmt1(delta)+" jt vs baseline";
+  cd.className="cd "+(delta>=0?"up":"dn");
+  document.getElementById("cmPct").textContent=pct(P.cmPct);
+  document.getElementById("bopoV").textContent=pct(P.bopo);
+  document.getElementById("rbbV").textContent=fmt(b.rbbCm);
+  const vs=P.cm-b.rbbCm;
+  document.getElementById("vsRbb").textContent=(vs>=0?"+":"")+fmt1(vs);
+  const vd=document.getElementById("verdict");
+  const vt=document.getElementById("verdictText");
+  if(vs>=0){vd.className="verdict ok";
+    vd.querySelector(".vi").textContent="\u2713";
+    vt.textContent="Memenuhi Acuan RBB cabang";}
+  else{vd.className="verdict no";
+    vd.querySelector(".vi").textContent="\u2715";
+    vt.textContent="Masih di bawah RBB, gap Rp "+fmt1(Math.abs(vs))+" jt";}
+  renderDecomp(b,P);
+}
+function renderDecomp(b,P){
+  const base=project(b,Object.fromEntries(LEVERS.map(L=>[L.k,baseVal(b,L.k)])));
+  const baseCasaAmt=b.casaPct*b.dpk;
+  const sCasaAmt=state.casaPct*state.dpk;
+  const dItems=[
+    {n:"Pertumbuhan Pembiayaan",
+     v:(state.out-b.out)*(b.marginR-b.ftpchR)},
+    {n:"Pertumbuhan & bauran DPK",
+     v:((state.dpk-b.dpk)*b.ftpcrR)-(P.bhsl-base.bhsl)},
+    {n:"Kenaikan Fee-Based Income",v:state.fbi-b.fbi},
+    {n:"Efisiensi Beban Operasional",v:-(state.opex-b.opex)},
+    {n:"Perubahan Beban Marketing",v:-(state.mkt-b.mkt)},
+    {n:"Perbaikan Kualitas Aset",v:-(P.ppap-base.ppap)}
+  ];
+  const maxAbs=Math.max(40,...dItems.map(x=>Math.abs(x.v)));
+  document.getElementById("decompRows").innerHTML=dItems.map(x=>{
+    const w=Math.min(50,Math.abs(x.v)/maxAbs*50);
+    const pos=x.v>=0;
+    const style=pos?'left:50%;width:'+w+'%':'right:50%;width:'+w+'%';
+    return '<div class="dc-row"><span class="dn">'+x.n+'</span>'+
+      '<span class="dc-track"><span class="dc-mid"></span>'+
+      '<span class="dc-fill '+(pos?'pos':'neg')+'" style="'+style+'"></span></span>'+
+      '<span class="dc-val">'+(pos?"+":"")+fmt1(x.v)+'</span></div>';
+  }).join("");
+}
+function buildBranchPick(){
+  const bp=document.getElementById("branchPick");
+  bp.innerHTML="";
+  ORDER.forEach(nm=>{
+    const btn=document.createElement("button");
+    btn.textContent="KCP "+nm;
+    btn.className=nm===CUR?"on":"";
+    btn.addEventListener("click",()=>{
+      CUR=nm;resetState();buildBranchPick();buildLevers();render();
+    });
+    bp.appendChild(btn);
+  });
+}
+document.getElementById("simReset").addEventListener("click",()=>{
+  resetState();render();
+});
+CUR="Borobudur";resetState();buildBranchPick();buildLevers();render();
+
+/* ============ ARKETIPE ============ */
+const ARK={
+  Mature:{br:"Borobudur",sub:"KCP Kelas B3 \u00b7 Magelang, Jawa Tengah",
+    bacaDulu:"Disbursement pembiayaan baru. Pada cabang mapan, book konsumer mendekati jenuh, sehingga penyaluran baru adalah leading indicator paling jujur. CM hari ini sehat justru bisa menyembunyikan mesin pertumbuhan yang melambat.",
+    tuas:"Aktivasi nasabah eksisting dan Fee-Based Income. Pertumbuhan datang dari mengaktifkan basis payroll yang sudah lekat, bukan dari akuisisi nasabah baru yang makin mahal.",
+    jebakan:"Membaca CM yang memenuhi target sebagai tanda aman. Tanpa akselerasi penyaluran, CM tahun depan berisiko stagnan.",
+    fokus:"Tren CM empat kuartal dan pos FBI di Laba Rugi."},
+  Tumbuh:{br:"Prambanan",sub:"KCP Kelas B3 \u00b7 Klaten, Jawa Tengah",
+    bacaDulu:"NPF dan PPAP berdampingan dengan pertumbuhan outstanding. Saat semua indikator tumbuh sehat, perhatian bergeser dari mengejar angka ke menjaga kualitas saat volume naik.",
+    tuas:"Pertumbuhan outstanding yang seimbang dengan disiplin penyaluran. Momentum sudah ada, tugasnya menjaga agar laju tidak melampaui kapasitas kontrol.",
+    jebakan:"Membiarkan beban kerja tim dan kualitas aset tertinggal di belakang laju pertumbuhan portofolio.",
+    fokus:"NPF Gross dan CM% pada sheet Posisi Cabang."},
+  Recovery:{br:"Diponegoro",sub:"KCP Kelas B4 \u00b7 Semarang, Jawa Tengah",
+    bacaDulu:"NPF Gross lebih dulu, sebelum baris lain. Pada cabang pemulihan, NPF berada di atas ambang sehat dan menjadi constraint aktif. Setiap keputusan pembiayaan baru harus dibaca melalui lensa ini.",
+    tuas:"Perbaikan kualitas aset lewat restrukturisasi dan penagihan. Menurunkan NPF langsung melepas tekanan PPAP, dan PPAP adalah penekan CM terbesar di sini.",
+    jebakan:"Mengejar pertumbuhan outstanding sebelum kualitas aset stabil, yang justru memperdalam beban PPAP.",
+    fokus:"Pos PPAP di Laba Rugi dan NPF di Rencana Bisnis."},
+  Greenfield:{br:"Gajah Mada",sub:"KCP Kelas B4 \u00b7 Mojokerto, Jawa Timur",
+    bacaDulu:"CM absolut yang masih kecil, lalu CM% sebagai pembanding. Angka CM yang tipis di sini bukan tanda sakit, melainkan cermin skala yang belum optimal.",
+    tuas:"Akselerasi volume penyaluran dan DPK. Kualitas aset sudah bersih, sehingga modal utamanya adalah ruang untuk tumbuh dengan cepat namun terkendali.",
+    jebakan:"Menilai cabang lewat CM absolut dan menyimpulkan kinerja buruk, padahal yang dibutuhkan adalah skala.",
+    fokus:"Outstanding dan DPK pada Rencana Bisnis, dibaca sebagai ruang pertumbuhan."},
+  Premium:{br:"Majapahit",sub:"KCP Kelas B3 \u00b7 Trowulan, Jawa Timur",
+    bacaDulu:"Komposisi nasabah dan concentration risk. Cabang ini memimpin CM dan paling efisien, sehingga tantangannya bukan angka, melainkan ketergantungan pada nasabah besar.",
+    tuas:"Mempertahankan dominasi funding dan FBI sambil mendiversifikasi basis nasabah agar tidak bertumpu pada segelintir nama.",
+    jebakan:"Terlena pada posisi terdepan dan mengabaikan risiko bila satu nasabah besar berpindah.",
+    fokus:"BOPO dan struktur DPK pada sheet Posisi Cabang."}
+};
+const ARK_ORDER=["Mature","Tumbuh","Recovery","Greenfield","Premium"];
+const arkTabs=document.getElementById("arkTabs");
+const arkPanel=document.getElementById("arkPanel");
+function renderArk(key){
+  const a=ARK[key];const b=BR[a.br];
+  arkPanel.innerHTML=
+    '<div class="ark-banner">'+
+      '<div><h3>'+key+'</h3><div class="ab-meta">KCP '+a.br+' \u00b7 '+a.sub+'</div></div>'+
+      '<div class="ab-cm"><div class="v">Rp '+fmt(b.cmBase)+'</div>'+
+        '<div class="l">CM Baseline Setahun &middot; Rp Juta</div></div>'+
+    '</div>'+
+    '<div class="ark-grid">'+
+      '<div class="ark-cell focus"><div class="ac-h">Baca lebih dulu</div><p>'+a.bacaDulu+'</p></div>'+
+      '<div class="ark-cell"><div class="ac-h">Tuas utama</div><p>'+a.tuas+'</p></div>'+
+      '<div class="ark-cell"><div class="ac-h">Jebakan membaca</div><p>'+a.jebakan+'</p></div>'+
+      '<div class="ark-cell"><div class="ac-h">Titik fokus di P&amp;L</div><p>'+a.fokus+'</p></div>'+
+    '</div>';
+  arkTabs.querySelectorAll("button").forEach(btn=>
+    btn.classList.toggle("on",btn.dataset.k===key));
+}
+ARK_ORDER.forEach(k=>{
+  const btn=document.createElement("button");
+  btn.textContent=k;btn.dataset.k=k;
+  btn.addEventListener("click",()=>renderArk(k));
+  arkTabs.appendChild(btn);
+});
+renderArk("Mature");
+
+/* ============ REVEAL ON SCROLL ============ */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");
+    io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
