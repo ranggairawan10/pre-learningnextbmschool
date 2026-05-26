@@ -1431,7 +1431,7 @@ const SCENES = [
   </div>
   <div class="key-point">
     <div class="key-point-label">Cara membaca playbook ini</div>
-    <div class="key-point-content">Playbook terdiri atas dua bagian. <strong>Bagian Kesiapan Inti</strong>, sebelas modul, adalah bekal wajib dan ditutup dengan sertifikat penyelesaian. <strong>Bahan Rujukan Praktik</strong>, empat modul, adalah pendalaman opsional yang dapat Anda baca kapan saja. Sediakan waktu tenang sekitar 40 menit untuk Bagian Kesiapan Inti. Bacalah sambil membayangkan cabang Anda sendiri.</div>
+    <div class="key-point-content">Playbook terdiri atas dua bagian. <strong>Bagian Kesiapan Inti</strong>, sebelas modul, adalah bekal wajib dan ditutup dengan sertifikat penyelesaian. <strong>Bahan Rujukan Praktik</strong>, enam modul, adalah pendalaman opsional yang dapat Anda baca kapan saja. Sediakan waktu tenang sekitar 40 menit untuk Bagian Kesiapan Inti. Bacalah sambil membayangkan cabang Anda sendiri.</div>
   </div>
   `
   },
@@ -1609,43 +1609,51 @@ const SCENES = [
   },
   {
     part: 1,
-    tag: "Lima Cabang Simulasi",
+    tag: "Enam Cabang Simulasi",
     duration: "3 menit",
-    title: "Anda akan dipasangkan ke salah satu dari <em>lima cabang</em> simulasi.",
+    title: "Anda akan dipasangkan ke salah satu dari <em>enam cabang</em> simulasi.",
     body: () => `
   <div class="narrative">
-    <p>Setiap kelompok mengelola satu cabang simulasi. Kelima cabang berskala Kantor Cabang Pembantu konsumtif, berdiri pada 2015 dan berusia sebelas tahun pada saat simulasi. Tiap cabang memiliki profil, kekuatan, dan tantangan yang berbeda.</p>
+    <p>Setiap kelompok mengelola satu cabang simulasi. Keenam cabang berskala Kantor Cabang Pembantu konsumtif, berdiri pada 2015 dan berusia sebelas tahun pada saat simulasi. Tiap cabang memiliki profil, tantangan, dan titik mula yang berbeda.</p>
   </div>
   <div class="branch-grid">
     <div class="branch-card">
-      <div class="branch-name">Borobudur</div>
-      <div class="branch-meta">Magelang · B3 Mature · DPK 78 M</div>
-      <div class="branch-desc">Cabang matang dengan fondasi stabil, namun ruang tumbuhnya terbatas.</div>
+      <div class="branch-name">KCP Jakarta</div>
+      <div class="branch-meta">B4 Reviewed · Institusional · Urban</div>
+      <div class="branch-desc">Cabang di kawasan institusi, NPF sehat, fondasi stabil namun CM perlu dijaga dari tekanan CoF.</div>
     </div>
     <div class="branch-card">
-      <div class="branch-name">Prambanan</div>
-      <div class="branch-meta">Klaten · B3 Tumbuh · DPK 70 M</div>
-      <div class="branch-desc">Cabang yang sedang menanjak dengan momentum pertumbuhan kuat.</div>
+      <div class="branch-name">KCP Bandung</div>
+      <div class="branch-meta">B3 Pertumbuhan · Momentum Tumbuh</div>
+      <div class="branch-desc">Cabang yang sedang menanjak, momentum akuisisi kuat, butuh akselerasi tanpa mengabaikan kendali risiko.</div>
     </div>
     <div class="branch-card">
-      <div class="branch-name">Diponegoro</div>
-      <div class="branch-meta">Semarang · B4 Recovery · DPK 52 M</div>
-      <div class="branch-desc">Cabang dalam pemulihan, kualitas pembiayaan perlu dijaga, NPF 3,9 persen.</div>
+      <div class="branch-name">KCP Surabaya</div>
+      <div class="branch-meta">B3 Premium Flagship · DPK Terbesar</div>
+      <div class="branch-desc">Cabang dengan portofolio terbesar dan basis nasabah premium. Tantangan: mempertahankan margin di tengah kompetisi ketat.</div>
     </div>
     <div class="branch-card">
-      <div class="branch-name">Gajah Mada</div>
-      <div class="branch-meta">Mojokerto · B4 Greenfield · DPK 38 M</div>
-      <div class="branch-desc">Cabang di pasar baru, skala belum penuh terbentuk.</div>
+      <div class="branch-name">KCP Medan</div>
+      <div class="branch-meta">B4 Recovery · NPF 3,9%</div>
+      <div class="branch-desc">Cabang dalam pemulihan. Kualitas pembiayaan adalah prioritas sebelum akselerasi bisa dimulai.</div>
     </div>
     <div class="branch-card">
-      <div class="branch-name">Majapahit</div>
-      <div class="branch-meta">Trowulan · B3 Premium · DPK 95 M</div>
-      <div class="branch-desc">Cabang dengan basis nasabah premium dan portofolio terbesar.</div>
+      <div class="branch-name">KCP Makassar</div>
+      <div class="branch-meta">B4 Greenfield · Pasar Baru</div>
+      <div class="branch-desc">Cabang di pasar yang belum sepenuhnya terbentuk. Akuisisi dan penetrasi ekosistem adalah kunci.</div>
     </div>
+    <div class="branch-card" style="border-top: 3px solid var(--bsi-gold);">
+      <div class="branch-name" style="color: var(--bsi-gold-dark);">KCP Yogyakarta</div>
+      <div class="branch-meta">B4 Reviewed · Institusional · Delta CM Negatif</div>
+      <div class="branch-desc">Cabang di lingkungan institusi dengan NPF terbaik, tetapi CM sedang merosot karena struktur dana yang mahal.</div>
+    </div>
+  </div>
+  <div class="callout warn">
+    <strong>Semua cabang adalah fiktif.</strong> Profil, angka, dan nama cabang dirancang khusus untuk keperluan simulasi. Tidak mencerminkan kondisi atau kinerja cabang BSI mana pun di dunia nyata.
   </div>
   <div class="key-point">
     <div class="key-point-label">Yang perlu Anda lakukan</div>
-    <div class="key-point-content">Pada Hari Pertama, kelompok Anda menerima Dossier Cabang dan Master P&amp;L cabangnya. Pelajari profil itu dengan saksama. Seluruh keputusan ronde Anda harus berpijak pada konteks dan angka cabang Anda sendiri, bukan asumsi umum.</div>
+    <div class="key-point-content">Pada Hari Pertama, kelompok Anda menerima Dossier Cabang dan Master P&amp;L cabangnya. Pelajari profil itu dengan saksama. Seluruh keputusan ronde harus berpijak pada konteks dan angka cabang Anda sendiri, bukan asumsi umum.</div>
   </div>
   `
   },
@@ -1736,7 +1744,7 @@ const SCENES = [
     title: "Penilaian memisahkan <em>skor kelompok</em> dari <em>kelulusan individu</em>.",
     body: () => `
   <div class="narrative">
-    <p>Dua hal yang sering tertukar perlu Anda pisahkan sejak awal. <strong>Skor Kelompok</strong> menentukan peringkat antar-cabang pada leaderboard. <strong>Course Performance Index</strong>, disingkat CPI, menentukan kelulusan Anda sebagai individu. Keduanya dihitung dari sumber yang berbeda.</p>
+    <p>Dua hal yang sering tertukar perlu Anda pisahkan sejak awal. <strong>Skor Kelompok</strong> menentukan peringkat antar-cabang pada leaderboard. <strong>Competency Performance Index</strong>, disingkat CPI, menentukan kelulusan Anda sebagai individu. Keduanya dihitung dari sumber yang berbeda.</p>
   </div>
   <div class="visual-canvas">
     <svg viewBox="0 0 640 250" width="100%" role="img" aria-label="Struktur penilaian L3 dan CPI">
@@ -1781,7 +1789,7 @@ const SCENES = [
     <div class="key-point-content">Kelulusan ditentukan CPI, bukan peringkat cabang. Kelompok Anda bisa berada di papan tengah leaderboard, sementara Anda tetap lulus dengan predikat baik bila kualitas analisis, perilaku, dan pengetahuan Anda kuat. Fokuslah pada mutu keputusan dan argumen, bukan pada mengejar peringkat semata.</div>
   </div>
   
-<div class="knowledge-check" data-scene="8"><div class="kc-eyebrow">Knowledge Check</div><div class="kc-question">Course Performance Index yang menentukan kelulusan Anda dihitung dari:</div><div class="kc-options"><label class="kc-option"><input type="radio" name="kc-8" value="0"><span>Peringkat cabang Anda pada leaderboard antar-cabang</span></label><label class="kc-option"><input type="radio" name="kc-8" value="1"><span>Gabungan Indeks Post-Test L2 dan Indeks Simulasi L3, dengan ambang lulus 3,00</span></label><label class="kc-option"><input type="radio" name="kc-8" value="2"><span>Jumlah koin Amanah yang dikumpulkan kelompok Anda</span></label></div><div class="kc-feedback" data-correct="1" data-feedback0="Belum tepat. Peringkat cabang ditentukan oleh Skor Kelompok, bukan CPI. CPI adalah ukuran kelulusan individu. Jawaban yang tepat adalah opsi B." data-feedback1="Tepat. CPI menggabungkan Indeks Post-Test L2 dan Indeks Simulasi L3, dengan ambang lulus minimal 3,00. Skor Kelompok dan CPI adalah dua hal yang terpisah." data-feedback2="Belum tepat. Koin Amanah adalah instrumen apresiasi yang tidak memengaruhi CPI maupun kelulusan. Jawaban yang tepat adalah opsi B."></div></div>`
+<div class="knowledge-check" data-scene="8"><div class="kc-eyebrow">Knowledge Check</div><div class="kc-question">Competency Performance Index yang menentukan kelulusan Anda dihitung dari:</div><div class="kc-options"><label class="kc-option"><input type="radio" name="kc-8" value="0"><span>Peringkat cabang Anda pada leaderboard antar-cabang</span></label><label class="kc-option"><input type="radio" name="kc-8" value="1"><span>Gabungan Indeks Post-Test L2 dan Indeks Simulasi L3, dengan ambang lulus 3,00</span></label><label class="kc-option"><input type="radio" name="kc-8" value="2"><span>Jumlah koin Amanah yang dikumpulkan kelompok Anda</span></label></div><div class="kc-feedback" data-correct="1" data-feedback0="Belum tepat. Peringkat cabang ditentukan oleh Skor Kelompok, bukan CPI. CPI adalah ukuran kelulusan individu. Jawaban yang tepat adalah opsi B." data-feedback1="Tepat. CPI menggabungkan Indeks Post-Test L2 dan Indeks Simulasi L3, dengan ambang lulus minimal 3,00. Skor Kelompok dan CPI adalah dua hal yang terpisah." data-feedback2="Belum tepat. Koin Amanah adalah instrumen apresiasi yang tidak memengaruhi CPI maupun kelulusan. Jawaban yang tepat adalah opsi B."></div></div>`
   },
   {
     part: 1,
@@ -1829,7 +1837,7 @@ const SCENES = [
     <strong>Satu pesan terakhir.</strong> Anda datang ke simulasi sebagai praktisi yang sudah memiliki jam terbang lapangan. Pengalaman itu berharga. Simulasi bukan tempat menghakimi, melainkan ruang aman untuk menguji keputusan, menerima umpan balik yang membangun, dan mempertajam kerangka berpikir Branch Manager Anda.</div>
   <div class="key-point">
     <div class="key-point-label">Langkah berikutnya</div>
-    <div class="key-point-content">Anda telah membentuk pondasi konsep Branch Manager BSI. Tekan tombol di bawah untuk menyelesaikan Bagian Kesiapan Inti dan memperoleh sertifikat. Setelah itu tersedia Bahan Rujukan Praktik, empat modul pendalaman opsional yang memperdalam keterampilan teknis di lapangan.</div>
+    <div class="key-point-content">Anda telah membentuk pondasi konsep Branch Manager BSI. Tekan tombol di bawah untuk menyelesaikan Bagian Kesiapan Inti dan memperoleh sertifikat. Setelah itu tersedia Bahan Rujukan Praktik, enam modul pendalaman opsional yang memperdalam keterampilan teknis di lapangan.</div>
   </div>
   `
   },
@@ -1920,6 +1928,167 @@ const SCENES = [
     <strong>Kaitan dengan ronde.</strong> Materi ini menjadi bekal Ronde 2 dan Ronde 3 Optimize the Funding, ketika Anda membenahi struktur pendanaan dan mencari sumber dana yang sehat melalui relasi ekosistem.
   </div>
   `
+  },
+  {
+    part: 2,
+    tag: "BSI Bullion Bank & Tabungan Emas",
+    duration: "7 menit",
+    title: "BSI menjadi <em>bank emas pertama</em> di Indonesia. Ini mengubah cara Anda menjual.",
+    body: () => `
+  <div class="narrative">
+    <p>Pada Februari 2025, BSI resmi mendapat izin OJK sebagai <strong>bullion bank pertama di Indonesia</strong> dan diluncurkan langsung oleh Presiden Prabowo. Ini bukan sekadar produk baru yang ditambahkan ke portofolio. Ini perubahan positioning BSI secara fundamental: dari bank syariah konvensional, menjadi <strong>bank syariah sekaligus bank emas.</strong></p>
+    <p>Bagi BM cabang, ini berarti satu hal: Anda kini memiliki <em>product champion</em> dengan entry barrier terendah di industri perbankan Indonesia.</p>
+  </div>
+  <div class="visual-canvas">
+    <svg viewBox="0 0 660 270" width="100%" role="img" aria-label="Ekosistem Bullion BSI">
+      <defs>
+        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#F8AD3C;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#D8901E;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="tealGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#00A39D;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#007E79;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <text x="330" y="26" text-anchor="middle" fill="#13181C" font-family="Fraunces, serif" font-size="14" font-weight="600">Ekosistem Bullion BSI</text>
+      <rect x="215" y="42" width="230" height="74" rx="14" fill="url(#goldGrad)"/>
+      <text x="330" y="71" text-anchor="middle" fill="white" font-family="Fraunces,serif" font-size="15" font-weight="700">Tabungan Emas (E-mas)</text>
+      <text x="330" y="89" text-anchor="middle" fill="rgba(255,255,255,0.92)" font-family="Plus Jakarta Sans" font-size="10">Mulai Rp 50.000 · 0,02 gram · via BYOND</text>
+      <text x="330" y="107" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Plus Jakarta Sans" font-size="9" font-weight="600">PINTU MASUK EKOSISTEM BSI</text>
+      <line x1="215" y1="116" x2="120" y2="165" stroke="#D8901E" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="330" y1="116" x2="330" y2="165" stroke="#D8901E" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="445" y1="116" x2="540" y2="165" stroke="#D8901E" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <rect x="44" y="165" width="152" height="68" rx="12" fill="white" stroke="#00A39D" stroke-width="1.5"/>
+      <text x="120" y="190" text-anchor="middle" fill="#007E79" font-family="Fraunces,serif" font-size="12" font-weight="700">Cicil Emas</text>
+      <text x="120" y="206" text-anchor="middle" fill="#33403F" font-family="Plus Jakarta Sans" font-size="9">Beli batangan, cicil 1-5 tahun</text>
+      <text x="120" y="220" text-anchor="middle" fill="#6C7670" font-family="Plus Jakarta Sans" font-size="8">Wealth building karyawan</text>
+      <rect x="254" y="165" width="152" height="68" rx="12" fill="white" stroke="#00A39D" stroke-width="1.5"/>
+      <text x="330" y="190" text-anchor="middle" fill="#007E79" font-family="Fraunces,serif" font-size="12" font-weight="700">Gadai Emas</text>
+      <text x="330" y="206" text-anchor="middle" fill="#33403F" font-family="Plus Jakarta Sans" font-size="9">Likuiditas cepat dari emas</text>
+      <text x="330" y="220" text-anchor="middle" fill="#6C7670" font-family="Plus Jakarta Sans" font-size="8">Fee income + margin pembiayaan</text>
+      <rect x="464" y="165" width="152" height="68" rx="12" fill="white" stroke="#00A39D" stroke-width="1.5"/>
+      <text x="540" y="190" text-anchor="middle" fill="#007E79" font-family="Fraunces,serif" font-size="12" font-weight="700">BSI Gold</text>
+      <text x="540" y="206" text-anchor="middle" fill="#33403F" font-family="Plus Jakarta Sans" font-size="9">Emas batangan fisik SNI</text>
+      <text x="540" y="220" text-anchor="middle" fill="#6C7670" font-family="Plus Jakarta Sans" font-size="8">Bersertifikat DSN-MUI</text>
+      <text x="330" y="255" text-anchor="middle" fill="#6C7670" font-family="Plus Jakarta Sans" font-size="9" font-style="italic">pintu lanjut ke Griya · Mitraguna · Pensiun Berkah</text>
+    </svg>
+  </div>
+  <div class="grid-2">
+    <div class="info-card">
+      <div class="info-card-icon gold">✦</div>
+      <div class="info-card-title">Mengapa E-mas adalah product champion</div>
+      <div class="info-card-desc">Entry barrier paling rendah di semua produk BSI. Modal awal Rp 50.000, bisa dimulai dari HP dalam hitungan menit via BYOND. Tidak ada jargon teknis syariah yang perlu dijelaskan panjang. Nasabah langsung mengerti: ini nabung, tapi dalam satuan emas.</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-icon">⚖</div>
+      <div class="info-card-title">Akad dan kepatuhan syariah</div>
+      <div class="info-card-desc">Tabungan Emas menggunakan akad Wadi'ah Yad Dhamanah: emas dititipkan kepada bank dengan jaminan. Tidak ada bunga riba. Produk ini telah mendapat rekomendasi kesesuaian syariah dari DSN-MUI, aman dikampanyekan ke segmen yang sensitif terhadap kehalalan.</div>
+    </div>
+  </div>
+  <div class="callout">
+    <strong>Data bisnis bullion BSI 2024.</strong> Portofolio emas yang dikelola BSI mencapai 17,5 ton dengan volume transaksi 29,7 ton. Total pembiayaan berbasis emas (gadai, cicil, tabungan) mencapai Rp 12,8 triliun dengan pertumbuhan 78 persen year-on-year. Pembelian emas naik 441 persen dibandingkan tahun sebelumnya.
+  </div>
+  <div class="knowledge-check" data-scene="15"><div class="kc-eyebrow">Knowledge Check</div><div class="kc-question">Seorang BM ingin memperkenalkan E-mas ke komunitas yang belum pernah berhubungan dengan bank syariah sebelumnya. Pendekatan paling tepat adalah:</div><div class="kc-options"><label class="kc-option"><input type="radio" name="kc-15" value="0"><span>Mulai dengan menjelaskan akad Wadi'ah Yad Dhamanah secara lengkap agar calon nasabah yakin dengan kepatuhan syariahnya</span></label><label class="kc-option"><input type="radio" name="kc-15" value="1"><span>Tawarkan E-mas sebagai "nabung emas mulai Rp 50 ribu lewat HP", gunakan bukti harga emas hari ini, lalu bawa ke BYOND untuk onboarding langsung</span></label><label class="kc-option"><input type="radio" name="kc-15" value="2"><span>Prioritaskan dulu produk Mitraguna karena marginnya lebih besar dan langsung berkontribusi ke CM</span></label></div><div class="kc-feedback" data-correct="1" data-feedback0="Belum tepat. Membuka dengan akad teknis justru menciptakan jarak. Calon nasabah yang belum familiar perlu merasakan nilai konkret terlebih dahulu sebelum masuk ke penjelasan syariah. Jawaban yang tepat adalah opsi B." data-feedback1="Tepat. Entry barrier E-mas yang rendah adalah keunggulan taktis. Pendekatan langsung ke nilai konkret, lalu onboarding via BYOND, adalah cara yang terbukti membuka percakapan. Akad dan kepatuhan syariah dijelaskan setelah calon nasabah terlibat, bukan sebelumnya." data-feedback2="Belum tepat. Mitraguna membutuhkan payroll capture dan hubungan yang sudah ada. Mendorong produk besar ke komunitas baru tanpa fondasi kepercayaan menghasilkan resistensi, bukan konversi. E-mas adalah jalan masuk yang benar. Jawaban yang tepat adalah opsi B."></div></div>
+  `
+  },
+  {
+    part: 2,
+    tag: "Memulihkan CM yang Merosot",
+    duration: "9 menit",
+    title: "CM yang <em>merosot</em> bisa berasal dari dua akar yang berbeda.",
+    body: () => `
+  <div class="narrative">
+    <p>Branch Manager yang berhadapan dengan CM negatif atau Delta CM yang merosot sering kali langsung bertanya, "Produk mana yang harus saya dorong?" Pertanyaan itu benar, tetapi prematur. Sebelum tahu solusinya, Anda perlu tahu <strong>dari mana merosotnya.</strong></p>
+    <p>Ada dua akar yang sangat berbeda. Salah mendiagnosis berarti salah mengobati, dan obat yang salah membuang waktu selama 30 hingga 90 hari.</p>
+  </div>
+  <div class="visual-canvas" style="min-height:180px; padding:1.2rem;">
+    <svg viewBox="0 0 660 160" width="100%" role="img" aria-label="Dua akar CM merosot">
+      <defs>
+        <linearGradient id="errGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#D9694A" />
+          <stop offset="100%" style="stop-color:#C24A2C" />
+        </linearGradient>
+      </defs>
+      <text x="330" y="20" text-anchor="middle" fill="#13181C" font-family="Fraunces,serif" font-size="13" font-weight="600">Dua Akar, Dua Jalur Pemulihan</text>
+      <rect x="22" y="32" width="288" height="114" rx="13" fill="white" stroke="#E0D8C6" stroke-width="1.5"/>
+      <rect x="22" y="32" width="288" height="30" rx="13" fill="url(#errGrad)"/>
+      <rect x="22" y="48" width="288" height="14" fill="url(#errGrad)"/>
+      <text x="166" y="52" text-anchor="middle" fill="white" font-family="Plus Jakarta Sans" font-size="10" font-weight="700">AKAR A · Biaya Dana Terlalu Mahal</text>
+      <text x="166" y="74" text-anchor="middle" fill="#13181C" font-family="Plus Jakarta Sans" font-size="9">Gejala: CM turun meski outstanding stabil</text>
+      <text x="166" y="88" text-anchor="middle" fill="#33403F" font-family="Plus Jakarta Sans" font-size="9">CASA ratio rendah, deposito premium dominan</text>
+      <text x="166" y="102" text-anchor="middle" fill="#33403F" font-family="Plus Jakarta Sans" font-size="9">NPF bagus, tapi NIM tergerus dari sisi liabilitas</text>
+      <text x="166" y="120" text-anchor="middle" fill="#007E79" font-family="Plus Jakarta Sans" font-size="9" font-weight="700">Solusi: Restrukturisasi DPK + injeksi E-mas</text>
+      <text x="166" y="136" text-anchor="middle" fill="#6C7670" font-family="Plus Jakarta Sans" font-size="8">Cabang institusional, captive market mahal</text>
+      <rect x="350" y="32" width="288" height="114" rx="13" fill="white" stroke="#E0D8C6" stroke-width="1.5"/>
+      <rect x="350" y="32" width="288" height="30" rx="13" fill="url(#errGrad)"/>
+      <rect x="350" y="48" width="288" height="14" fill="url(#errGrad)"/>
+      <text x="494" y="52" text-anchor="middle" fill="white" font-family="Plus Jakarta Sans" font-size="10" font-weight="700">AKAR B · Akuisisi Stagnan</text>
+      <text x="494" y="74" text-anchor="middle" fill="#13181C" font-family="Plus Jakarta Sans" font-size="9">Gejala: DPK kecil, outstanding rendah</text>
+      <text x="494" y="88" text-anchor="middle" fill="#33403F" font-family="Plus Jakarta Sans" font-size="9">Pasar potensial ada, penetrasi rendah</text>
+      <text x="494" y="102" text-anchor="middle" fill="#33403F" font-family="Plus Jakarta Sans" font-size="9">Kepercayaan ke BSI belum terbangun di komunitas</text>
+      <text x="494" y="120" text-anchor="middle" fill="#007E79" font-family="Plus Jakarta Sans" font-size="9" font-weight="700">Solusi: Market entry via E-mas + komunitas</text>
+      <text x="494" y="136" text-anchor="middle" fill="#6C7670" font-family="Plus Jakarta Sans" font-size="8">Cabang greenfield, pasar dingin, belum teredukasi</text>
+    </svg>
+  </div>
+
+  <div class="ref-h">Akar A · Cabang Institusional: Biaya Dana Terlalu Mahal</div>
+  <div class="narrative">
+    <p>Cabang yang berlokasi di dalam atau sekitar institusi besar, kampus, rumah sakit pemerintah, atau kompleks BUMN, sering memiliki NPF yang sangat baik. Nasabahnya karyawan, pembayaran melalui payroll, risiko kredit rendah. <strong>Tapi CM merosot bukan dari sisi aset, melainkan dari sisi liabilitas.</strong></p>
+    <p>Mengapa? Institusi besar biasanya menempatkan dana operasional mereka sebagai deposito berjangka dengan rate yang dinegosiasikan. Ini berarti CoF (Cost of Fund) cabang tinggi. CASA ratio cabang seperti ini sering di bawah 30 persen.</p>
+  </div>
+  <div class="duo">
+    <div class="duo-item">
+      <div class="duo-head">Gejala yang terlihat</div>
+      <div class="duo-body">Outstanding pembiayaan stabil atau tumbuh, NPF di bawah 2 persen, tapi CM justru turun bulan demi bulan. Bila Anda hitung NIM per produk, akan tampak margin bersih tergerus setelah dikurangi biaya dana.</div>
+    </div>
+    <div class="duo-item">
+      <div class="duo-head">Diagnosis yang sering salah</div>
+      <div class="duo-body">BM mendorong produk pembiayaan baru untuk menambah revenue, padahal root cause-nya ada di sisi DPK. Menambah aset tanpa menurunkan CoF hanya menambah volume tanpa memperbaiki margin. Delta CM tetap negatif.</div>
+    </div>
+  </div>
+  <div class="callout">
+    <strong>Jalur pemulihan melalui Tabungan Emas.</strong> E-mas menggunakan akad Wadi'ah, bukan deposito berbunga. Biaya custodynya jauh lebih rendah dari deposito berjangka. Bila BM berhasil mengkonversi sebagian dana institusi atau karyawan dari deposito ke E-mas, CoF cabang turun secara langsung. Ditambah cross-sell Cicil Emas dan Gadai Emas ke karyawan, maka revenue side juga bertambah. Kombinasi inilah yang membalikkan Delta CM dari negatif ke positif.
+  </div>
+  <ol class="segment-list">
+    <li><strong>Langkah 1.</strong> Identifikasi deposito institusional dengan rate tertinggi. Ini adalah CoF yang paling cepat dikurangi.</li>
+    <li><strong>Langkah 2.</strong> Konversi ke E-mas: presentasikan sebagai alternatif penyimpanan nilai, tanpa fixed rate mahal.</li>
+    <li><strong>Langkah 3.</strong> Cross-sell Cicil Emas dan Gadai Emas ke karyawan institusi: produk baru dengan margin pembiayaan langsung masuk ke revenue.</li>
+    <li><strong>Langkah 4.</strong> Aktivasi BYOND: dorong karyawan yang E-mas-nya aktif untuk juga membuka rekening tabungan CASA, bukan deposito.</li>
+    <li><strong>Target 100 hari.</strong> CASA ratio dari di bawah 30 persen menuju 40 persen ke atas. Perbaikan CoF 50 sampai 80 basis poin sudah menghasilkan Delta CM positif untuk cabang skala B4.</li>
+  </ol>
+
+  <div class="ref-h">Akar B · Cabang dengan Pasar yang Belum Terbuka</div>
+  <div class="narrative">
+    <p>Cabang greenfield, atau cabang di kota yang secara demografis memiliki potensi besar tetapi penetrasi BSI masih rendah, menghadapi tantangan berbeda. Di sini masalahnya bukan struktur dana yang mahal, melainkan <strong>kepercayaan yang belum terbentuk.</strong></p>
+    <p>Pendekatan konvensional langsung ke pembiayaan murabahah atau KPR sering menemui tembok. Komunitas yang belum akrab dengan perbankan syariah membutuhkan titik masuk yang lebih intuitif dan berisiko rendah bagi mereka.</p>
+  </div>
+  <div class="duo">
+    <div class="duo-item">
+      <div class="duo-head">Mengapa E-mas efektif sebagai pembuka</div>
+      <div class="duo-body">Konsep "nabung emas" adalah nilai yang universal. Tidak ada jargon teknis, tidak ada kekhawatiran tentang bunga atau riba yang perlu dijelaskan panjang. Nasabah baru bisa memulai dengan Rp 50.000 dari HP mereka sendiri. Risiko yang dirasakan sangat rendah.</div>
+    </div>
+    <div class="duo-item">
+      <div class="duo-head">E-mas sebagai trust builder</div>
+      <div class="duo-body">Nasabah yang memiliki pengalaman positif dengan E-mas, saldo tumbuh mengikuti harga emas, transaksi mudah, layanan responsif, membangun kepercayaan pada BSI sebagai institusi. Dari situ, percakapan tentang Griya atau Mitraguna jauh lebih mudah dimulai.</div>
+    </div>
+  </div>
+  <div class="callout">
+    <strong>Strategi komunitas untuk pasar dingin.</strong> BM yang efektif di cabang greenfield tidak menunggu nasabah datang ke kantor. Mereka masuk ke ekosistem komunitas: arisan kelurahan, koperasi karyawan, pengajian rutin, atau komunitas pedagang pasar. E-mas bisa didemonstrasikan langsung dari HP, di mana saja, tanpa infrastruktur kantor. Dari satu grup arisan yang aktif menabung emas, BM bisa membangun pipeline pembiayaan untuk 6 sampai 12 bulan ke depan.
+  </div>
+  <ol class="segment-list">
+    <li><strong>Langkah 1.</strong> Identifikasi 2 sampai 3 komunitas atau tokoh yang menjadi pusat kepercayaan di wilayah cabang.</li>
+    <li><strong>Langkah 2.</strong> Demo E-mas di lapangan: buka rekening E-mas langsung di lokasi komunitas, live onboarding di BYOND.</li>
+    <li><strong>Langkah 3.</strong> Bangun program komunitas emas: arisan emas berjadwal, kelompok menabung emas mingguan, atau challenge nabung 30 hari.</li>
+    <li><strong>Langkah 4.</strong> Funnel ke produk konsumer: nasabah E-mas aktif lebih dari 3 bulan adalah kandidat teredukasi untuk Cicil Emas, Pensiun Berkah, atau Griya.</li>
+    <li><strong>Target 100 hari.</strong> Minimal 150 rekening E-mas aktif baru, dengan 30 persen sudah menerima penawaran produk konsumer.</li>
+  </ol>
+  <div class="key-point">
+    <div class="key-point-label">Satu prinsip untuk dua kondisi</div>
+    <div class="key-point-content">Apapun akar masalahnya, Tabungan Emas memberikan BM satu jalur yang selalu bisa dibuka. Di cabang institusional ia memperbaiki struktur dana. Di pasar yang belum terbuka ia membangun kepercayaan. Di kedua kondisi, ia membuka pintu ke ekosistem BSI yang lebih luas.</div>
+  </div>
+  <div class="knowledge-check" data-scene="16"><div class="kc-eyebrow">Knowledge Check</div><div class="kc-question">KCP Yogyakarta adalah cabang institusional dengan NPF 1,1 persen dan CASA ratio 28 persen. CM-nya merosot meski outstanding pembiayaan tidak berubah. Langkah pertama yang paling tepat adalah:</div><div class="kc-options"><label class="kc-option"><input type="radio" name="kc-16" value="0"><span>Dorong CBRM untuk menambah target akuisisi pembiayaan Mitraguna dan Griya agar revenue naik</span></label><label class="kc-option"><input type="radio" name="kc-16" value="1"><span>Identifikasi deposito institusional dengan rate tertinggi, lalu presentasikan E-mas sebagai alternatif penempatan dana</span></label><label class="kc-option"><input type="radio" name="kc-16" value="2"><span>Kurangi biaya operasional cabang untuk memperbaiki net margin</span></label></div><div class="kc-feedback" data-correct="1" data-feedback0="Belum tepat. Menambah pembiayaan baru tanpa memperbaiki CoF hanya menambah volume tanpa memperbaiki margin. Root cause ada di sisi liabilitas, bukan aset. Jawaban yang tepat adalah opsi B." data-feedback1="Tepat. Bila CM merosot meski outstanding stabil, root cause paling mungkin adalah CoF yang tinggi. Dengan CASA ratio 28 persen, deposito premium kemungkinan mendominasi DPK. Mengkonversi deposito mahal ke E-mas adalah intervensi paling langsung dan cepat hasilnya." data-feedback2="Belum tepat. Efisiensi biaya operasional penting, tetapi dampaknya ke CM terbatas dan prosesnya lambat. Root cause di sini adalah struktur dana, bukan overhead. Jawaban yang tepat adalah opsi B."></div></div>
+  `
   }
 ];
 
@@ -2009,7 +2178,7 @@ function renderScene(idx) {
         <div class="pb-num">${p}</div>
         <div>
           <div class="pb-label">Bagian ${p} dari 2</div>
-          <div class="pb-title">${p === 1 ? 'Kesiapan Inti · 11 modul wajib' : 'Bahan Rujukan Praktik · 4 modul pendalaman'}</div>
+          <div class="pb-title">${p === 1 ? 'Kesiapan Inti · 11 modul wajib' : 'Bahan Rujukan Praktik · 6 modul pendalaman'}</div>
         </div>
       </div>`;
   }
@@ -2167,7 +2336,7 @@ function renderDone() {
     <div class="certificate-section">
       <div class="cert-eyebrow">Seluruh Playbook Selesai</div>
       <h2 class="cert-title">Bekal Anda telah <em>lengkap</em>.</h2>
-      <p class="cert-text">Anda telah menuntaskan Bagian Kesiapan Inti dan keempat modul Bahan Rujukan Praktik. Kerangka berpikir, pemahaman mekanik, dan keterampilan teknis Anda kini siap untuk diuji di ruang Branch Banking Simulation. Sampai jumpa di Hari Pertama.</p>
+      <p class="cert-text">Anda telah menuntaskan Bagian Kesiapan Inti dan keenam modul Bahan Rujukan Praktik. Kerangka berpikir, pemahaman mekanik, dan keterampilan teknis Anda kini siap untuk diuji di ruang Branch Banking Simulation. Sampai jumpa di Hari Pertama.</p>
       <div class="cert-buttons">
         <button class="cert-btn" id="downloadCertBtn2">Unduh Sertifikat</button>
         <button class="cert-btn cert-btn-secondary" id="reviewAllBtn">Tinjau Ulang Playbook</button>

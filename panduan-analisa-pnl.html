@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Panduan Baca P&amp;L versi Branch Manager &middot; Next BM School 2026</title>
+<title>Panduan Analisa P&amp;L Cabang &middot; Next BM School 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#13181C; --emer:#00A39D; --emer-d:#00595A; --emer-l:#4FBDB6;
-  --gold:#F8AD3C; --gold-l:#FCC15A; --rust:#C24A2C;
+  --gold:#F8AD3C; --gold-l:#FCC15A; --gold-d:#C9871F; --rust:#C24A2C;
   --paper:#FBF8F1; --paper-d:#F4EEDF; --band:#EAF7F6; --card:#FFFFFF;
   --line:#E4DECB; --muted:#6C7670;
+  --xl-grid:#E3DECC; --xl-hdr:#ECE5D2; --xl-hdrtx:#5E5A48;
   --shadow:0 1px 2px rgba(19,24,28,.06),0 8px 28px rgba(19,24,28,.09);
   --shadow-lg:0 2px 6px rgba(19,24,28,.08),0 24px 60px rgba(19,24,28,.16);
 }
@@ -26,17 +27,17 @@ body{
     radial-gradient(circle at 12% 8%,rgba(0,163,157,.05),transparent 38%),
     radial-gradient(circle at 88% 92%,rgba(248,173,60,.05),transparent 42%);
 }
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
 h1,h2,h3,.disp{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01em}
 .mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
 .eyebrow{
   font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold-d);
 }
 
 /* ---------- TOP BAR ---------- */
 .topbar{
-  position:sticky;top:0;z-index:50;background:rgba(251,248,241,.93);
+  position:sticky;top:0;z-index:60;background:rgba(251,248,241,.94);
   backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
 }
 .topbar .wrap{display:flex;align-items:center;justify-content:space-between;
@@ -44,18 +45,18 @@ h1,h2,h3,.disp{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01e
 .brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:14px}
 .brand .dot{width:11px;height:11px;border-radius:50%;
   background:var(--emer);box-shadow:0 0 0 4px rgba(0,163,157,.16)}
-.navlinks{display:flex;gap:4px;flex-wrap:wrap}
+.navlinks{display:flex;gap:2px;flex-wrap:wrap}
 .navlinks a{
   font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;
-  padding:6px 11px;border-radius:7px;transition:.18s;white-space:nowrap;
+  padding:6px 10px;border-radius:7px;transition:.18s;white-space:nowrap;
 }
 .navlinks a:hover{color:var(--emer-d);background:var(--band)}
-@media(max-width:880px){.navlinks{display:none}}
+@media(max-width:1000px){.navlinks{display:none}}
 
 /* ---------- HERO ---------- */
 .hero{position:relative;overflow:hidden;
   background:linear-gradient(160deg,#063B3A 0%,#00595A 52%,#0A5350 100%);
-  color:#FBF8F1;padding:78px 0 70px}
+  color:#FBF8F1;padding:74px 0 66px}
 .hero::before{content:"";position:absolute;inset:0;
   background-image:
     repeating-linear-gradient(90deg,rgba(255,255,255,.045) 0 1px,transparent 1px 56px),
@@ -66,11 +67,11 @@ h1,h2,h3,.disp{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01e
   background:radial-gradient(circle,rgba(248,173,60,.34),transparent 68%)}
 .hero .wrap{position:relative;z-index:2}
 .hero .eyebrow{color:var(--gold-l)}
-.hero h1{font-size:clamp(2.5rem,5.4vw,4.05rem);line-height:1.04;
-  margin:18px 0 20px;color:#FFFFFF;max-width:18ch}
+.hero h1{font-size:clamp(2.4rem,5vw,3.85rem);line-height:1.05;
+  margin:18px 0 20px;color:#FFFFFF;max-width:20ch}
 .hero h1 em{font-style:italic;color:var(--gold-l)}
-.hero .lead{font-size:18.5px;max-width:60ch;color:#D4EEEC}
-.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+.hero .lead{font-size:18px;max-width:62ch;color:#D4EEEC}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
 .chip{font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:500;
   letter-spacing:.05em;padding:7px 14px;border-radius:999px;
   border:1px solid rgba(255,255,255,.28);color:#EAF7F6}
@@ -78,344 +79,300 @@ h1,h2,h3,.disp{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-.01e
   font-weight:600}
 
 /* ---------- SECTION SCAFFOLD ---------- */
-section{padding:64px 0;border-bottom:1px solid rgba(228,222,203,.55)}
-section:last-of-type{border-bottom:none}
-.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
-.sec-num{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;
-  color:var(--gold);border:1.5px solid var(--gold);border-radius:7px;
-  padding:3px 9px;flex:none}
-.sec-head h2{font-size:clamp(1.7rem,3vw,2.35rem);line-height:1.12}
-.sec-intro{font-size:17px;color:#3A4946;max-width:66ch;margin:14px 0 34px}
-.sec-intro strong{color:var(--emer-d);font-weight:700}
+section{padding:66px 0}
+section:nth-of-type(even){background:
+  linear-gradient(180deg,rgba(234,247,246,.5),rgba(234,247,246,.16))}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:34px}
+.sec-num{font-family:'Fraunces',serif;font-size:54px;font-weight:400;
+  color:var(--emer-l);line-height:.8;flex-shrink:0;opacity:.9}
+.sec-title h2{font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.12}
+.sec-title .kicker{font-size:14.5px;color:var(--muted);margin-top:7px;
+  max-width:64ch}
 
 /* ---------- MINDSET ---------- */
-.flip-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-@media(max-width:760px){.flip-grid{grid-template-columns:1fr}}
-.flip{border-radius:15px;padding:28px 26px;position:relative}
-.flip.old{background:var(--paper-d);border:1px solid var(--line)}
-.flip.new{background:linear-gradient(155deg,#00A39D,#007E79);color:#EAF7F6;
-  box-shadow:var(--shadow)}
-.flip .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;
+.lead-para{font-size:18px;max-width:70ch;color:#2A302F;margin-bottom:30px}
+.lead-para strong{color:var(--emer-d);font-weight:600}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.split{grid-template-columns:1fr}}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:26px;box-shadow:var(--shadow)}
+.mcard.old{border-top:3px solid #C9B98F}
+.mcard.bm{border-top:3px solid var(--emer)}
+.mcard .tag{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
   letter-spacing:.16em;text-transform:uppercase;font-weight:600}
-.flip.old .tag{color:var(--rust)}
-.flip.new .tag{color:var(--gold-l)}
-.flip h3{font-size:1.4rem;margin:10px 0 12px}
-.flip.new h3{color:#FFFFFF}
-.flip p{font-size:14.5px}
-.flip.old p{color:#4B544F}
-.flip ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:9px}
-.flip li{font-size:13.8px;padding-left:22px;position:relative}
-.flip li::before{position:absolute;left:0;top:1px;font-weight:700}
-.flip.old li::before{content:"\2715";color:var(--rust);font-size:11px}
-.flip.new li::before{content:"\2713";color:var(--gold-l)}
-.bridge{margin-top:24px;background:var(--card);border:1px solid var(--line);
-  border-left:4px solid var(--gold);border-radius:0 12px 12px 0;
-  padding:20px 24px;font-size:15.5px}
-.bridge b{font-family:'Fraunces',serif;font-weight:600;color:var(--emer-d)}
+.mcard.old .tag{color:var(--gold-d)}
+.mcard.bm .tag{color:var(--emer)}
+.mcard h3{font-size:20px;margin:7px 0 12px}
+.mcard p{font-size:14.5px;color:var(--muted);margin-bottom:14px}
+.mcard ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.mcard li{font-size:14px;padding-left:24px;position:relative;color:#2A302F}
+.mcard li::before{position:absolute;left:0;top:1px;font-weight:700;
+  font-family:'IBM Plex Mono',monospace}
+.mcard.old li::before{content:"\2715";color:#C9B98F}
+.mcard.bm li::before{content:"\2192";color:var(--emer)}
+.note-strip{margin-top:22px;background:var(--emer-d);color:#EAF7F6;
+  border-radius:13px;padding:20px 24px;font-size:14.5px}
+.note-strip b{color:var(--gold-l)}
 
-/* ---------- FLOW 3 SHEET ---------- */
-.flow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;
-  counter-reset:fl}
+/* ---------- FLOW: 3 SHEET ---------- */
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative}
 @media(max-width:820px){.flow{grid-template-columns:1fr}}
-.flowcard{background:var(--card);border:1px solid var(--line);
-  border-radius:15px;padding:26px 24px 24px;position:relative;
-  box-shadow:var(--shadow);transition:.2s}
-.flowcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
-.flowcard::before{counter-increment:fl;content:"0" counter(fl);
-  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
-  color:#fff;background:var(--emer);width:34px;height:34px;border-radius:9px;
-  display:flex;align-items:center;justify-content:center}
-.flowcard h3{font-size:1.28rem;margin:15px 0 4px}
-.flowcard .role{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--gold);
-  font-weight:600;margin-bottom:11px}
-.flowcard p{font-size:13.8px;color:#444F4C}
-.flowcard .ask{margin-top:14px;padding-top:14px;
-  border-top:1px dashed var(--line);font-size:13px}
-.flowcard .ask b{color:var(--emer-d);font-family:'Fraunces',serif;
-  font-weight:600}
-.flow-arrow{text-align:center;color:var(--gold);font-size:22px;margin:2px 0}
-@media(min-width:821px){.flow-arrow{display:none}}
+.fcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:24px;box-shadow:var(--shadow);position:relative;display:flex;
+  flex-direction:column}
+.fcard .fstep{font-family:'IBM Plex Mono',monospace;font-size:11px;
+  font-weight:600;letter-spacing:.13em;color:var(--gold-d)}
+.fcard .ftab{display:inline-block;font-family:'IBM Plex Mono',monospace;
+  font-size:12px;font-weight:600;background:var(--band);color:var(--emer-d);
+  padding:3px 9px;border-radius:6px;margin:9px 0 4px;align-self:flex-start}
+.fcard h3{font-size:19px;margin:6px 0 4px}
+.fcard .frole{font-size:13px;color:var(--emer);font-weight:600;margin-bottom:11px}
+.fcard p{font-size:13.8px;color:var(--muted);margin-bottom:14px}
+.fcard .fq{font-size:13px;color:#2A302F;border-top:1px dashed var(--line);
+  padding-top:12px;margin-top:auto}
+.fcard .fq b{color:var(--emer-d);font-weight:600}
+.flow-arrow{display:flex;align-items:center;justify-content:center;
+  font-size:22px;color:var(--emer-l)}
+.dataflow{margin-top:20px;background:var(--paper-d);border:1px solid var(--line);
+  border-radius:13px;padding:18px 22px;font-size:13.5px;color:#2A302F}
+.dataflow b{color:var(--emer-d)}
+.dataflow .ff{font-family:'IBM Plex Mono',monospace;font-size:12px;
+  background:var(--card);border:1px solid var(--line);padding:1px 6px;
+  border-radius:5px;color:var(--emer-d)}
 
-/* ---------- DECODER ---------- */
-.decoder{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-@media(max-width:840px){.decoder{grid-template-columns:1fr}}
-.lr-sheet{background:var(--card);border:1px solid var(--line);
-  border-radius:14px;overflow:hidden;box-shadow:var(--shadow);
-  align-self:start}
-.lr-grouphead{background:var(--emer);color:#EAF7F6;
+/* ---------- WORKBOOK (EXCEL REPLICA) ---------- */
+.wb-hint{display:flex;align-items:center;gap:10px;font-size:13px;
+  color:var(--muted);margin-bottom:16px;flex-wrap:wrap}
+.wb-hint .pulse{width:9px;height:9px;border-radius:50%;background:var(--emer);
+  box-shadow:0 0 0 0 rgba(0,163,157,.5);animation:pl 2.2s infinite}
+@keyframes pl{0%{box-shadow:0 0 0 0 rgba(0,163,157,.45)}
+  70%{box-shadow:0 0 0 9px rgba(0,163,157,0)}100%{box-shadow:0 0 0 0 rgba(0,163,157,0)}}
+.wb-layout{display:grid;grid-template-columns:minmax(0,1fr) 374px;gap:20px;
+  align-items:start}
+@media(max-width:1040px){.wb-layout{grid-template-columns:1fr}}
+
+.wb{border:1px solid var(--line);border-radius:13px;overflow:hidden;
+  background:var(--card);box-shadow:var(--shadow)}
+.wb-toolbar{display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding:8px 11px;background:var(--emer-d);color:#EAF7F6;
+  flex-wrap:wrap}
+.wb-fname{font-size:12.5px;font-weight:600;display:flex;align-items:center;
+  gap:8px}
+.wb-fname .xi{width:18px;height:18px;border-radius:4px;background:var(--emer);
+  display:grid;place-items:center;font-size:10px;font-weight:700;color:#fff}
+.wb-toggle{display:flex;gap:0;border:1px solid rgba(255,255,255,.26);
+  border-radius:7px;overflow:hidden}
+.wb-toggle button{background:transparent;border:0;color:#BCDEDC;
   font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;
-  letter-spacing:.14em;text-transform:uppercase;padding:9px 18px}
-.lr-line{display:flex;justify-content:space-between;align-items:center;
-  gap:12px;padding:11px 18px;border-bottom:1px solid var(--paper-d);
-  cursor:pointer;transition:.15s;font-size:14px}
-.lr-line:hover{background:var(--band)}
-.lr-line.active{background:var(--emer-d);color:#EAF7F6}
-.lr-line.active .lr-val{color:var(--gold-l)}
-.lr-line .lr-val{font-family:'IBM Plex Mono',monospace;font-size:12.5px;
-  color:var(--muted);font-weight:500}
-.lr-cm{display:flex;justify-content:space-between;align-items:center;
-  padding:14px 18px;background:linear-gradient(100deg,#00A39D,#007E79);
-  color:#FFFFFF;font-family:'Fraunces',serif;font-weight:600;font-size:15px}
-.lr-cm .lr-val{font-family:'IBM Plex Mono',monospace;color:var(--gold-l);
-  font-size:15px}
-.decode-panel{background:var(--card);border:1px solid var(--line);
-  border-radius:14px;padding:28px 26px;box-shadow:var(--shadow);
-  min-height:330px;position:relative}
-.decode-panel .ph{color:var(--muted);font-size:14.5px;
-  display:flex;flex-direction:column;gap:10px;height:100%;
-  justify-content:center;text-align:center;padding:30px 10px}
-.decode-panel .ph .big{font-family:'Fraunces',serif;font-size:1.3rem;
-  color:var(--emer-d)}
-.dp-kicker{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
-  letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gold)}
-.dp-title{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;
-  margin:7px 0 4px;color:var(--emer-d)}
-.dp-side{display:inline-block;font-family:'IBM Plex Mono',monospace;
-  font-size:10.5px;font-weight:600;padding:3px 9px;border-radius:5px;
-  letter-spacing:.05em;margin-bottom:14px}
-.dp-side.pend{background:rgba(0,163,157,.13);color:var(--emer-d)}
-.dp-side.beban{background:rgba(194,74,44,.13);color:var(--rust)}
-.dp-body{font-size:14.5px;color:#3A4946;margin-bottom:16px}
-.dp-row{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--paper-d)}
-.dp-row .lbl{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
-  font-weight:600;flex:none;width:96px;padding-top:2px}
-.dp-row .txt{font-size:13.8px;color:#3A4946}
-.ctrl-meter{display:flex;gap:5px;margin-top:6px}
-.ctrl-meter span{height:7px;flex:1;border-radius:3px;background:var(--paper-d)}
-.ctrl-meter span.on{background:var(--gold)}
-.ctrl-cap{font-family:'IBM Plex Mono',monospace;font-size:11px;
-  color:var(--muted);margin-top:5px}
+  padding:5px 10px;cursor:pointer;letter-spacing:.04em}
+.wb-toggle button.on{background:var(--gold);color:#13181C}
+
+.wb-fxbar{display:flex;align-items:stretch;border-bottom:1px solid var(--xl-grid);
+  background:var(--paper-d)}
+.wb-namebox{width:84px;flex-shrink:0;border-right:1px solid var(--xl-grid);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  color:var(--emer-d);background:var(--card)}
+.wb-fxsym{width:34px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;font-family:'Fraunces',serif;font-style:italic;
+  font-size:15px;color:var(--muted);border-right:1px solid var(--xl-grid)}
+.wb-fx{flex:1;min-width:0;display:flex;align-items:center;padding:0 12px;
+  font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink);
+  white-space:nowrap;overflow-x:auto;height:32px}
+.wb-fx.isf{color:var(--emer-d)}
+.wb-fx::-webkit-scrollbar{height:0}
+
+.xl-scroll{overflow:auto;max-height:74vh;background:#fff}
+.xl-scroll::-webkit-scrollbar{width:11px;height:11px}
+.xl-scroll::-webkit-scrollbar-thumb{background:#CFC8B2;border-radius:6px;
+  border:2px solid #fff}
+table.xl{border-collapse:separate;border-spacing:0;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:12.2px}
+.xl td,.xl th{border-right:1px solid var(--xl-grid);
+  border-bottom:1px solid var(--xl-grid);height:25px;padding:3px 8px;
+  white-space:nowrap;overflow:hidden}
+.xl thead th{position:sticky;top:0;z-index:3;background:var(--xl-hdr);
+  color:var(--xl-hdrtx);font-weight:600;font-size:10.5px;text-align:center;
+  font-family:'IBM Plex Mono',monospace;letter-spacing:.03em;height:22px}
+.xl .rh{position:sticky;left:0;z-index:2;background:var(--xl-hdr);
+  color:var(--xl-hdrtx);text-align:center;font-weight:600;font-size:10px;
+  font-family:'IBM Plex Mono',monospace;width:34px;min-width:34px}
+.xl thead th.corner{left:0;z-index:5;width:34px;min-width:34px}
+.xl tbody tr:hover .rh{background:#E0D8C0}
+.xl td.cell{cursor:pointer;color:#2A302F;background:#fff;transition:background .1s}
+.xl td.cell:hover{background:var(--band)}
+.xl td.sel{outline:2px solid var(--emer);outline-offset:-2px;
+  background:#E2F4F2 !important;position:relative;z-index:1}
+.xl td.empty{background:#fff;cursor:default}
+.xl td.num{text-align:right;font-family:'IBM Plex Mono',monospace;
+  font-variant-numeric:tabular-nums}
+.xl td.neg{color:var(--rust)}
+.xl td.lbl{text-align:left}
+.xl td.akad{color:var(--muted);font-size:11px}
+.xl td.t-title{font-family:'Fraunces',serif;font-size:15px;font-weight:600;
+  color:var(--emer-d);background:#fff}
+.xl td.t-sub{font-size:11px;color:var(--muted);background:#fff;
+  letter-spacing:.04em}
+.xl td.t-note{font-size:11.4px;color:#55605C;background:#FCFAF3;
+  white-space:normal;line-height:1.5;padding:9px 10px}
+.xl td.t-sect{background:linear-gradient(90deg,#0A5350,#0E625E);color:#EAF7F6;
+  font-weight:600;font-size:11px;letter-spacing:.07em;
+  font-family:'IBM Plex Mono',monospace}
+.xl td.t-hdr{background:#FCEFD4;color:#8A6312;font-weight:600;font-size:10.6px;
+  font-family:'IBM Plex Mono',monospace;letter-spacing:.02em;text-align:center}
+.xl td.t-hdr.lbl{text-align:left}
+.xl td.t-total{background:#EAF7F6;font-weight:700;color:var(--emer-d)}
+.xl td.t-total.num{color:var(--emer-d)}
+.xl td.t-total.neg{color:var(--rust)}
+.xl td.t-kpi{background:#FFF6E4;font-weight:700;color:var(--gold-d)}
+.xl td.t-kpi.neg{color:var(--rust)}
+.xl td.fx-dot{position:relative}
+.xl td.fx-dot::after{content:"";position:absolute;top:3px;right:3px;
+  width:5px;height:5px;border-radius:50%;background:var(--emer-l)}
+.xl td.link-dot::before{content:"";position:absolute;top:3px;left:3px;
+  width:0;height:0;border-top:7px solid var(--gold);
+  border-right:7px solid transparent}
+.xl td.link-dot{position:relative}
+
+.wb-tabs{display:flex;background:var(--paper-d);border-top:1px solid var(--xl-grid);
+  padding:0 8px}
+.wb-tab{background:transparent;border:0;border-right:1px solid var(--xl-grid);
+  font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;
+  padding:9px 18px;cursor:pointer;color:var(--muted);position:relative;top:1px}
+.wb-tab.active{background:#fff;color:var(--emer-d);
+  border-top:2px solid var(--emer);border-bottom:1px solid #fff;
+  border-radius:0 0 0 0}
+.wb-tab:hover:not(.active){color:var(--emer-d)}
+
+/* explanation panel */
+.wb-panel{position:sticky;top:74px;background:var(--card);
+  border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);
+  overflow:hidden;max-height:calc(100vh - 96px);display:flex;flex-direction:column}
+@media(max-width:1040px){.wb-panel{position:static;max-height:none}}
+.wb-panel-top{background:var(--paper-d);border-bottom:1px solid var(--line);
+  padding:13px 18px;display:flex;align-items:center;gap:10px}
+.wb-coord{font-family:'IBM Plex Mono',monospace;font-weight:700;font-size:13px;
+  color:#fff;background:var(--emer);padding:3px 9px;border-radius:6px}
+.wb-coord-meta{font-size:11px;color:var(--muted);
+  font-family:'IBM Plex Mono',monospace;letter-spacing:.04em}
+.wb-panel-body{padding:18px;overflow-y:auto}
+.wb-panel-body h4{font-family:'Fraunces',serif;font-size:18px;font-weight:600;
+  color:var(--ink);margin-bottom:9px;line-height:1.25}
+.wb-panel-body p{font-size:13.7px;color:#3A423F;margin-bottom:11px}
+.wb-panel-body p strong{color:var(--emer-d);font-weight:600}
+.wb-vrow{display:flex;gap:8px;margin-bottom:13px;flex-wrap:wrap}
+.wb-vchip{font-family:'IBM Plex Mono',monospace;font-size:11px;
+  background:var(--band);color:var(--emer-d);padding:5px 10px;border-radius:7px;
+  font-weight:600}
+.wb-vchip.formula{background:#FFF1D6;color:var(--gold-d)}
+.wb-jump{display:inline-flex;align-items:center;gap:7px;
+  font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;
+  background:var(--emer-d);color:#EAF7F6;border:0;border-radius:8px;
+  padding:8px 13px;cursor:pointer;margin-top:3px}
+.wb-jump:hover{background:var(--emer)}
+.wb-empty-msg{font-size:13.5px;color:var(--muted);font-style:italic}
+.wb-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;
+  font-size:11.5px;color:var(--muted)}
+.wb-legend span{display:flex;align-items:center;gap:6px}
+.lg-dot{width:9px;height:9px;border-radius:50%;background:var(--emer-l)}
+.lg-tri{width:0;height:0;border-top:9px solid var(--gold);
+  border-right:9px solid transparent}
 
 /* ---------- KONSEP ---------- */
-.konsep-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:760px){.konsep-grid{grid-template-columns:1fr}}
-.konsep{background:var(--card);border:1px solid var(--line);
-  border-radius:15px;padding:0;overflow:hidden;box-shadow:var(--shadow)}
-.konsep-top{padding:22px 24px 18px;border-bottom:1px solid var(--paper-d)}
-.konsep .kn{font-family:'IBM Plex Mono',monospace;font-size:11px;
-  font-weight:600;color:var(--gold);letter-spacing:.1em}
-.konsep h3{font-size:1.32rem;margin:7px 0 8px}
-.konsep-top p{font-size:14px;color:#444F4C}
-.konsep-demo{padding:20px 24px;background:var(--paper)}
-.twoway{display:flex;align-items:stretch;gap:0;border-radius:10px;
-  overflow:hidden;border:1px solid var(--line)}
-.twoway>div{flex:1;padding:14px 15px;font-size:12.7px}
-.twoway .credit{background:rgba(0,163,157,.12)}
-.twoway .charge{background:rgba(194,74,44,.1)}
-.twoway .h{font-family:'IBM Plex Mono',monospace;font-size:10px;
-  letter-spacing:.1em;text-transform:uppercase;font-weight:600;
-  display:block;margin-bottom:5px}
-.twoway .credit .h{color:var(--emer-d)}
-.twoway .charge .h{color:var(--rust)}
-.twoway .v{font-family:'IBM Plex Mono',monospace;font-size:16px;
-  font-weight:600;color:var(--ink)}
-.kstack{display:flex;flex-direction:column;gap:7px}
-.kbar{display:flex;align-items:center;gap:10px;font-size:12.5px}
-.kbar .kt{flex:none;width:96px;font-family:'IBM Plex Mono',monospace;
-  font-size:11px;color:var(--muted)}
-.kbar .ktrk{flex:1;height:18px;background:var(--paper-d);border-radius:5px;
-  overflow:hidden}
-.kbar .kfill{height:100%;border-radius:5px;display:flex;align-items:center;
-  padding-left:8px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;
-  font-weight:600;color:#fff;white-space:nowrap}
-.bopo-gauge{height:30px;border-radius:7px;position:relative;
-  background:linear-gradient(90deg,#00A39D 0%,#4FBDB6 55%,#F8AD3C 78%,#C24A2C 100%);
-  overflow:visible}
-.bopo-needle{position:absolute;top:-6px;width:3px;height:42px;
-  background:var(--ink);border-radius:2px;transform:translateX(-50%)}
-.bopo-needle::after{content:attr(data-v);position:absolute;top:-19px;left:50%;
+.kgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:820px){.kgrid{grid-template-columns:1fr}}
+.kcard{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:26px;box-shadow:var(--shadow)}
+.kcard .knum{font-family:'IBM Plex Mono',monospace;font-size:11px;
+  font-weight:600;letter-spacing:.13em;color:var(--gold-d)}
+.kcard h3{font-size:21px;margin:7px 0 11px}
+.kcard>p{font-size:14px;color:var(--muted);margin-bottom:18px}
+.kduo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kbox{background:var(--paper-d);border:1px solid var(--line);border-radius:11px;
+  padding:15px 16px}
+.kbox.warn{background:#FCEAE3;border-color:#E8C3B5}
+.kbox .kt{font-size:11.5px;color:var(--muted);margin-bottom:5px}
+.kbox .kv{font-family:'IBM Plex Mono',monospace;font-size:27px;font-weight:600;
+  color:var(--emer-d);line-height:1}
+.kbox.warn .kv{color:var(--rust)}
+.kbox .kd{font-size:11.8px;color:#55605C;margin-top:8px;line-height:1.5}
+.koll{display:flex;flex-direction:column;gap:7px;margin-top:4px}
+.koll-row{display:flex;align-items:center;gap:10px;font-size:13px}
+.koll-row .kbar{height:13px;border-radius:3px;flex-shrink:0}
+.koll-row .kn{font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+  color:var(--muted);min-width:42px;text-align:right}
+.koll-row .kl{color:#2A302F}
+.bopo-track{height:34px;border-radius:8px;margin:6px 0 8px;position:relative;
+  background:linear-gradient(90deg,#3FB59F 0%,#3FB59F 42%,#F8AD3C 62%,#C24A2C 100%)}
+.bopo-mark{position:absolute;top:-7px;width:3px;height:48px;background:#13181C}
+.bopo-mark::after{content:attr(data-l);position:absolute;top:-17px;left:50%;
   transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;
-  font-size:10.5px;font-weight:600;white-space:nowrap}
+  font-size:10px;font-weight:700;white-space:nowrap}
 .bopo-scale{display:flex;justify-content:space-between;
-  font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--muted);
-  margin-top:6px}
-.triview{display:flex;gap:10px}
-.triview>div{flex:1;text-align:center;padding:13px 8px;border-radius:9px;
-  background:var(--card);border:1px solid var(--line)}
-.triview .tv{font-family:'IBM Plex Mono',monospace;font-size:17px;
-  font-weight:600;color:var(--emer-d)}
-.triview .tl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
-  margin-top:4px}
-.triview .tc{font-size:11px;color:#444F4C;margin-top:6px;line-height:1.4}
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--muted)}
+.cm3{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.cm3 .c3{background:var(--paper-d);border:1px solid var(--line);
+  border-radius:11px;padding:14px;text-align:center}
+.cm3 .c3 .v{font-family:'IBM Plex Mono',monospace;font-size:22px;font-weight:600;
+  color:var(--emer-d)}
+.cm3 .c3 .v.neg{color:var(--rust)}
+.cm3 .c3 .n{font-size:11.5px;font-weight:700;color:var(--ink);margin:4px 0 3px;
+  text-transform:uppercase;letter-spacing:.05em}
+.cm3 .c3 .d{font-size:11px;color:var(--muted);line-height:1.45}
+.kfoot{margin-top:13px;font-size:12.8px;color:#55605C;
+  border-top:1px dashed var(--line);padding-top:12px}
+.kfoot b{color:var(--emer-d)}
 
-/* ---------- SIMULATOR ---------- */
-.sim{background:linear-gradient(165deg,#063B3A,#00595A);border-radius:20px;
-  padding:34px 32px;color:#EAF7F6;box-shadow:var(--shadow-lg);
-  position:relative;overflow:hidden}
-.sim::after{content:"";position:absolute;left:-90px;bottom:-90px;
-  width:300px;height:300px;border-radius:50%;
-  background:radial-gradient(circle,rgba(248,173,60,.22),transparent 70%)}
-.sim-head{display:flex;justify-content:space-between;align-items:flex-end;
-  gap:18px;flex-wrap:wrap;position:relative;z-index:2;margin-bottom:24px}
-.sim-head h3{font-size:1.5rem;color:#FFFFFF}
-.sim-head .eyebrow{color:var(--gold-l)}
-.branchpick{display:flex;gap:6px;flex-wrap:wrap}
-.branchpick button{font-family:'IBM Plex Mono',monospace;font-size:11.5px;
-  font-weight:500;padding:7px 12px;border-radius:8px;cursor:pointer;
-  border:1px solid rgba(255,255,255,.26);background:transparent;
-  color:#D4EEEC;transition:.16s}
-.branchpick button:hover{border-color:var(--gold-l)}
-.branchpick button.on{background:var(--gold);border-color:var(--gold);
-  color:#13181C;font-weight:600}
-.sim-body{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;
-  position:relative;z-index:2}
-@media(max-width:860px){.sim-body{grid-template-columns:1fr}}
-.sim-panel{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);
-  border-radius:14px;padding:20px 20px 14px}
-.sim-panel .pt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--gold-l);
-  font-weight:600;margin-bottom:14px}
-.lever{margin-bottom:15px}
-.lever-top{display:flex;justify-content:space-between;align-items:baseline;
-  margin-bottom:4px}
-.lever-name{font-size:12.8px;font-weight:600;color:#EAF7F6}
-.lever-val{font-family:'IBM Plex Mono',monospace;font-size:13px;
-  font-weight:600;color:var(--gold-l)}
-.lever input[type=range]{width:100%;-webkit-appearance:none;appearance:none;
-  height:5px;border-radius:3px;background:rgba(255,255,255,.2);outline:none}
-.lever input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;
-  appearance:none;width:17px;height:17px;border-radius:50%;
-  background:var(--gold-l);cursor:pointer;border:3px solid #063B3A;
-  box-shadow:0 1px 5px rgba(0,0,0,.35)}
-.lever input[type=range]::-moz-range-thumb{width:17px;height:17px;
-  border-radius:50%;background:var(--gold-l);cursor:pointer;
-  border:3px solid #063B3A}
-.lever-base{font-family:'IBM Plex Mono',monospace;font-size:9.8px;
-  color:#9AA39C;margin-top:3px}
-.lever.disiplin .lever-name::before{content:"\25C6 ";color:var(--gold-l);
-  font-size:9px;vertical-align:middle}
-.cluster-tag{font-family:'IBM Plex Mono',monospace;font-size:9.5px;
-  letter-spacing:.1em;text-transform:uppercase;color:#9AA39C;
-  margin:4px 0 10px;font-weight:600}
-.readout{display:flex;flex-direction:column;gap:13px}
-.cm-big{background:rgba(0,0,0,.18);border-radius:13px;padding:20px 22px;
-  text-align:center;border:1px solid rgba(255,255,255,.1)}
-.cm-big .cl{font-family:'IBM Plex Mono',monospace;font-size:10px;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l);
-  font-weight:600}
-.cm-big .cv{font-family:'IBM Plex Mono',monospace;font-size:2.7rem;
-  font-weight:600;color:#FFFFFF;line-height:1.1;margin:5px 0 2px}
-.cm-big .cd{font-family:'IBM Plex Mono',monospace;font-size:13px;
-  font-weight:600}
-.cm-big .cd.up{color:var(--gold-l)} .cm-big .cd.dn{color:#E79A86}
-.mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.mini{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.11);
-  border-radius:10px;padding:12px 13px}
-.mini .ml{font-family:'IBM Plex Mono',monospace;font-size:9.3px;
-  letter-spacing:.09em;text-transform:uppercase;color:#9AA39C;font-weight:600}
-.mini .mv{font-family:'IBM Plex Mono',monospace;font-size:18px;
-  font-weight:600;color:#EAF7F6;margin-top:3px}
-.verdict{border-radius:11px;padding:13px 16px;font-size:13px;
-  display:flex;align-items:center;gap:10px;font-weight:600}
-.verdict.ok{background:rgba(248,173,60,.2);color:var(--gold-l);
-  border:1px solid rgba(248,173,60,.45)}
-.verdict.no{background:rgba(194,74,44,.22);color:#E79A86;
-  border:1px solid rgba(194,74,44,.45)}
-.verdict .vi{font-family:'IBM Plex Mono',monospace;font-size:11px;
-  flex:none}
-.sim-reset{margin-top:6px;background:transparent;border:1px solid rgba(255,255,255,.26);
-  color:#D4EEEC;font-family:'IBM Plex Mono',monospace;font-size:11px;
-  font-weight:500;padding:8px 14px;border-radius:8px;cursor:pointer;
-  transition:.16s;width:100%}
-.sim-reset:hover{border-color:var(--gold-l);color:var(--gold-l)}
-.decomp{margin-top:18px;background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.11);border-radius:12px;padding:16px 18px;
-  position:relative;z-index:2}
-.decomp .pt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
-  letter-spacing:.13em;text-transform:uppercase;color:var(--gold-l);
-  font-weight:600;margin-bottom:12px}
-.dc-row{display:flex;align-items:center;gap:12px;margin-bottom:7px;
-  font-size:12px}
-.dc-row .dn{flex:none;width:170px;color:#D4EEEC}
-@media(max-width:520px){.dc-row .dn{width:120px}}
-.dc-track{flex:1;height:16px;background:rgba(0,0,0,.22);border-radius:4px;
-  position:relative;overflow:hidden}
-.dc-mid{position:absolute;left:50%;top:0;bottom:0;width:1px;
-  background:rgba(255,255,255,.3)}
-.dc-fill{position:absolute;top:0;bottom:0;height:100%}
-.dc-fill.pos{background:linear-gradient(90deg,var(--emer-l),var(--gold-l))}
-.dc-fill.neg{background:linear-gradient(90deg,#D9694A,#C24A2C)}
-.dc-val{flex:none;width:62px;text-align:right;
-  font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;
-  color:#EAF7F6}
+/* ---------- GLOSARIUM ---------- */
+.gctl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.gctl button{font-family:'IBM Plex Mono',monospace;font-size:11.5px;
+  font-weight:600;border:1px solid var(--line);background:var(--card);
+  color:var(--muted);padding:7px 14px;border-radius:999px;cursor:pointer;
+  transition:.16s}
+.gctl button.on{background:var(--emer-d);color:#EAF7F6;border-color:var(--emer-d)}
+.gctl button:hover:not(.on){border-color:var(--emer);color:var(--emer-d)}
+.glist{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.glist{grid-template-columns:1fr}}
+.gitem{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:18px 20px;box-shadow:var(--shadow);border-left:3px solid var(--emer)}
+.gitem.cat-akad{border-left-color:var(--gold)}
+.gitem .gab{display:flex;align-items:baseline;gap:9px;margin-bottom:6px}
+.gitem .gabbr{font-family:'IBM Plex Mono',monospace;font-weight:700;
+  font-size:15px;color:var(--emer-d)}
+.gitem.cat-akad .gabbr{color:var(--gold-d)}
+.gitem .gfull{font-size:12.5px;color:var(--ink);font-weight:600}
+.gitem .gtag{margin-left:auto;font-family:'IBM Plex Mono',monospace;
+  font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);background:var(--paper-d);padding:2px 7px;border-radius:5px}
+.gitem p{font-size:13px;color:#3A423F;line-height:1.55}
 
 /* ---------- PROTOKOL ---------- */
-.proto{display:flex;flex-direction:column;gap:0;
-  border-left:2px solid var(--line);margin-left:8px;padding-left:0}
-.pstep{display:grid;grid-template-columns:auto 1fr;gap:20px;
-  padding:0 0 26px 26px;position:relative}
-.pstep:last-child{padding-bottom:0}
-.pstep::before{content:"";position:absolute;left:-9px;top:2px;width:16px;
-  height:16px;border-radius:50%;background:var(--paper);
-  border:3px solid var(--emer)}
-.pstep .pmin{font-family:'IBM Plex Mono',monospace;font-size:11px;
-  font-weight:600;color:#fff;background:var(--emer-d);border-radius:6px;
-  padding:4px 10px;height:fit-content;white-space:nowrap;letter-spacing:.04em}
-.pstep h3{font-size:1.18rem;margin-bottom:4px}
-.pstep p{font-size:14px;color:#444F4C}
-.pstep .where{font-family:'IBM Plex Mono',monospace;font-size:10.5px;
-  color:var(--gold);font-weight:600;letter-spacing:.05em;
-  text-transform:uppercase;margin-top:6px}
+.proto{display:flex;flex-direction:column;gap:12px}
+.pstep{display:flex;gap:18px;background:var(--card);border:1px solid var(--line);
+  border-radius:13px;padding:18px 22px;box-shadow:var(--shadow);
+  align-items:flex-start}
+.pstep .pmin{flex-shrink:0;width:62px;text-align:center}
+.pstep .pmin .pm{font-family:'Fraunces',serif;font-size:30px;font-weight:600;
+  color:var(--emer);line-height:1}
+.pstep .pmin .ps{font-family:'IBM Plex Mono',monospace;font-size:9px;
+  letter-spacing:.13em;color:var(--muted);text-transform:uppercase}
+.pstep .pbody h4{font-size:16.5px;font-family:'Fraunces',serif;font-weight:600;
+  margin-bottom:4px}
+.pstep .pbody p{font-size:13.5px;color:var(--muted)}
+.pstep .pbody .pwhere{display:inline-block;font-family:'IBM Plex Mono',monospace;
+  font-size:10.5px;font-weight:600;background:var(--band);color:var(--emer-d);
+  padding:3px 9px;border-radius:6px;margin-top:9px}
 
-/* ---------- ARKETIPE ---------- */
-.ark-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px}
-.ark-tabs button{font-family:'IBM Plex Mono',monospace;font-size:12px;
-  font-weight:500;padding:9px 16px;border-radius:9px;cursor:pointer;
-  border:1px solid var(--line);background:var(--card);color:var(--muted);
-  transition:.16s}
-.ark-tabs button:hover{border-color:var(--emer-l);color:var(--emer-d)}
-.ark-tabs button.on{background:var(--emer);border-color:var(--emer);
-  color:#FFFFFF;font-weight:600}
-.ark-panel{background:var(--card);border:1px solid var(--line);
-  border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-.ark-banner{padding:24px 28px;color:#EAF7F6;
-  background:linear-gradient(120deg,#00A39D,#007E79);
-  display:flex;justify-content:space-between;align-items:center;
-  gap:16px;flex-wrap:wrap}
-.ark-banner h3{font-size:1.6rem;color:#FFFFFF}
-.ark-banner .ab-meta{font-family:'IBM Plex Mono',monospace;font-size:11.5px;
-  color:#D4EEEC}
-.ark-banner .ab-cm{text-align:right;font-family:'IBM Plex Mono',monospace}
-.ark-banner .ab-cm .v{font-size:1.7rem;font-weight:600;color:var(--gold-l)}
-.ark-banner .ab-cm .l{font-size:9.5px;letter-spacing:.1em;
-  text-transform:uppercase;color:#9AA39C}
-.ark-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
-@media(max-width:680px){.ark-grid{grid-template-columns:1fr}}
-.ark-cell{padding:20px 26px;border-top:1px solid var(--paper-d)}
-.ark-cell:nth-child(even){border-left:1px solid var(--paper-d)}
-@media(max-width:680px){.ark-cell:nth-child(even){border-left:none}}
-.ark-cell .ac-h{font-family:'IBM Plex Mono',monospace;font-size:10px;
-  letter-spacing:.12em;text-transform:uppercase;font-weight:600;
-  color:var(--gold);margin-bottom:7px}
-.ark-cell p{font-size:13.7px;color:#3A4946}
-.ark-cell.focus{background:rgba(0,163,157,.045)}
-.ark-cell.focus .ac-h{color:var(--emer-d)}
-
-/* ---------- CLOSING ---------- */
-.closing{background:var(--ink);color:#D4EEEC;text-align:center;
-  padding:62px 0}
-.closing h2{font-size:clamp(1.6rem,3vw,2.2rem);color:#FFFFFF;
-  max-width:24ch;margin:14px auto 16px}
-.closing h2 em{font-style:italic;color:var(--gold-l)}
-.closing p{max-width:54ch;margin:0 auto;font-size:15px;color:#A8C6C2}
-.closing .eyebrow{color:var(--gold-l)}
-.foot{background:#13181C;color:#7E8C88;font-size:12px;padding:22px 0;
+/* ---------- CLOSE / FOOT ---------- */
+.close{background:linear-gradient(160deg,#063B3A,#0A5350);color:#EAF7F6;
+  text-align:center;padding:78px 0}
+.close h2{font-size:clamp(1.7rem,3.3vw,2.5rem);color:#fff;max-width:22ch;
+  margin:0 auto 16px}
+.close h2 em{color:var(--gold-l);font-style:italic}
+.close p{max-width:58ch;margin:0 auto;color:#C6E6E4;font-size:15.5px}
+.foot{background:#0A1110;color:#7E938F;padding:26px 0;font-size:12px;
   text-align:center;font-family:'IBM Plex Mono',monospace;letter-spacing:.03em}
 
-/* ---------- PRINT ---------- */
-@media print{
-  body{background:#fff;font-size:11pt}
-  .topbar,.sim-reset,.branchpick,.ark-tabs,.flow-arrow{display:none}
-  .hero{background:#00A39D !important;-webkit-print-color-adjust:exact;
-    print-color-adjust:exact;padding:36px 0}
-  section{padding:26px 0;page-break-inside:avoid;border-bottom:1px solid #ccc}
-  .sim,.flip.new,.ark-banner,.lr-cm{-webkit-print-color-adjust:exact;
-    print-color-adjust:exact}
-  .decode-panel,.konsep,.flowcard,.sim-panel{box-shadow:none}
-}
 .reveal{opacity:0;transform:translateY(20px);
   transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
@@ -423,47 +380,48 @@ section:last-of-type{border-bottom:none}
 </head>
 <body>
 
-<!-- ===== TOP BAR ===== -->
+<!-- ================= TOP BAR ================= -->
 <div class="topbar">
   <div class="wrap">
-    <div class="brand"><span class="dot"></span>P&amp;L versi BM &middot; Panduan Baca</div>
+    <div class="brand"><span class="dot"></span>P&amp;L Cabang &middot; Panduan Analisa</div>
     <nav class="navlinks">
       <a href="#mindset">Mindset</a>
-      <a href="#alur">Alur Baca</a>
-      <a href="#decoder">Decoder L/R</a>
-      <a href="#konsep">4 Konsep</a>
-      <a href="#simulator">Simulator</a>
+      <a href="#sheet">Tiga Sheet</a>
+      <a href="#workbook">Workbook Interaktif</a>
+      <a href="#konsep">Konsep Inti</a>
+      <a href="#glosarium">Glosarium</a>
       <a href="#protokol">Protokol 5 Menit</a>
-      <a href="#arketipe">Per Arketipe</a>
     </nav>
   </div>
 </div>
 
-<!-- ===== HERO ===== -->
+<!-- ================= HERO ================= -->
 <header class="hero">
   <div class="wrap">
     <div class="eyebrow">Next BM School 2026 &middot; Branch Banking Simulation</div>
-    <h1>Membaca P&amp;L bukan tugas akhir bulan. Itu <em>cara seorang BM berpikir.</em></h1>
-    <p class="lead">Panduan ini melatih Anda membaca P&amp;L versi Branch Manager dengan cepat dan percaya diri, lalu menerjemahkan setiap angka menjadi keputusan cabang yang bisa dipertanggungjawabkan.</p>
+    <h1>Membaca P&amp;L cabang adalah <em>cara seorang Branch Manager berpikir</em>.</h1>
+    <p class="lead">Panduan ini membedah workbook P&amp;L cabang sheet demi sheet, sel demi sel. Tujuannya satu: Anda bisa membuka tiga sheet itu dan langsung tahu di mana posisi cabang, dari mana angkanya lahir, dan ke mana harus dibawa.</p>
     <div class="hero-meta">
-      <span class="chip solid">Lapis 2 &middot; Instrumen Branch Manager</span>
-      <span class="chip">3 Sheet Kerja</span>
-      <span class="chip">4 Konsep Inti</span>
-      <span class="chip">Simulator Tuas CM</span>
+      <span class="chip solid">3 Sheet &middot; Neraca &middot; PnL &middot; RBB</span>
+      <span class="chip">Workbook interaktif klik per sel</span>
+      <span class="chip">Glosarium akronim lengkap</span>
     </div>
   </div>
 </header>
 
-<!-- ===== 01 MINDSET ===== -->
+<!-- ================= 01 MINDSET ================= -->
 <section id="mindset">
-  <div class="wrap reveal">
-    <div class="sec-head">
-      <span class="sec-num">01</span>
-      <h2>Mindset: dari pelapor menjadi pengambil keputusan</h2>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">01</div>
+      <div class="sec-title">
+        <h2>Dari pelapor menjadi pengambil keputusan</h2>
+        <div class="kicker">Pergeseran kecil dalam cara membuka P&amp;L mengubah segalanya yang terjadi sesudahnya.</div>
+      </div>
     </div>
-    <p class="sec-intro">Banyak orang membuka P&amp;L untuk menjawab pertanyaan atasan. Seorang Branch Manager membukanya untuk menjawab pertanyaannya sendiri. Pergeseran kecil ini mengubah segalanya. <strong>Contribution Margin adalah papan skor cabang Anda</strong>, dan papan skor dibaca oleh orang yang sedang bertanding, bukan oleh penonton.</p>
-    <div class="flip-grid">
-      <div class="flip old">
+    <p class="lead-para reveal">Banyak orang membuka P&amp;L untuk menjawab pertanyaan atasan. Seorang Branch Manager membukanya untuk menjawab pertanyaannya sendiri. <strong>Contribution Margin adalah papan skor cabang Anda</strong>, dan papan skor dibaca oleh orang yang sedang bertanding, bukan oleh penonton.</p>
+    <div class="split reveal">
+      <div class="mcard old">
         <span class="tag">Cara lama</span>
         <h3>P&amp;L sebagai laporan</h3>
         <p>Dokumen yang disusun supaya terlihat rapi saat ditanya. Dibaca dari atas ke bawah, lalu ditutup.</p>
@@ -474,8 +432,8 @@ section:last-of-type{border-bottom:none}
           <li>Pertanyaan: apakah angka saya aman</li>
         </ul>
       </div>
-      <div class="flip new">
-        <span class="tag">Cara BM</span>
+      <div class="mcard bm">
+        <span class="tag">Cara Branch Manager</span>
         <h3>P&amp;L sebagai instrumen</h3>
         <p>Panel kendali yang dibaca untuk memutuskan langkah berikutnya. Dibaca dari CM, lalu ditelusuri ke sumbernya.</p>
         <ul>
@@ -486,593 +444,754 @@ section:last-of-type{border-bottom:none}
         </ul>
       </div>
     </div>
-    <div class="bridge">
-      <b>Inti pergeseran.</b> P&amp;L versi BM sengaja dirancang untuk cara kedua. Tiga sheet-nya tidak menyusun laporan, melainkan memandu sebuah alur berpikir: di mana posisi saya, dari mana angka itu lahir, dan ke mana saya akan membawanya.
-    </div>
+    <div class="note-strip reveal">Inti pergeseran. Workbook P&amp;L cabang ini sengaja dirancang untuk cara kedua. Ketiga sheetnya tidak menyusun laporan, melainkan memandu satu alur berpikir: <b>di mana posisi saya, dari mana angka itu lahir, dan ke mana saya akan membawanya.</b></div>
   </div>
 </section>
 
-<!-- ===== 02 ALUR BACA ===== -->
-<section id="alur">
-  <div class="wrap reveal">
-    <div class="sec-head">
-      <span class="sec-num">02</span>
-      <h2>Alur baca tiga sheet</h2>
-    </div>
-    <p class="sec-intro">P&amp;L versi BM punya tiga sheet, dan urutannya bukan kebetulan. Baca berurutan, karena tiap sheet menjawab satu pertanyaan dan menyiapkan pertanyaan berikutnya.</p>
-    <div class="flow">
-      <div class="flowcard">
-        <h3>Posisi Cabang</h3>
-        <div class="role">Di mana saya berdiri</div>
-        <p>Potret cabang dalam satu layar: enam indikator diagnostic, empat KPI snapshot, tren CM empat kuartal, dan Branch Performance Meter. Sheet ini juga mengisi Slide Diagnostic pada Business Plan.</p>
-        <div class="ask"><b>Pertanyaan kunci:</b> apakah cabang ini sehat, dan ke arah mana tren CM bergerak?</div>
-      </div>
-      <div class="flow-arrow">&darr;</div>
-      <div class="flowcard">
-        <h3>Laba Rugi Saya</h3>
-        <div class="role">Dari mana CM lahir</div>
-        <p>L/R versi terbaca, dua kolom: realisasi YTD dan baseline setahun. Sebelas baris pendapatan dan beban, masing-masing dengan catatan singkat. Di sinilah CM dibongkar menjadi penyebabnya.</p>
-        <div class="ask"><b>Pertanyaan kunci:</b> pos mana penyumbang terbesar, dan pos mana yang paling bisa saya gerakkan?</div>
-      </div>
-      <div class="flow-arrow">&darr;</div>
-      <div class="flowcard">
-        <h3>Rencana Bisnis</h3>
-        <div class="role">Ke mana saya bawa</div>
-        <p>Kalkulator perencanaan. BM mengisi tujuh target Dual Mandate, sheet memproyeksikan L/R penuh, lalu membandingkan Proyeksi CM dengan Acuan RBB cabang.</p>
-        <div class="ask"><b>Pertanyaan kunci:</b> rencana saya menutup gap RBB atau belum, dan dengan tuas apa?</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 03 DECODER ===== -->
-<section id="decoder">
-  <div class="wrap reveal">
-    <div class="sec-head">
-      <span class="sec-num">03</span>
-      <h2>Decoder Laba Rugi</h2>
-    </div>
-    <p class="sec-intro">Sebelas baris pada Laba Rugi tidak setara. Sebagian adalah tuas yang bisa Anda gerakkan, sebagian jangkar yang nyaris tetap. Klik tiap baris untuk membaca artinya, seberapa besar kendali BM atasnya, dan bagaimana ia menggerakkan CM.</p>
-    <div class="decoder">
-      <div class="lr-sheet" id="lrSheet">
-        <div class="lr-grouphead">A &middot; Pendapatan Operasional</div>
-        <div class="lr-line" data-k="margin"><span>Pendapatan Margin Pembiayaan</span><span class="lr-val">terbesar</span></div>
-        <div class="lr-line" data-k="ftpcr"><span>FTP Credit DPK</span><span class="lr-val">imbalan</span></div>
-        <div class="lr-line" data-k="fbi"><span>Fee-Based Income</span><span class="lr-val">tanpa risiko</span></div>
-        <div class="lr-line" data-k="lain"><span>Pendapatan Operasional Lain</span><span class="lr-val">kecil</span></div>
-        <div class="lr-grouphead">B &middot; Beban Operasional</div>
-        <div class="lr-line" data-k="bhsl"><span>Bagi Hasil ke Nasabah DPK</span><span class="lr-val">biaya dana</span></div>
-        <div class="lr-line" data-k="ftpch"><span>FTP Charge Pembiayaan</span><span class="lr-val">biaya dana</span></div>
-        <div class="lr-line" data-k="peg"><span>Beban Pegawai</span><span class="lr-val">jangkar</span></div>
-        <div class="lr-line" data-k="sewa"><span>Beban Sewa Gedung</span><span class="lr-val">jangkar</span></div>
-        <div class="lr-line" data-k="opx"><span>Beban Operasional Lainnya</span><span class="lr-val">semi-tetap</span></div>
-        <div class="lr-line" data-k="mkt"><span>Beban Marketing dan Promosi</span><span class="lr-val">tuas</span></div>
-        <div class="lr-line" data-k="ppap"><span>PPAP Penyisihan Risiko</span><span class="lr-val">cermin risiko</span></div>
-        <div class="lr-cm"><span>Contribution Margin</span><span class="lr-val">papan skor</span></div>
-      </div>
-      <div class="decode-panel" id="decodePanel">
-        <div class="ph">
-          <span class="big">Pilih satu baris</span>
-          <span>Klik baris mana pun di Laba Rugi untuk membongkar maknanya.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 04 KONSEP ===== -->
-<section id="konsep">
-  <div class="wrap reveal">
-    <div class="sec-head">
-      <span class="sec-num">04</span>
-      <h2>Empat konsep yang harus terasa nyata</h2>
-    </div>
-    <p class="sec-intro">Empat ide ini sering hanya dihafal. Padahal kalau benar-benar dipahami, keempatnya mengubah cara Anda membaca tiap baris P&amp;L. Berikut keempatnya, dengan demonstrasi singkat.</p>
-    <div class="konsep-grid">
-
-      <div class="konsep">
-        <div class="konsep-top">
-          <span class="kn">KONSEP 01</span>
-          <h3>FTP dua arah</h3>
-          <p>Treasury menetapkan harga dana dua arah. DPK yang cabang himpun menghasilkan FTP Credit. Pembiayaan yang cabang salurkan menanggung FTP Charge. Cabang adalah pembeli sekaligus penjual dana.</p>
-        </div>
-        <div class="konsep-demo">
-          <div class="twoway">
-            <div class="credit">
-              <span class="h">FTP Credit &middot; DPK menghasilkan</span>
-              <span class="v">4,0%</span>
-              <div style="margin-top:5px;color:#444F4C">Imbalan Treasury atas setiap rupiah DPK. Inilah alasan menghimpun dana tetap bernilai walau tidak langsung disalurkan.</div>
-            </div>
-            <div class="charge">
-              <span class="h">FTP Charge &middot; Pembiayaan membayar</span>
-              <span class="v">5,0%</span>
-              <div style="margin-top:5px;color:#444F4C">Biaya dana Treasury untuk mendanai pembiayaan. Margin sejati adalah margin akad dikurangi angka ini.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="konsep">
-        <div class="konsep-top">
-          <span class="kn">KONSEP 02</span>
-          <h3>PPAP dan kolektibilitas</h3>
-          <p>PPAP bukan beban administratif. Ia cadangan kerugian yang besarnya mengikuti kualitas aset. Semakin banyak pembiayaan turun kolektibilitas, semakin besar PPAP menggerus CM.</p>
-        </div>
-        <div class="konsep-demo">
-          <div class="kstack">
-            <div class="kbar"><span class="kt">Lancar</span><div class="ktrk"><div class="kfill" style="width:14%;background:#00A39D">0,5%</div></div></div>
-            <div class="kbar"><span class="kt">Dlm Perhatian</span><div class="ktrk"><div class="kfill" style="width:24%;background:#4FBDB6">5%</div></div></div>
-            <div class="kbar"><span class="kt">Kurang Lancar</span><div class="ktrk"><div class="kfill" style="width:48%;background:#F8AD3C">15%</div></div></div>
-            <div class="kbar"><span class="kt">Diragukan</span><div class="ktrk"><div class="kfill" style="width:72%;background:#D9694A">50%</div></div></div>
-            <div class="kbar"><span class="kt">Macet</span><div class="ktrk"><div class="kfill" style="width:96%;background:#C24A2C">100%</div></div></div>
-          </div>
-          <div style="font-size:11.5px;color:var(--muted);margin-top:11px;font-family:'IBM Plex Mono',monospace">Ilustrasi tarif penyisihan per kolektibilitas. Satu nasabah jatuh ke Macet menyita cadangan sebesar pokoknya.</div>
-        </div>
-      </div>
-
-      <div class="konsep">
-        <div class="konsep-top">
-          <span class="kn">KONSEP 03</span>
-          <h3>BOPO, ukuran efisiensi</h3>
-          <p>BOPO membandingkan total beban operasional dengan total pendapatan. Ia menjawab satu pertanyaan: berapa rupiah beban yang Anda keluarkan untuk menghasilkan seratus rupiah pendapatan.</p>
-        </div>
-        <div class="konsep-demo">
-          <div class="bopo-gauge">
-            <div class="bopo-needle" data-v="83,9%" style="left:80%"></div>
-          </div>
-          <div class="bopo-scale"><span>70%</span><span>80%</span><span>85% batas</span><span>95%</span><span>105%</span></div>
-          <div style="font-size:11.5px;color:var(--muted);margin-top:10px;font-family:'IBM Plex Mono',monospace">Di bawah 85% tergolong sehat. Mendekati atau melewati 100% berarti cabang nyaris tidak menyisakan margin.</div>
-        </div>
-      </div>
-
-      <div class="konsep">
-        <div class="konsep-top">
-          <span class="kn">KONSEP 04</span>
-          <h3>CM: absolut, persen, dan delta</h3>
-          <p>Satu angka CM bisa dibaca tiga cara. Ketiganya benar, dan ketiganya menjawab pertanyaan berbeda. Seorang BM tahu kapan memakai yang mana.</p>
-        </div>
-        <div class="konsep-demo">
-          <div class="triview">
-            <div>
-              <div class="tv">Rp 1.450</div>
-              <div class="tl">Absolut</div>
-              <div class="tc">Berapa rupiah CM. Ukuran kontribusi nyata cabang.</div>
-            </div>
-            <div>
-              <div class="tv">2,50%</div>
-              <div class="tl">Persen</div>
-              <div class="tc">CM atas outstanding. Ukuran kualitas, adil lintas ukuran cabang.</div>
-            </div>
-            <div>
-              <div class="tv">+72,5</div>
-              <div class="tl">Delta</div>
-              <div class="tc">Perubahan dari baseline. Ukuran kemajuan, dasar leaderboard.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== 05 SIMULATOR ===== -->
-<section id="simulator">
-  <div class="wrap reveal">
-    <div class="sec-head">
-      <span class="sec-num">05</span>
-      <h2>Simulator tuas Contribution Margin</h2>
-    </div>
-    <p class="sec-intro">Inilah inti panduan ini. Pilih cabang Anda, lalu gerakkan tujuh tuas Dual Mandate dan amati CM berubah seketika. Rumus di balik layar identik dengan sheet Rencana Bisnis pada P&amp;L versi BM. Tanda berlian menandai tuas Cluster Disiplin Kontrol.</p>
-    <div class="sim">
-      <div class="sim-head">
-        <div>
-          <div class="eyebrow">Live Projection Engine</div>
-          <h3>Gerakkan tuas, baca dampaknya</h3>
-        </div>
-        <div class="branchpick" id="branchPick"></div>
-      </div>
-      <div class="sim-body">
-        <div class="sim-panel">
-          <div class="pt">Cluster Pertumbuhan Bisnis</div>
-          <div id="leversGrow"></div>
-          <div class="pt" style="margin-top:6px">Cluster Disiplin Kontrol</div>
-          <div id="leversDisiplin"></div>
-          <button class="sim-reset" id="simReset">Kembalikan ke baseline</button>
-        </div>
-        <div class="readout">
-          <div class="cm-big">
-            <div class="cl">Proyeksi Contribution Margin Setahun</div>
-            <div class="cv" id="cmValue">0</div>
-            <div class="cd up" id="cmDelta">+0 vs baseline</div>
-          </div>
-          <div class="mini-grid">
-            <div class="mini"><div class="ml">CM % Outstanding</div><div class="mv" id="cmPct">0%</div></div>
-            <div class="mini"><div class="ml">BOPO</div><div class="mv" id="bopoV">0%</div></div>
-            <div class="mini"><div class="ml">Acuan RBB CM</div><div class="mv" id="rbbV">0</div></div>
-            <div class="mini"><div class="ml">Proyeksi vs RBB</div><div class="mv" id="vsRbb">0</div></div>
-          </div>
-          <div class="verdict no" id="verdict"><span class="vi">&mdash;</span><span id="verdictText">Atur tuas untuk mulai</span></div>
-        </div>
-      </div>
-      <div class="decomp">
-        <div class="pt">Dekomposisi pendorong delta CM</div>
-        <div id="decompRows"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 06 PROTOKOL ===== -->
-<section id="protokol">
-  <div class="wrap reveal">
-    <div class="sec-head">
-      <span class="sec-num">06</span>
-      <h2>Protokol baca lima menit</h2>
-    </div>
-    <p class="sec-intro">Anda tidak akan selalu punya waktu lama. Protokol ini memastikan bahwa dalam lima menit, sebelum rapat atau sebelum ronde simulasi, Anda sudah memegang gambaran cabang yang utuh.</p>
-    <div class="proto">
-      <div class="pstep">
-        <span class="pmin">Menit 1</span>
-        <div>
-          <h3>Ambil posisi</h3>
-          <p>Lihat CM Setahun dan empat KPI snapshot. Tangkap satu kalimat: cabang ini sehat, perlu perhatian, atau tertekan.</p>
-          <div class="where">Sheet Posisi Cabang</div>
-        </div>
-      </div>
-      <div class="pstep">
-        <span class="pmin">Menit 2</span>
-        <div>
-          <h3>Baca arah tren</h3>
-          <p>Periksa tren CM empat kuartal. Garisnya naik, mendatar, atau menurun. Arah lebih penting daripada satu titik.</p>
-          <div class="where">Sheet Posisi Cabang</div>
-        </div>
-      </div>
-      <div class="pstep">
-        <span class="pmin">Menit 3</span>
-        <div>
-          <h3>Bongkar sumber CM</h3>
-          <p>Buka Laba Rugi. Tandai satu pos pendapatan terbesar dan satu pos beban terbesar. Itu pusat gravitasi cabang Anda.</p>
-          <div class="where">Sheet Laba Rugi Saya</div>
-        </div>
-      </div>
-      <div class="pstep">
-        <span class="pmin">Menit 4</span>
-        <div>
-          <h3>Pisahkan tuas dari jangkar</h3>
-          <p>Dari sebelas baris, tetapkan dua yang paling bisa Anda gerakkan pekan ini. Abaikan jangkar seperti sewa dan pegawai.</p>
-          <div class="where">Sheet Laba Rugi Saya</div>
-        </div>
-      </div>
-      <div class="pstep">
-        <span class="pmin">Menit 5</span>
-        <div>
-          <h3>Uji rencana terhadap RBB</h3>
-          <p>Lihat Proyeksi CM dan bandingkan dengan Acuan RBB. Bila masih di bawah, catat tuas mana yang akan menutup gap.</p>
-          <div class="where">Sheet Rencana Bisnis</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 07 ARKETIPE ===== -->
-<section id="arketipe">
-  <div class="wrap reveal">
-    <div class="sec-head">
-      <span class="sec-num">07</span>
-      <h2>Cara baca menurut arketipe cabang</h2>
-    </div>
-    <p class="sec-intro">Lima cabang dalam simulasi punya struktur P&amp;L sama, tetapi titik mulai berbeda. Setiap arketipe meminta mata yang berbeda. Pilih arketipe untuk melihat apa yang harus dibaca lebih dulu.</p>
-    <div class="ark-tabs" id="arkTabs"></div>
-    <div class="ark-panel" id="arkPanel"></div>
-  </div>
-</section>
-
-<!-- ===== CLOSING ===== -->
-<div class="closing">
+<!-- ================= 02 TIGA SHEET ================= -->
+<section id="sheet">
   <div class="wrap">
-    <div class="eyebrow">Penutup</div>
+    <div class="sec-head reveal">
+      <div class="sec-num">02</div>
+      <div class="sec-title">
+        <h2>Tiga sheet kerja, satu alur berpikir</h2>
+        <div class="kicker">Workbook punya tiga sheet, dan urutannya bukan kebetulan. Tiap sheet menjawab satu pertanyaan dan menyiapkan pertanyaan berikutnya.</div>
+      </div>
+    </div>
+    <div class="flow reveal">
+      <div class="fcard">
+        <span class="fstep">SHEET 1</span>
+        <span class="ftab">Neraca</span>
+        <h3>Potret kekayaan cabang</h3>
+        <div class="frole">Di mana modal cabang ditanam</div>
+        <p>Foto pada satu tanggal: portofolio pembiayaan per produk, kas dan cadangan, lalu Dana Pihak Ketiga per produk dan modal. Hampir semua angka pendapatan dan beban di sheet PnL lahir dari pos di sini.</p>
+        <div class="fq"><b>Pertanyaan kunci:</b> seberapa besar buku cabang, dan apakah dana yang dihimpun sudah tersalurkan optimal?</div>
+      </div>
+      <div class="fcard">
+        <span class="fstep">SHEET 2</span>
+        <span class="ftab">PnL</span>
+        <h3>Laba Rugi berbasis FTP</h3>
+        <div class="frole">Berapa kontribusi cabang</div>
+        <p>Tiga blok: Pendapatan Operasional, Beban Operasional, Contribution Margin. Ditambah Tren 4 Kuartal dan Parameter FTP. Di sinilah CM dibongkar menjadi penyebabnya.</p>
+        <div class="fq"><b>Pertanyaan kunci:</b> cabang untung kontribusi atau rugi, dan pos mana penggerak terbesarnya?</div>
+      </div>
+      <div class="fcard">
+        <span class="fstep">SHEET 3</span>
+        <span class="ftab">RBB</span>
+        <h3>Rencana Bisnis Bank</h3>
+        <div class="frole">Ke mana cabang dibawa</div>
+        <p>Garis acuan resmi. Membandingkan realisasi tahun lalu dengan target tahun ini untuk lima metrik kunci, lalu menghitung gap pertumbuhan yang harus dikejar.</p>
+        <div class="fq"><b>Pertanyaan kunci:</b> berapa besar jarak antara realisasi dan target, terutama pada Contribution Margin?</div>
+      </div>
+    </div>
+    <div class="dataflow reveal">
+      <b>Rantai antar sheet.</b> Ketiga sheet saling terhubung lewat rumus. Total pendapatan margin <span class="ff">Neraca!F18</span> mengalir menjadi baris pertama pendapatan di PnL. Total DPK <span class="ff">Neraca!C36</span> dan total pembiayaan <span class="ff">Neraca!C18</span> menjadi dasar FTP Credit dan FTP Charge. Total beban bagi hasil <span class="ff">Neraca!F36</span> menjadi beban di PnL. Lalu Contribution Margin hasil PnL menjadi angka Realisasi pada sheet RBB. Mengubah satu angka di Neraca akan menggetarkan seluruh workbook.
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 WORKBOOK INTERAKTIF ================= -->
+<section id="workbook">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">03</div>
+      <div class="sec-title">
+        <h2>Workbook interaktif</h2>
+        <div class="kicker">Inilah inti panduan ini. Replika kisi Excel untuk ketiga sheet. Klik sel mana pun untuk membaca arti, rumus, dan cara ia menggerakkan cabang.</div>
+      </div>
+    </div>
+    <div class="wb-hint reveal">
+      <span class="pulse"></span>
+      Pindah sheet lewat tab di bawah grid. Tombol <b>Nilai / Rumus</b> menampilkan rumus di balik tiap sel. Tanda titik hijau menandai sel berumus, tanda segitiga emas menandai sel yang merujuk sheet lain.
+    </div>
+    <div class="wb-layout reveal">
+      <div class="wb">
+        <div class="wb-toolbar">
+          <div class="wb-fname"><span class="xi">P</span><span id="wbFileName">PnL_Cabang_KCP_Jakarta.xlsx</span></div>
+          <div class="wb-toggle">
+            <button id="modeVal" class="on" onclick="setMode('val')">NILAI</button>
+            <button id="modeFx" onclick="setMode('fx')">RUMUS</button>
+          </div>
+        </div>
+        <div class="wb-fxbar">
+          <div class="wb-namebox" id="nameBox">A1</div>
+          <div class="wb-fxsym">fx</div>
+          <div class="wb-fx" id="fxBar"></div>
+        </div>
+        <div class="xl-scroll" id="xlScroll"></div>
+        <div class="wb-tabs" id="wbTabs"></div>
+      </div>
+      <aside class="wb-panel">
+        <div class="wb-panel-top">
+          <span class="wb-coord" id="pnCoord">A1</span>
+          <span class="wb-coord-meta" id="pnMeta">Pilih sel</span>
+        </div>
+        <div class="wb-panel-body" id="pnBody">
+          <h4>Mulai dari sel mana pun</h4>
+          <p>Klik sel di kisi sebelah. Panel ini akan menerangkan apa isi sel itu, bagaimana angkanya dihitung, dan apa artinya bagi keputusan seorang Branch Manager.</p>
+          <p>Tiga sheet bisa dijelajahi lewat tab di bawah grid. Disarankan mulai dari <strong>Neraca</strong>, lanjut ke <strong>PnL</strong>, tutup di <strong>RBB</strong>.</p>
+          <div class="wb-legend">
+            <span><span class="lg-dot"></span> sel berumus</span>
+            <span><span class="lg-tri"></span> merujuk sheet lain</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 04 KONSEP INTI ================= -->
+<section id="konsep">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">04</div>
+      <div class="sec-title">
+        <h2>Empat konsep yang harus terasa nyata</h2>
+        <div class="kicker">Empat ide ini sering hanya dihafal. Kalau benar-benar dipahami, keempatnya mengubah cara Anda membaca tiap baris workbook.</div>
+      </div>
+    </div>
+    <div class="kgrid">
+      <div class="kcard reveal">
+        <span class="knum">KONSEP 01</span>
+        <h3>FTP bekerja dua arah</h3>
+        <p>FTP, Fund Transfer Pricing, adalah harga dana internal antara cabang dan Treasury Kantor Pusat. DPK yang cabang himpun menghasilkan FTP Credit. Pembiayaan yang cabang salurkan menanggung FTP Charge. Cabang adalah pembeli sekaligus penjual dana.</p>
+        <div class="kduo">
+          <div class="kbox">
+            <div class="kt">FTP Credit Rate &middot; DPK menerima</div>
+            <div class="kv">4,3%</div>
+            <div class="kd">Imbalan Treasury atas tiap rupiah DPK. Inilah alasan menghimpun dana tetap bernilai walau belum disalurkan.</div>
+          </div>
+          <div class="kbox warn">
+            <div class="kt">FTP Charge Rate &middot; pembiayaan membayar</div>
+            <div class="kv">5,0%</div>
+            <div class="kd">Biaya dana Treasury untuk mendanai pembiayaan. Margin sejati adalah margin akad dikurangi angka ini.</div>
+          </div>
+        </div>
+        <div class="kfoot">Konsekuensi tajam: produk <b>Griya Special Margin</b> bermargin akad hanya 3,5%. Setelah dikurangi FTP Charge 5,0%, margin sejatinya <b>minus 1,5%</b>. Produk promo yang terlihat menjual itu sebenarnya menggerus CM. Selisih 0,7% antara Charge dan Credit adalah margin Treasury, bukan margin cabang.</div>
+      </div>
+      <div class="kcard reveal">
+        <span class="knum">KONSEP 02</span>
+        <h3>CKPN mengikuti kualitas aset</h3>
+        <p>CKPN, Cadangan Kerugian Penurunan Nilai, adalah istilah PSAK 71 yang menggantikan istilah lama PPAP. Ia bukan beban administratif, melainkan cadangan kerugian yang besarnya mengikuti kolektibilitas pembiayaan. Makin banyak pembiayaan turun kolektibilitas, makin besar CKPN menggerus CM.</p>
+        <div class="koll">
+          <div class="koll-row"><span class="kbar" style="width:14px;background:#3FB59F"></span><span class="kn">1%</span><span class="kl">Lancar</span></div>
+          <div class="koll-row"><span class="kbar" style="width:34px;background:#7FC98C"></span><span class="kn">5%</span><span class="kl">Dalam Perhatian Khusus</span></div>
+          <div class="koll-row"><span class="kbar" style="width:64px;background:#F8AD3C"></span><span class="kn">15%</span><span class="kl">Kurang Lancar</span></div>
+          <div class="koll-row"><span class="kbar" style="width:120px;background:#E07A3C"></span><span class="kn">50%</span><span class="kl">Diragukan</span></div>
+          <div class="koll-row"><span class="kbar" style="width:200px;background:#C24A2C"></span><span class="kn">100%</span><span class="kl">Macet</span></div>
+        </div>
+        <div class="kfoot">Tarif penyisihan di atas bersifat ilustratif. Intinya: satu nasabah jatuh ke kolektibilitas Macet menyita cadangan sebesar pokok pembiayaannya. <b>NPF naik, beban CKPN naik, CM langsung tergerus.</b></div>
+      </div>
+      <div class="kcard reveal">
+        <span class="knum">KONSEP 03</span>
+        <h3>BOPO, ukuran efisiensi</h3>
+        <p>BOPO membandingkan total beban operasional dengan total pendapatan operasional. Ia menjawab satu pertanyaan: berapa rupiah beban yang Anda keluarkan untuk menghasilkan seratus rupiah pendapatan.</p>
+        <div class="bopo-track">
+          <div class="bopo-mark" data-l="105,7%" style="left:84%"></div>
+        </div>
+        <div class="bopo-scale"><span>70%</span><span>85% sehat</span><span>100% impas</span><span>115%</span></div>
+        <div class="kfoot">Di bawah 85% tergolong sehat. Tepat di 100% cabang impas. KCP Jakarta berada di <b>105,7%</b>, artinya tiap Rp 100 pendapatan dibebani Rp 105,7 biaya. Angka ini adalah diagnosis kuantitatif status cabang Reviewed.</div>
+      </div>
+      <div class="kcard reveal">
+        <span class="knum">KONSEP 04</span>
+        <h3>Tiga cara membaca CM</h3>
+        <p>Satu angka Contribution Margin bisa dibaca tiga cara. Ketiganya benar dan menjawab pertanyaan berbeda. Seorang BM tahu kapan memakai yang mana.</p>
+        <div class="cm3">
+          <div class="c3"><div class="v neg">-0,40</div><div class="n">Absolut</div><div class="d">Berapa miliar rupiah CM. Ukuran kontribusi nyata cabang.</div></div>
+          <div class="c3"><div class="v neg">-0,85%</div><div class="n">Persen</div><div class="d">CM atas outstanding. Ukuran kualitas, adil lintas ukuran cabang.</div></div>
+          <div class="c3"><div class="v">&Delta; CM</div><div class="n">Delta</div><div class="d">Perubahan dari baseline. Ukuran kemajuan, dasar leaderboard simulasi.</div></div>
+        </div>
+        <div class="kfoot">Dalam Branch Banking Simulation, papan peringkat antar cabang memakai <b>delta CM rupiah</b>. Tapi untuk menilai apakah cabang sehat, persen CM lebih jujur. Pakai keduanya, jangan salah konteks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 GLOSARIUM ================= -->
+<section id="glosarium">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">05</div>
+      <div class="sec-title">
+        <h2>Glosarium akronim dan istilah</h2>
+        <div class="kicker">Setiap singkatan yang muncul di workbook, dibuka kepanjangannya dan dijelaskan maksudnya. Saring lewat tombol di bawah.</div>
+      </div>
+    </div>
+    <div class="gctl reveal" id="gCtl">
+      <button class="on" data-f="all">Semua</button>
+      <button data-f="rasio">Rasio &amp; Metrik</button>
+      <button data-f="dana">Dana &amp; Harga</button>
+      <button data-f="akad">Akad Syariah</button>
+      <button data-f="umum">Istilah Umum</button>
+    </div>
+    <div class="glist reveal" id="gList"></div>
+  </div>
+</section>
+
+<!-- ================= 06 PROTOKOL ================= -->
+<section id="protokol">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-num">06</div>
+      <div class="sec-title">
+        <h2>Protokol baca lima menit</h2>
+        <div class="kicker">Anda tidak akan selalu punya waktu lama. Protokol ini memastikan dalam lima menit, sebelum rapat atau sebelum ronde simulasi, Anda sudah memegang gambaran cabang yang utuh.</div>
+      </div>
+    </div>
+    <div class="proto reveal">
+      <div class="pstep">
+        <div class="pmin"><div class="pm">1</div><div class="ps">Menit</div></div>
+        <div class="pbody">
+          <h4>Tangkap skala cabang</h4>
+          <p>Buka Neraca. Baca total pembiayaan bruto, total DPK, dan total aset. Satu kalimat: cabang ini sebesar apa.</p>
+          <span class="pwhere">Sheet Neraca</span>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="pmin"><div class="pm">2</div><div class="ps">Menit</div></div>
+        <div class="pbody">
+          <h4>Baca komposisi dan dana menganggur</h4>
+          <p>Masih di Neraca. Lihat produk pembiayaan dominan dan DPK termurah. Periksa penempatan ke Kantor Pusat: bila besar, banyak dana belum tersalurkan.</p>
+          <span class="pwhere">Sheet Neraca</span>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="pmin"><div class="pm">3</div><div class="ps">Menit</div></div>
+        <div class="pbody">
+          <h4>Ambil posisi lewat CM dan BOPO</h4>
+          <p>Pindah ke PnL. Baca Contribution Margin dan BOPO. Tetapkan satu kalimat: cabang untung kontribusi, perlu perhatian, atau rugi.</p>
+          <span class="pwhere">Sheet PnL</span>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="pmin"><div class="pm">4</div><div class="ps">Menit</div></div>
+        <div class="pbody">
+          <h4>Baca arah tren</h4>
+          <p>Masih di PnL. Periksa Tren 4 Kuartal. Garis CM naik, mendatar, atau menurun. Arah lebih penting daripada satu titik.</p>
+          <span class="pwhere">Sheet PnL</span>
+        </div>
+      </div>
+      <div class="pstep">
+        <div class="pmin"><div class="pm">5</div><div class="ps">Menit</div></div>
+        <div class="pbody">
+          <h4>Ukur gap terhadap RBB</h4>
+          <p>Buka RBB. Bandingkan target CM dengan realisasi. Catat berapa besar pembalikan yang diminta, dan tuas mana yang akan menutupnya.</p>
+          <span class="pwhere">Sheet RBB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CLOSE ================= -->
+<div class="close">
+  <div class="wrap">
     <h2>Angka tidak memutuskan apa pun. <em>Branch Manager yang memutuskan.</em></h2>
-    <p>P&amp;L versi BM hanya menerangi pilihan. Keberanian menarik tuas yang tepat, dan menahan diri dari jalan pintas yang menggerus cabang, tetap ada di tangan Anda.</p>
+    <p>Workbook P&amp;L hanya menerangi pilihan. Keberanian menarik tuas yang tepat, dan menahan diri dari jalan pintas yang menggerus cabang, tetap ada di tangan Anda.</p>
   </div>
 </div>
 <div class="foot">
-  Next BM School 2026 &middot; Branch Banking Simulation &middot; Panduan Baca P&amp;L versi Branch Manager &middot; Lapis 2 &middot; Dokumen pembelajaran, angka fiktif
+  Next BM School 2026 &middot; Branch Banking Simulation &middot; Panduan Analisa P&amp;L Cabang &middot; Dokumen pembelajaran, seluruh angka bersifat fiktif
 </div>
 
 <script>
-/* ============ DATA: 5 CABANG ============ */
-/* rate & baseline diturunkan persis dari P&L versi BM (Bagian C Rencana Bisnis) */
-const BR = {
-  Borobudur:{kelas:"B3",ark:"Mature",lok:"Magelang, Jawa Tengah",
-    out:58000,dpk:78000,casaPct:.705128,fbi:620,npf:.020,opex:2590,mkt:350,lain:180,
-    marginR:.08735345,ftpcrR:.04,ftpchR:.05,casaR:.00941818,depoR:.02982609,cov:.425,
-    cmBase:1449.5,rbbCm:1523},
-  Prambanan:{kelas:"B3",ark:"Tumbuh",lok:"Klaten, Jawa Tengah",
-    out:55000,dpk:70000,casaPct:.707143,fbi:580,npf:.018,opex:2190,mkt:301,lain:170,
-    marginR:.08609545,ftpcrR:.04,ftpchR:.05,casaR:.00953535,depoR:.02975610,cov:.41666667,
-    cmBase:1549.75,rbbCm:1705},
-  Diponegoro:{kelas:"B4",ark:"Recovery",lok:"Semarang, Jawa Tengah",
-    out:44000,dpk:52000,casaPct:.701923,fbi:320,npf:.039,opex:1960,mkt:269,lain:110,
-    marginR:.08789205,ftpcrR:.04,ftpchR:.05,casaR:.00954795,depoR:.02964516,cov:.38461538,
-    cmBase:480.25,rbbCm:557},
-  "Gajah Mada":{kelas:"B4",ark:"Greenfield",lok:"Mojokerto, Jawa Timur",
-    out:30000,dpk:38000,casaPct:.665789,fbi:250,npf:.015,opex:1700,mkt:235,lain:90,
-    marginR:.08840833,ftpcrR:.04,ftpchR:.05,casaR:.00946640,depoR:.02977165,cov:.46666667,
-    cmBase:249.65,rbbCm:280},
-  Majapahit:{kelas:"B3",ark:"Premium",lok:"Trowulan, Jawa Timur",
-    out:70000,dpk:95000,casaPct:.694737,fbi:880,npf:.014,opex:2490,mkt:335,lain:240,
-    marginR:.08576429,ftpcrR:.04,ftpchR:.05,casaR:.00956818,depoR:.02975862,cov:.51428571,
-    cmBase:2600,rbbCm:2704}
+/* ================= FORMATTERS ================= */
+function fmtNum(v){return v.toLocaleString('id-ID',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function fmtPct(v,d){return (v*100).toLocaleString('id-ID',{minimumFractionDigits:d,maximumFractionDigits:d})+'%';}
+
+/* ================= SHEET DATA ================= */
+var SHEETS={};
+
+/* ---- NERACA ---- */
+SHEETS.neraca={
+  label:'Neraca', tab:'Neraca', cols:['A','B','C','D','E','F','G'], rows:46,
+  w:{A:34,B:228,C:114,D:104,E:112,F:150,G:158},
+  cells:{
+    A3:{v:'Neraca Cabang \u00b7 KCP Jakarta',t:'title',span:7,ex:'n_title'},
+    A4:{v:'Posisi keuangan cabang pada satu titik waktu \u00b7 seluruh nilai dalam Rp Miliar',t:'sub',span:7,ex:'n_sub'},
+    A7:{v:'Posisi per 31 Desember 2025, sekaligus titik awal Tahun Buku 2026',t:'note',span:7,ex:'n_a7'},
+    B9:{v:'ASET \u00b7 PORTOFOLIO PEMBIAYAAN PER PRODUK',t:'sect',span:6,ex:'n_sect_aset'},
+    B10:{v:'Produk Pembiayaan',t:'hdrL',ex:'n_h_produk'},
+    C10:{v:'Outstanding',t:'hdr',ex:'n_h_out'},
+    D10:{v:'% Komposisi',t:'hdr',ex:'n_h_komp'},
+    E10:{v:'Margin Efektif',t:'hdr',ex:'n_h_margin'},
+    F10:{v:'Pendapatan Margin / Thn',t:'hdr',ex:'n_h_pend'},
+    G10:{v:'Akad',t:'hdr',ex:'n_h_akad'},
+    B18:{v:'TOTAL PEMBIAYAAN BRUTO',t:'total',ex:'n_total_pemb'},
+    C18:{v:47,fmt:'num',f:'=SUM(C11:C17)',t:'total',ex:'n_total_pemb'},
+    D18:{v:1,fmt:'pct',f:'=SUM(D11:D17)',t:'total',ex:'n_d18'},
+    E18:{v:'',t:'total'},
+    F18:{v:3.825,fmt:'num',f:'=SUM(F11:F17)',t:'total',ex:'n_f18'},
+    G18:{v:'',t:'total'},
+    B20:{v:'KAS & CADANGAN',t:'sect',span:6,ex:'n_sect_kas'},
+    B21:{v:'CKPN Pembiayaan',t:'data',ex:'n_ckpn'},  C21:{v:-0.9,fmt:'num',ex:'n_ckpn'},
+    B22:{v:'Kas',t:'data',ex:'n_kas'},               C22:{v:2.4,fmt:'num',ex:'n_kas'},
+    B23:{v:'Penempatan pada bank syariah lain',t:'data',ex:'n_penempatan_lain'}, C23:{v:1.0,fmt:'num',ex:'n_penempatan_lain'},
+    B24:{v:'Penempatan neto pada Kantor Pusat',t:'data',ex:'n_penempatan_kp'},   C24:{v:14.2,fmt:'num',ex:'n_penempatan_kp'},
+    B25:{v:'Aset tetap',t:'data',ex:'n_aset_tetap'}, C25:{v:1.3,fmt:'num',ex:'n_aset_tetap'},
+    B26:{v:'Aset lain',t:'data',ex:'n_aset_lain'},   C26:{v:0.5,fmt:'num',ex:'n_aset_lain'},
+    B27:{v:'TOTAL ASET CABANG',t:'total',ex:'n_total_aset'},
+    C27:{v:65.5,fmt:'num',f:'=C18+SUM(C21:C26)',t:'total',ex:'n_total_aset'},
+    B29:{v:'LIABILITAS \u00b7 DPK PER PRODUK',t:'sect',span:6,ex:'n_sect_dpk'},
+    B30:{v:'Produk DPK',t:'hdrL',ex:'n_h_produk'},
+    C30:{v:'Outstanding',t:'hdr',ex:'n_h_out'},
+    D30:{v:'% Komposisi',t:'hdr',ex:'n_h_komp'},
+    E30:{v:'Bagi Hasil / Bonus',t:'hdr',ex:'n_h_bagihasil'},
+    F30:{v:'Beban Bagi Hasil / Thn',t:'hdr',ex:'n_h_bebanbh'},
+    G30:{v:'Akad',t:'hdr',ex:'n_h_akad'},
+    B36:{v:'TOTAL DPK',t:'total',ex:'n_total_dpk'},
+    C36:{v:60,fmt:'num',f:'=SUM(C31:C35)',t:'total',ex:'n_total_dpk'},
+    D36:{v:1,fmt:'pct',f:'=SUM(D31:D35)',t:'total',ex:'n_d18'},
+    E36:{v:'',t:'total'},
+    F36:{v:0.866,fmt:'num',f:'=SUM(F31:F35)',t:'total',ex:'n_f36'},
+    G36:{v:'',t:'total'},
+    B38:{v:'LIABILITAS LAIN & MODAL',t:'sect',span:6,ex:'n_sect_liabmodal'},
+    B39:{v:'Liabilitas lain',t:'data',ex:'n_liab_lain'}, C39:{v:1.5,fmt:'num',ex:'n_liab_lain'},
+    B40:{v:'Modal alokasi dari Kantor Pusat',t:'data',ex:'n_modal_alokasi'}, C40:{v:4.0,fmt:'num',ex:'n_modal_alokasi'},
+    B41:{v:'TOTAL LIABILITAS & MODAL',t:'total',ex:'n_total_liabmodal'},
+    C41:{v:65.5,fmt:'num',f:'=C36+C39+C40',t:'total',ex:'n_total_liabmodal'},
+    B42:{v:'Selisih Neraca',t:'data',ex:'n_selisih'},
+    C42:{v:0,fmt:'num',f:'=C27-C41',t:'kpi',ex:'n_selisih'},
+    A44:{v:'Neraca cabang seimbang pada Rp65,5 Miliar. DPK Rp60 Miliar melampaui pembiayaan Rp47 Miliar, kelebihan dana itu disetor ke Kantor Pusat dan menjadi dasar FTP Credit.',t:'note',span:7,ex:'n_narasi'},
+    A46:{v:'Seluruh angka, nama cabang, dan nama tokoh dalam workbook ini bersifat fiktif untuk kepentingan pembelajaran Next BM School.',t:'note',span:7,ex:'n_disclaimer'}
+  }
 };
-const ORDER=["Borobudur","Prambanan","Diponegoro","Gajah Mada","Majapahit"];
 
-/* ============ DECODER ============ */
-const DECODE={
-  margin:{side:"pend",t:"Pendapatan Margin Pembiayaan",
-    body:"Selisih margin dari setiap akad pembiayaan. Inilah mesin pendapatan utama cabang, biasanya pos terbesar di seluruh P&L.",
-    ctrl:4,ctrlc:"Tinggi. Bergerak lewat volume penyaluran dan disiplin penetapan margin akad.",
-    cm:"Naik bila outstanding tumbuh atau margin blended membaik. Tuas pertumbuhan paling kuat."},
-  ftpcr:{side:"pend",t:"FTP Credit DPK",
-    body:"Imbalan dari Treasury atas dana pihak ketiga yang cabang himpun. Bukti bahwa menghimpun DPK menghasilkan, walau dana itu tidak langsung disalurkan.",
-    ctrl:3,ctrlc:"Menengah. Bergerak lewat pertumbuhan DPK, tarifnya ditetapkan Treasury.",
-    cm:"Naik seiring DPK tumbuh. Pasangan alami dari pertumbuhan funding."},
-  fbi:{side:"pend",t:"Fee-Based Income",
-    body:"Pendapatan dari bancassurance, Hasanah Card, remitansi, dan jasa lain. Pendapatan tanpa modal dan tanpa konsekuensi PPAP.",
-    ctrl:4,ctrlc:"Tinggi. Bergerak lewat aktivasi nasabah dan cross-sell, tanpa menambah risiko aset.",
-    cm:"Naik langsung rupiah per rupiah. Sumber CM paling bersih karena tidak menanggung risiko."},
-  lain:{side:"pend",t:"Pendapatan Operasional Lain",
-    body:"Provisi dan jasa lain di luar kategori utama. Porsinya kecil dan relatif stabil.",
-    ctrl:1,ctrlc:"Rendah. Mengikuti aktivitas, jarang menjadi fokus keputusan.",
-    cm:"Pengaruh kecil. Tidak diandalkan sebagai tuas."},
-  bhsl:{side:"beban",t:"Bagi Hasil ke Nasabah DPK",
-    body:"Imbalan yang dibayarkan ke nasabah dana. Inilah biaya dana versi nasabah, besarnya mengikuti komposisi CASA dan Deposito.",
-    ctrl:3,ctrlc:"Menengah. Bergerak lewat bauran funding. Memperbesar CASA menurunkan biaya ini.",
-    cm:"Turun bila CASA Ratio naik, karena CASA jauh lebih murah daripada Deposito."},
-  ftpch:{side:"beban",t:"FTP Charge Pembiayaan",
-    body:"Biaya dana dari Treasury untuk mendanai pembiayaan. Pasangan bayangan dari pertumbuhan outstanding.",
-    ctrl:2,ctrlc:"Rendah sampai menengah. Tarif ditetapkan Treasury, volume mengikuti penyaluran.",
-    cm:"Naik otomatis saat outstanding tumbuh. Margin sejati adalah margin akad dikurangi pos ini."},
-  peg:{side:"beban",t:"Beban Pegawai",
-    body:"Beban tetap terbesar cabang. Penting dibaca, tetapi bukan tuas CM jangka pendek.",
-    ctrl:1,ctrlc:"Rendah. Memangkasnya merusak indikator People dan moral tim.",
-    cm:"Hampir tidak digerakkan. Perlakukan sebagai jangkar, bukan tuas."},
-  sewa:{side:"beban",t:"Beban Sewa Gedung",
-    body:"Beban tetap yang terikat kontrak. Praktis tidak bisa digerakkan dalam horizon simulasi.",
-    ctrl:0,ctrlc:"Sangat rendah. Jangkar murni.",
-    cm:"Tidak relevan sebagai tuas. Abaikan saat mencari ruang gerak."},
-  opx:{side:"beban",t:"Beban Operasional Lainnya",
-    body:"Listrik, telepon, alat tulis, transport. Semi-tetap, dengan ruang efisiensi yang kecil namun nyata.",
-    ctrl:2,ctrlc:"Rendah sampai menengah. Ada ruang disiplin, tetapi terbatas.",
-    cm:"Naik sedikit bila dikelola ketat. Disiplin, bukan terobosan."},
-  mkt:{side:"beban",t:"Beban Marketing dan Promosi",
-    body:"Biaya akuisisi nasabah baru. Inilah pos yang paling menggoda untuk dipangkas, dan paling berbahaya bila dipangkas sembarangan.",
-    ctrl:4,ctrlc:"Tinggi. Sepenuhnya keputusan BM, justru karena itu butuh kehati-hatian.",
-    cm:"Memangkasnya menaikkan CM tahun ini, tetapi menggerus akuisisi dan menekan CM tahun depan."},
-  ppap:{side:"beban",t:"PPAP Penyisihan Risiko",
-    body:"Cadangan kerugian pembiayaan. Cermin kualitas aset, besarnya mengikuti NPF dan kolektibilitas, bukan keputusan administratif.",
-    ctrl:3,ctrlc:"Menengah. Bergerak lewat disiplin penyaluran dan penagihan, bukan lewat pembukuan.",
-    cm:"Turun bila NPF membaik. Pada cabang Recovery, inilah penekan CM terbesar."}
+/* ---- PNL ---- */
+SHEETS.pnl={
+  label:'PnL', tab:'PnL', cols:['A','B','C','D','E','F','G'], rows:46,
+  w:{A:34,B:226,C:128,D:236,E:96,F:96,G:96},
+  cells:{
+    A3:{v:'Laporan Laba Rugi Cabang \u00b7 KCP Jakarta',t:'title',span:7,ex:'p_title'},
+    A4:{v:'Kinerja cabang sepanjang periode, berbasis Fund Transfer Pricing \u00b7 seluruh nilai dalam Rp Miliar',t:'sub',span:7,ex:'p_title'},
+    A7:{v:'Laporan Laba Rugi berbasis FTP, Tahun Buku 2025',t:'note',span:7,ex:'p_a7'},
+    B9:{v:'A \u00b7 PENDAPATAN OPERASIONAL',t:'sect',span:6,ex:'p_sect_pendapatan'},
+    B10:{v:'Komponen',t:'hdrL',ex:'p_h_komponen'},
+    C10:{v:'Nilai',t:'hdr',ex:'p_h_nilai'},
+    D10:{v:'Basis Perhitungan',t:'hdrL',ex:'p_h_basis'},
+    B11:{v:'Pendapatan margin pembiayaan',t:'data',ex:'p_pend_margin'},
+    C11:{v:3.825,fmt:'num',f:'=Neraca!F18',t:'data',ex:'p_pend_margin',ref:{s:'neraca',c:'F18'}},
+    D11:{v:'Akumulasi margin 7 produk pembiayaan',t:'data',ex:'p_pend_margin'},
+    B12:{v:'FTP Credit atas DPK',t:'data',ex:'p_ftp_credit'},
+    C12:{v:2.58,fmt:'num',f:'=Neraca!C36*PnL!C43',t:'data',ex:'p_ftp_credit',ref:{s:'neraca',c:'C36'}},
+    D12:{v:'Total DPK 60 \u00d7 FTP Credit Rate 4,3%',t:'data',ex:'p_ftp_credit'},
+    B13:{v:'Fee-Based Income',t:'data',ex:'p_fee'},
+    C13:{v:0.4,fmt:'num',t:'data',ex:'p_fee'},
+    D13:{v:'Komisi, administrasi, fee transaksi',t:'data',ex:'p_fee'},
+    B14:{v:'Pendapatan operasional lain',t:'data',ex:'p_pend_lain'},
+    C14:{v:0.16,fmt:'num',t:'data',ex:'p_pend_lain'},
+    D14:{v:'Pendapatan non-margin lainnya',t:'data',ex:'p_pend_lain'},
+    B15:{v:'TOTAL PENDAPATAN',t:'total',ex:'p_total_pendapatan'},
+    C15:{v:6.965,fmt:'num',f:'=SUM(C11:C14)',t:'total',ex:'p_total_pendapatan'},
+    D15:{v:'',t:'total'},
+    B17:{v:'B \u00b7 BEBAN OPERASIONAL',t:'sect',span:6,ex:'p_sect_beban'},
+    B18:{v:'Bagi hasil DPK',t:'data',ex:'p_bagihasil'},
+    C18:{v:-0.866,fmt:'num',f:'=-Neraca!F36',t:'data',ex:'p_bagihasil',ref:{s:'neraca',c:'F36'}},
+    D18:{v:'Beban bagi hasil 5 produk DPK',t:'data',ex:'p_bagihasil'},
+    B19:{v:'FTP Charge atas pembiayaan',t:'data',ex:'p_ftp_charge'},
+    C19:{v:-2.35,fmt:'num',f:'=-Neraca!C18*PnL!C42',t:'data',ex:'p_ftp_charge',ref:{s:'neraca',c:'C18'}},
+    D19:{v:'Total pembiayaan 47 \u00d7 FTP Charge Rate 5,0%',t:'data',ex:'p_ftp_charge'},
+    B20:{v:'Beban tenaga kerja',t:'data',ex:'p_beban_tk'},
+    C20:{v:-2.3,fmt:'num',t:'data',ex:'p_beban_tk'},
+    D20:{v:'9 FTE, gaji dan tunjangan',t:'data',ex:'p_beban_tk'},
+    B21:{v:'Beban sewa',t:'data',ex:'p_beban_sewa'},
+    C21:{v:-0.68,fmt:'num',t:'data',ex:'p_beban_sewa'},
+    D21:{v:'Sewa gedung dan fasilitas cabang',t:'data',ex:'p_beban_sewa'},
+    B22:{v:'Beban umum & administrasi',t:'data',ex:'p_beban_umum'},
+    C22:{v:-0.579,fmt:'num',t:'data',ex:'p_beban_umum'},
+    D22:{v:'Listrik, ATK, pemeliharaan, operasional',t:'data',ex:'p_beban_umum'},
+    B23:{v:'Beban marketing',t:'data',ex:'p_beban_marketing'},
+    C23:{v:-0.26,fmt:'num',t:'data',ex:'p_beban_marketing'},
+    D23:{v:'Promosi, akuisisi, retensi nasabah',t:'data',ex:'p_beban_marketing'},
+    B24:{v:'Beban CKPN',t:'data',ex:'p_beban_ckpn'},
+    C24:{v:-0.33,fmt:'num',t:'data',ex:'p_beban_ckpn'},
+    D24:{v:'Pembentukan cadangan, NPF 1,7%',t:'data',ex:'p_beban_ckpn'},
+    B25:{v:'TOTAL BEBAN',t:'total',ex:'p_total_beban'},
+    C25:{v:-7.365,fmt:'num',f:'=SUM(C18:C24)',t:'total',ex:'p_total_beban'},
+    D25:{v:'',t:'total'},
+    B27:{v:'C \u00b7 CONTRIBUTION MARGIN',t:'sect',span:6,ex:'p_sect_cm'},
+    B28:{v:'CONTRIBUTION MARGIN CABANG',t:'kpi',ex:'p_cm'},
+    C28:{v:-0.4,fmt:'num',f:'=C15+C25',t:'kpi',ex:'p_cm'},
+    D28:{v:'Total pendapatan dikurangi total beban',t:'data',ex:'p_cm'},
+    B29:{v:'BOPO',t:'data',ex:'p_bopo'},
+    C29:{v:1.0574,fmt:'pct',f:'=-C25/C15',t:'data',ex:'p_bopo'},
+    D29:{v:'Total beban dibagi total pendapatan',t:'data',ex:'p_bopo'},
+    B30:{v:'CM terhadap Outstanding',t:'data',ex:'p_cm_out'},
+    C30:{v:-0.00851,fmt:'pct2',f:'=C28/Neraca!C18',t:'data',ex:'p_cm_out',ref:{s:'neraca',c:'C18'}},
+    D30:{v:'CM dibagi total pembiayaan bruto',t:'data',ex:'p_cm_out'},
+    A32:{v:'Contribution Margin minus Rp0,4 Miliar adalah diagnosis, bukan vonis. BOPO 105,7% menunjukkan cabang membakar lebih banyak daripada yang dihasilkan.',t:'note',span:7,ex:'p_narasi'},
+    B34:{v:'TREN 4 KUARTAL TB2025',t:'sect',span:6,ex:'p_sect_tren'},
+    B35:{v:'Metrik',t:'hdrL',ex:'p_h_tw'},
+    C35:{v:'TW I',t:'hdr',ex:'p_h_tw'}, D35:{v:'TW II',t:'hdr',ex:'p_h_tw'},
+    E35:{v:'TW III',t:'hdr',ex:'p_h_tw'}, F35:{v:'TW IV',t:'hdr',ex:'p_h_tw'},
+    B36:{v:'DPK',t:'data',ex:'p_tren_dpk'},
+    C36:{v:57,fmt:'num',t:'data',ex:'p_tren_dpk'}, D36:{v:58,fmt:'num',t:'data',ex:'p_tren_dpk'},
+    E36:{v:59,fmt:'num',t:'data',ex:'p_tren_dpk'}, F36:{v:60,fmt:'num',t:'data',ex:'p_tren_dpk'},
+    B37:{v:'Pembiayaan',t:'data',ex:'p_tren_pemb'},
+    C37:{v:45,fmt:'num',t:'data',ex:'p_tren_pemb'}, D37:{v:46,fmt:'num',t:'data',ex:'p_tren_pemb'},
+    E37:{v:46.5,fmt:'num',t:'data',ex:'p_tren_pemb'}, F37:{v:47,fmt:'num',t:'data',ex:'p_tren_pemb'},
+    B38:{v:'CM kuartalan',t:'data',ex:'p_tren_cmk'},
+    C38:{v:-0.06,fmt:'num',t:'data',ex:'p_tren_cmk'}, D38:{v:-0.09,fmt:'num',t:'data',ex:'p_tren_cmk'},
+    E38:{v:-0.11,fmt:'num',t:'data',ex:'p_tren_cmk'}, F38:{v:-0.14,fmt:'num',t:'data',ex:'p_tren_cmk'},
+    B39:{v:'CM kumulatif',t:'data',ex:'p_tren_cmkum'},
+    C39:{v:-0.06,fmt:'num',f:'=C38',t:'data',ex:'p_tren_cmkum'},
+    D39:{v:-0.15,fmt:'num',f:'=C39+D38',t:'data',ex:'p_tren_cmkum'},
+    E39:{v:-0.26,fmt:'num',f:'=D39+E38',t:'data',ex:'p_tren_cmkum'},
+    F39:{v:-0.4,fmt:'num',f:'=E39+F38',t:'data',ex:'p_tren_cmkum'},
+    B41:{v:'PARAMETER FTP',t:'sect',span:6,ex:'p_sect_param'},
+    B42:{v:'FTP Charge Rate',t:'data',ex:'p_ftp_charge_rate'},
+    C42:{v:0.05,fmt:'pct',t:'kpi',ex:'p_ftp_charge_rate'},
+    B43:{v:'FTP Credit Rate',t:'data',ex:'p_ftp_credit_rate'},
+    C43:{v:0.043,fmt:'pct',t:'kpi',ex:'p_ftp_credit_rate'},
+    A44:{v:'Selisih FTP Charge 5,0% dan FTP Credit 4,3% sebesar 0,7% adalah margin yang dipegang Treasury Kantor Pusat. Parameter ini ditetapkan pusat, bukan cabang.',t:'note',span:7,ex:'p_narasi_param'},
+    A46:{v:'Seluruh angka dalam workbook ini bersifat fiktif untuk kepentingan pembelajaran Next BM School.',t:'note',span:7,ex:'n_disclaimer'}
+  }
 };
-const lrSheet=document.getElementById("lrSheet");
-const decodePanel=document.getElementById("decodePanel");
-lrSheet.querySelectorAll(".lr-line").forEach(line=>{
-  line.addEventListener("click",()=>{
-    lrSheet.querySelectorAll(".lr-line").forEach(l=>l.classList.remove("active"));
-    line.classList.add("active");
-    const d=DECODE[line.dataset.k];
-    const meter=Array.from({length:4},(_,i)=>
-      '<span class="'+(i<d.ctrl?'on':'')+'"></span>').join("");
-    decodePanel.innerHTML=
-      '<div class="dp-kicker">Decoder baris</div>'+
-      '<div class="dp-title">'+d.t+'</div>'+
-      '<span class="dp-side '+d.side+'">'+(d.side==="pend"?"Sisi Pendapatan":"Sisi Beban")+'</span>'+
-      '<div class="dp-body">'+d.body+'</div>'+
-      '<div class="dp-row"><span class="lbl">Kendali BM</span><span class="txt">'+
-        '<div class="ctrl-meter">'+meter+'</div>'+
-        '<div class="ctrl-cap">'+d.ctrlc+'</div></span></div>'+
-      '<div class="dp-row"><span class="lbl">Dampak ke CM</span><span class="txt">'+d.cm+'</span></div>';
-  });
-});
 
-/* ============ SIMULATOR ============ */
-const LEVERS=[
-  {k:"out",name:"Pembiayaan Outstanding",cluster:"grow",unit:"jt",min:.7,max:1.35,step:500},
-  {k:"dpk",name:"DPK Total",cluster:"grow",unit:"jt",min:.7,max:1.35,step:500},
-  {k:"casaPct",name:"CASA Ratio",cluster:"grow",unit:"pct",min:.5,max:.85,abs:true,step:.005},
-  {k:"fbi",name:"Fee-Based Income",cluster:"grow",unit:"jt",min:.6,max:1.6,step:5},
-  {k:"npf",name:"NPF Gross",cluster:"disiplin",unit:"pct",min:.005,max:.06,abs:true,step:.001},
-  {k:"opex",name:"Beban Operasional non-marketing",cluster:"disiplin",unit:"jt",min:.85,max:1.15,step:10},
-  {k:"mkt",name:"Beban Marketing dan Promosi",cluster:"disiplin",unit:"jt",min:.4,max:1.6,step:5}
-];
-let CUR="Borobudur";
-let state={};
+/* ---- RBB ---- */
+SHEETS.rbb={
+  label:'RBB', tab:'RBB', cols:['A','B','C','D','E','F'], rows:19,
+  w:{A:34,B:210,C:170,D:170,E:188,F:90},
+  cells:{
+    A3:{v:'Rencana Bisnis Bank \u00b7 KCP Jakarta',t:'title',span:6,ex:'r_title'},
+    A4:{v:'Target Tahun Buku 2026 dihadapkan pada realisasi TB2025 \u00b7 nilai dalam Rp Miliar kecuali rasio',t:'sub',span:6,ex:'r_title'},
+    A7:{v:'Rencana Bisnis Bank Tahun Buku 2026',t:'note',span:6,ex:'r_a7'},
+    B9:{v:'TARGET RBB TAHUN BUKU 2026',t:'sect',span:5,ex:'r_sect'},
+    B10:{v:'Metrik',t:'hdrL',ex:'r_h_metrik'},
+    C10:{v:'Realisasi TB2025',t:'hdr',ex:'r_h_real'},
+    D10:{v:'Target RBB 2026',t:'hdr',ex:'r_h_target'},
+    E10:{v:'Pertumbuhan',t:'hdr',ex:'r_h_growth'},
+    B11:{v:'DPK',t:'data',ex:'r_dpk'},
+    C11:{v:60,fmt:'num',t:'data',ex:'r_dpk'}, D11:{v:68,fmt:'num',t:'data',ex:'r_dpk'},
+    E11:{v:8,fmt:'num',f:'=D11-C11',t:'data',ex:'r_dpk'},
+    B12:{v:'Pembiayaan',t:'data',ex:'r_pemb'},
+    C12:{v:47,fmt:'num',t:'data',ex:'r_pemb'}, D12:{v:56,fmt:'num',t:'data',ex:'r_pemb'},
+    E12:{v:9,fmt:'num',f:'=D12-C12',t:'data',ex:'r_pemb'},
+    B13:{v:'Contribution Margin',t:'kpi',ex:'r_cm'},
+    C13:{v:-0.4,fmt:'num',t:'kpi',ex:'r_cm'}, D13:{v:0.25,fmt:'num',t:'kpi',ex:'r_cm'},
+    E13:{v:0.65,fmt:'num',f:'=D13-C13',t:'kpi',ex:'r_cm'},
+    B14:{v:'FDR',t:'data',ex:'r_fdr'},
+    C14:{v:0.7833333,fmt:'pct',f:'=C12/C11',t:'data',ex:'r_fdr'},
+    D14:{v:0.8235294,fmt:'pct',f:'=D12/D11',t:'data',ex:'r_fdr'},
+    E14:{v:0.0401961,fmt:'pct',f:'=D14-C14',t:'data',ex:'r_fdr'},
+    B15:{v:'NPF',t:'data',ex:'r_npf'},
+    C15:{v:0.017,fmt:'pct',t:'data',ex:'r_npf'},
+    D15:{v:0.02,fmt:'pct',t:'data',ex:'r_npf'},
+    E15:{v:'Dijaga di bawah ambang',t:'data',ex:'r_npf'},
+    A17:{v:'RBB bukan sekadar angka, melainkan kontrak kinerja. Misi inti 2026 adalah membalik Contribution Margin sebesar Rp0,65 Miliar, dari minus Rp0,4 menjadi positif Rp0,25 Miliar.',t:'note',span:6,ex:'r_narasi'},
+    A19:{v:'Seluruh angka dalam workbook ini bersifat fiktif untuk kepentingan pembelajaran Next BM School.',t:'note',span:6,ex:'n_disclaimer'}
+  }
+};
 
-function fmt(n){return Math.round(n).toLocaleString("id-ID");}
-function fmt1(n){return (Math.round(n*10)/10).toLocaleString("id-ID",
-  {minimumFractionDigits:1,maximumFractionDigits:1});}
-function pct(n){return (n*100).toLocaleString("id-ID",
-  {minimumFractionDigits:1,maximumFractionDigits:1})+"%";}
-
-function baseVal(b,k){return b[k];}
-
-function project(b,s){
-  const pend=s.out*b.marginR + s.dpk*b.ftpcrR + s.fbi + b.lain;
-  const casaAmt=s.casaPct*s.dpk, depoAmt=s.dpk-casaAmt;
-  const bhsl=casaAmt*b.casaR + depoAmt*b.depoR;
-  const ftpch=s.out*b.ftpchR;
-  const ppap=s.out*s.npf*b.cov;
-  const beban=bhsl+ftpch+s.opex+s.mkt+ppap;
-  const cm=pend-beban;
-  return {pend,beban,cm,cmPct:cm/s.out,bopo:beban/pend,bhsl,ftpch,ppap};
-}
-
-function buildLevers(){
-  const g=document.getElementById("leversGrow");
-  const d=document.getElementById("leversDisiplin");
-  g.innerHTML="";d.innerHTML="";
-  const b=BR[CUR];
-  LEVERS.forEach(L=>{
-    const base=baseVal(b,L.k);
-    const lo=L.abs?L.min:base*L.min;
-    const hi=L.abs?L.max:base*L.max;
-    const wrap=document.createElement("div");
-    wrap.className="lever"+(L.cluster==="disiplin"?" disiplin":"");
-    wrap.innerHTML=
-      '<div class="lever-top"><span class="lever-name">'+L.name+'</span>'+
-      '<span class="lever-val" id="lv_'+L.k+'"></span></div>'+
-      '<input type="range" id="rg_'+L.k+'" min="'+lo+'" max="'+hi+'" '+
-      'step="'+L.step+'" value="'+state[L.k]+'">'+
-      '<div class="lever-base" id="lb_'+L.k+'"></div>';
-    (L.cluster==="grow"?g:d).appendChild(wrap);
-    wrap.querySelector("input").addEventListener("input",e=>{
-      state[L.k]=parseFloat(e.target.value);render();
-    });
-  });
-}
-function resetState(){
-  const b=BR[CUR];state={};
-  LEVERS.forEach(L=>state[L.k]=baseVal(b,L.k));
-}
-function render(){
-  const b=BR[CUR];
-  LEVERS.forEach(L=>{
-    const v=state[L.k];
-    const disp=L.unit==="pct"?pct(v):"Rp "+fmt(v);
-    const base=baseVal(b,L.k);
-    const baseDisp=L.unit==="pct"?pct(base):"Rp "+fmt(base);
-    document.getElementById("lv_"+L.k).textContent=disp;
-    document.getElementById("lb_"+L.k).textContent="Baseline "+baseDisp;
-    const rg=document.getElementById("rg_"+L.k);
-    if(rg && parseFloat(rg.value)!==v) rg.value=v;
-  });
-  const P=project(b,state);
-  const delta=P.cm-b.cmBase;
-  document.getElementById("cmValue").textContent=fmt(P.cm);
-  const cd=document.getElementById("cmDelta");
-  cd.textContent=(delta>=0?"+":"")+fmt1(delta)+" jt vs baseline";
-  cd.className="cd "+(delta>=0?"up":"dn");
-  document.getElementById("cmPct").textContent=pct(P.cmPct);
-  document.getElementById("bopoV").textContent=pct(P.bopo);
-  document.getElementById("rbbV").textContent=fmt(b.rbbCm);
-  const vs=P.cm-b.rbbCm;
-  document.getElementById("vsRbb").textContent=(vs>=0?"+":"")+fmt1(vs);
-  const vd=document.getElementById("verdict");
-  const vt=document.getElementById("verdictText");
-  if(vs>=0){vd.className="verdict ok";
-    vd.querySelector(".vi").textContent="\u2713";
-    vt.textContent="Memenuhi Acuan RBB cabang";}
-  else{vd.className="verdict no";
-    vd.querySelector(".vi").textContent="\u2715";
-    vt.textContent="Masih di bawah RBB, gap Rp "+fmt1(Math.abs(vs))+" jt";}
-  renderDecomp(b,P);
-}
-function renderDecomp(b,P){
-  const base=project(b,Object.fromEntries(LEVERS.map(L=>[L.k,baseVal(b,L.k)])));
-  const baseCasaAmt=b.casaPct*b.dpk;
-  const sCasaAmt=state.casaPct*state.dpk;
-  const dItems=[
-    {n:"Pertumbuhan Pembiayaan",
-     v:(state.out-b.out)*(b.marginR-b.ftpchR)},
-    {n:"Pertumbuhan & bauran DPK",
-     v:((state.dpk-b.dpk)*b.ftpcrR)-(P.bhsl-base.bhsl)},
-    {n:"Kenaikan Fee-Based Income",v:state.fbi-b.fbi},
-    {n:"Efisiensi Beban Operasional",v:-(state.opex-b.opex)},
-    {n:"Perubahan Beban Marketing",v:-(state.mkt-b.mkt)},
-    {n:"Perbaikan Kualitas Aset",v:-(P.ppap-base.ppap)}
+/* ---- inject product & DPK rows ---- */
+(function(){
+  var PEMB=[
+    {r:11,n:'Griya Payroll',out:8,m:0.085,ak:'Murabahah / MMQ',ex:'n_p_griya_payroll'},
+    {r:12,n:'Griya Special Margin',out:9,m:0.035,ak:'Murabahah / MMQ',ex:'n_p_griya_special'},
+    {r:13,n:'Mitraguna Berkah',out:15,m:0.11,ak:'Murabahah / Ijarah',ex:'n_p_mitraguna'},
+    {r:14,n:'Pensiun Berkah',out:6.5,m:0.08,ak:'Murabahah / Ijarah',ex:'n_p_pensiun'},
+    {r:15,n:'Cicil Emas',out:4,m:0.09,ak:'Murabahah + Rahn',ex:'n_p_cicil_emas'},
+    {r:16,n:'Gadai Emas',out:2,m:0.06,ak:'Rahn / Ujrah',ex:'n_p_gadai_emas'},
+    {r:17,n:'OTO',out:2.5,m:0.072,ak:'Murabahah',ex:'n_p_oto'}
   ];
-  const maxAbs=Math.max(40,...dItems.map(x=>Math.abs(x.v)));
-  document.getElementById("decompRows").innerHTML=dItems.map(x=>{
-    const w=Math.min(50,Math.abs(x.v)/maxAbs*50);
-    const pos=x.v>=0;
-    const style=pos?'left:50%;width:'+w+'%':'right:50%;width:'+w+'%';
-    return '<div class="dc-row"><span class="dn">'+x.n+'</span>'+
-      '<span class="dc-track"><span class="dc-mid"></span>'+
-      '<span class="dc-fill '+(pos?'pos':'neg')+'" style="'+style+'"></span></span>'+
-      '<span class="dc-val">'+(pos?"+":"")+fmt1(x.v)+'</span></div>';
-  }).join("");
-}
-function buildBranchPick(){
-  const bp=document.getElementById("branchPick");
-  bp.innerHTML="";
-  ORDER.forEach(nm=>{
-    const btn=document.createElement("button");
-    btn.textContent="KCP "+nm;
-    btn.className=nm===CUR?"on":"";
-    btn.addEventListener("click",()=>{
-      CUR=nm;resetState();buildBranchPick();buildLevers();render();
-    });
-    bp.appendChild(btn);
+  PEMB.forEach(function(p){
+    var c=SHEETS.neraca.cells;
+    c['B'+p.r]={v:p.n,t:'data',ex:p.ex};
+    c['C'+p.r]={v:p.out,fmt:'num',t:'data',ex:p.ex};
+    c['D'+p.r]={v:p.out/47,fmt:'pct',f:'=C'+p.r+'/$C$18',t:'data',ex:'n_komp_calc'};
+    c['E'+p.r]={v:p.m,fmt:'pct',t:'data',ex:p.ex};
+    c['F'+p.r]={v:p.out*p.m,fmt:'num',f:'=C'+p.r+'*E'+p.r,t:'data',ex:'n_pend_calc'};
+    c['G'+p.r]={v:p.ak,t:'data',ex:'n_h_akad'};
   });
-}
-document.getElementById("simReset").addEventListener("click",()=>{
-  resetState();render();
-});
-CUR="Borobudur";resetState();buildBranchPick();buildLevers();render();
+  var DPK=[
+    {r:31,n:'Tabungan Easy Wadiah',out:24,m:0.005,ak:'Wadiah',ex:'n_d_wadiah'},
+    {r:32,n:'Tabungan Easy Mudharabah',out:14,m:0.018,ak:'Mudharabah Muthlaqah',ex:'n_d_mudharabah'},
+    {r:33,n:'Giro Rupiah',out:6,m:0.003,ak:'Wadiah Yad Dhamanah',ex:'n_d_giro'},
+    {r:34,n:'Deposito 1-6 Bulan',out:9,m:0.028,ak:'Mudharabah Muthlaqah',ex:'n_d_depo6'},
+    {r:35,n:'Deposito 12 Bulan',out:7,m:0.032,ak:'Mudharabah Muthlaqah',ex:'n_d_depo12'}
+  ];
+  DPK.forEach(function(p){
+    var c=SHEETS.neraca.cells;
+    c['B'+p.r]={v:p.n,t:'data',ex:p.ex};
+    c['C'+p.r]={v:p.out,fmt:'num',t:'data',ex:p.ex};
+    c['D'+p.r]={v:p.out/60,fmt:'pct',f:'=C'+p.r+'/$C$36',t:'data',ex:'n_komp_calc'};
+    c['E'+p.r]={v:p.m,fmt:'pct',t:'data',ex:p.ex};
+    c['F'+p.r]={v:p.out*p.m,fmt:'num',f:'=C'+p.r+'*E'+p.r,t:'data',ex:'n_bh_calc'};
+    c['G'+p.r]={v:p.ak,t:'data',ex:'n_h_akad'};
+  });
+})();
 
-/* ============ ARKETIPE ============ */
-const ARK={
-  Mature:{br:"Borobudur",sub:"KCP Kelas B3 \u00b7 Magelang, Jawa Tengah",
-    bacaDulu:"Disbursement pembiayaan baru. Pada cabang mapan, book konsumer mendekati jenuh, sehingga penyaluran baru adalah leading indicator paling jujur. CM hari ini sehat justru bisa menyembunyikan mesin pertumbuhan yang melambat.",
-    tuas:"Aktivasi nasabah eksisting dan Fee-Based Income. Pertumbuhan datang dari mengaktifkan basis payroll yang sudah lekat, bukan dari akuisisi nasabah baru yang makin mahal.",
-    jebakan:"Membaca CM yang memenuhi target sebagai tanda aman. Tanpa akselerasi penyaluran, CM tahun depan berisiko stagnan.",
-    fokus:"Tren CM empat kuartal dan pos FBI di Laba Rugi."},
-  Tumbuh:{br:"Prambanan",sub:"KCP Kelas B3 \u00b7 Klaten, Jawa Tengah",
-    bacaDulu:"NPF dan PPAP berdampingan dengan pertumbuhan outstanding. Saat semua indikator tumbuh sehat, perhatian bergeser dari mengejar angka ke menjaga kualitas saat volume naik.",
-    tuas:"Pertumbuhan outstanding yang seimbang dengan disiplin penyaluran. Momentum sudah ada, tugasnya menjaga agar laju tidak melampaui kapasitas kontrol.",
-    jebakan:"Membiarkan beban kerja tim dan kualitas aset tertinggal di belakang laju pertumbuhan portofolio.",
-    fokus:"NPF Gross dan CM% pada sheet Posisi Cabang."},
-  Recovery:{br:"Diponegoro",sub:"KCP Kelas B4 \u00b7 Semarang, Jawa Tengah",
-    bacaDulu:"NPF Gross lebih dulu, sebelum baris lain. Pada cabang pemulihan, NPF berada di atas ambang sehat dan menjadi constraint aktif. Setiap keputusan pembiayaan baru harus dibaca melalui lensa ini.",
-    tuas:"Perbaikan kualitas aset lewat restrukturisasi dan penagihan. Menurunkan NPF langsung melepas tekanan PPAP, dan PPAP adalah penekan CM terbesar di sini.",
-    jebakan:"Mengejar pertumbuhan outstanding sebelum kualitas aset stabil, yang justru memperdalam beban PPAP.",
-    fokus:"Pos PPAP di Laba Rugi dan NPF di Rencana Bisnis."},
-  Greenfield:{br:"Gajah Mada",sub:"KCP Kelas B4 \u00b7 Mojokerto, Jawa Timur",
-    bacaDulu:"CM absolut yang masih kecil, lalu CM% sebagai pembanding. Angka CM yang tipis di sini bukan tanda sakit, melainkan cermin skala yang belum optimal.",
-    tuas:"Akselerasi volume penyaluran dan DPK. Kualitas aset sudah bersih, sehingga modal utamanya adalah ruang untuk tumbuh dengan cepat namun terkendali.",
-    jebakan:"Menilai cabang lewat CM absolut dan menyimpulkan kinerja buruk, padahal yang dibutuhkan adalah skala.",
-    fokus:"Outstanding dan DPK pada Rencana Bisnis, dibaca sebagai ruang pertumbuhan."},
-  Premium:{br:"Majapahit",sub:"KCP Kelas B3 \u00b7 Trowulan, Jawa Timur",
-    bacaDulu:"Komposisi nasabah dan concentration risk. Cabang ini memimpin CM dan paling efisien, sehingga tantangannya bukan angka, melainkan ketergantungan pada nasabah besar.",
-    tuas:"Mempertahankan dominasi funding dan FBI sambil mendiversifikasi basis nasabah agar tidak bertumpu pada segelintir nama.",
-    jebakan:"Terlena pada posisi terdepan dan mengabaikan risiko bila satu nasabah besar berpindah.",
-    fokus:"BOPO dan struktur DPK pada sheet Posisi Cabang."}
+/* ================= EXPLANATIONS ================= */
+var EX={
+ n_title:{t:'Sheet Neraca',b:'Sheet Neraca memotret posisi keuangan cabang pada satu titik waktu. Sisi aset menunjukkan ke mana dana disalurkan, sisi liabilitas dan modal menunjukkan dari mana dana berasal. Kedua sisi wajib seimbang.'},
+ n_sub:{t:'Subjudul sheet',b:'Subjudul menegaskan unit dan satuan. Neraca bukan laporan kinerja periode, melainkan foto posisi pada tanggal tertentu.'},
+ n_a7:{t:'Tanggal posisi',b:'Posisi per 31 Desember 2025 sekaligus menjadi titik awal Tahun Buku 2026. Seluruh angka pembiayaan, DPK, dan modal pada sheet lain berakar dari posisi ini.'},
+ n_sect_aset:{t:'Blok aset \u00b7 portofolio pembiayaan',b:'Blok aset diawali portofolio pembiayaan per produk. Inilah penggunaan dana terbesar cabang dan sumber pendapatan margin utama.'},
+ n_h_produk:{t:'Kolom nama produk',b:'Tiap baris adalah satu lini produk dengan karakter margin dan akad yang berbeda. Mengenali komposisi produk adalah langkah pertama membaca cabang.'},
+ n_h_out:{t:'Outstanding',b:'Outstanding adalah saldo yang masih berjalan, dinyatakan dalam Rp Miliar. Angka ini menjadi basis perhitungan komposisi dan pendapatan.'},
+ n_h_komp:{t:'% Komposisi',b:'Persentase komposisi menunjukkan bobot tiap produk terhadap total. Membaca komposisi membantu mengenali konsentrasi risiko dan ketergantungan pendapatan.'},
+ n_h_margin:{t:'Margin Efektif',b:'Margin efektif adalah tingkat imbal hasil tahunan yang melekat pada produk. Margin tinggi belum tentu menguntungkan sebelum dikurangi biaya dana FTP Charge.'},
+ n_h_pend:{t:'Pendapatan Margin per Tahun',b:'Pendapatan margin per tahun adalah hasil kali outstanding dengan margin efektif. Inilah kontribusi pendapatan kotor tiap produk sebelum biaya dana.'},
+ n_h_akad:{t:'Kolom akad syariah',b:'Kolom akad menyebut skema syariah yang menaungi produk. Akad menentukan bentuk pendapatan, apakah margin jual beli, ujrah sewa, atau bagi hasil. Lihat Glosarium untuk tiap akad.'},
+ n_p_griya_payroll:{t:'Griya Payroll',b:'Pembiayaan rumah bagi nasabah payroll, margin efektif 8,5%, outstanding Rp8 Miliar. Setelah dikurangi FTP Charge 5%, margin bersihnya positif 3,5%. Produk sehat yang menyumbang Contribution Margin.'},
+ n_p_griya_special:{t:'Griya Special Margin',b:'Produk promo dengan margin efektif hanya 3,5%, outstanding Rp9 Miliar. Pada basis FTP, margin bersihnya minus 1,5%. Produk ini justru menggerus Contribution Margin meski volumenya besar. Pelajaran kunci, volume tanpa margin sehat merugikan cabang.'},
+ n_p_mitraguna:{t:'Mitraguna Berkah',b:'Pembiayaan multiguna bermargin 11%, tertinggi dalam portofolio, outstanding Rp15 Miliar. Margin bersih setelah FTP positif 6,0%, mesin utama pendapatan cabang.'},
+ n_p_pensiun:{t:'Pensiun Berkah',b:'Pembiayaan bagi pensiunan bermargin 8%, outstanding Rp6,5 Miliar. Margin bersih positif 3,0%, segmen stabil dengan risiko terkendali.'},
+ n_p_cicil_emas:{t:'Cicil Emas',b:'Pembiayaan kepemilikan emas bermargin 9% berakad Murabahah disertai Rahn, outstanding Rp4 Miliar. Margin bersih positif 4,0%.'},
+ n_p_gadai_emas:{t:'Gadai Emas',b:'Produk berbasis Rahn dan ujrah bermargin 6%, outstanding Rp2 Miliar. Margin bersih hanya positif 1,0%, tipis namun likuid dan berisiko rendah.'},
+ n_p_oto:{t:'OTO',b:'Pembiayaan kendaraan bermargin 7,2%, outstanding Rp2,5 Miliar. Margin bersih positif 2,2%.'},
+ n_komp_calc:{t:'Sel komposisi',b:'Sel komposisi dihitung dengan rumus outstanding produk dibagi total. Penjumlahan seluruh komposisi selalu menghasilkan 100%. Aktifkan mode Rumus untuk melihat formulanya.'},
+ n_pend_calc:{t:'Sel pendapatan margin',b:'Sel ini dihitung dengan rumus outstanding dikali margin efektif. Hasilnya adalah pendapatan kotor tahunan produk sebelum biaya dana.'},
+ n_total_pemb:{t:'Total Pembiayaan Bruto',b:'Total pembiayaan bruto Rp47 Miliar adalah penjumlahan outstanding tujuh produk. Angka ini menjadi basis FTP Charge pada sheet PnL dan pembagi rasio CM terhadap outstanding.'},
+ n_d18:{t:'Total komposisi 100%',b:'Total komposisi selalu 100%. Sel ini memverifikasi bahwa seluruh bobot produk terjumlah utuh.'},
+ n_f18:{t:'Total Pendapatan Margin',b:'Total pendapatan margin Rp3,825 Miliar adalah akumulasi pendapatan tujuh produk. Angka ini mengalir menjadi baris pendapatan margin pembiayaan di sheet PnL.'},
+ n_sect_kas:{t:'Blok kas & cadangan',b:'Blok ini memuat aset di luar pembiayaan, termasuk CKPN sebagai pos pengurang dan penempatan neto pada Kantor Pusat.'},
+ n_ckpn:{t:'CKPN Pembiayaan',b:'CKPN sebesar minus Rp0,9 Miliar adalah Cadangan Kerugian Penurunan Nilai, dibentuk atas potensi gagal bayar pembiayaan mengikuti PSAK 71. Tampil sebagai pengurang aset, bertanda negatif.'},
+ n_kas:{t:'Kas',b:'Kas sebesar Rp2,4 Miliar adalah uang tunai dan setara kas yang dipegang cabang untuk kebutuhan operasional dan layanan harian.'},
+ n_penempatan_lain:{t:'Penempatan pada bank syariah lain',b:'Dana Rp1,0 Miliar yang ditempatkan di institusi syariah lain sebagai instrumen pengelolaan likuiditas.'},
+ n_penempatan_kp:{t:'Penempatan neto pada Kantor Pusat',b:'Penempatan neto Rp14,2 Miliar mencerminkan posisi dana cabang terhadap pusat. Karena DPK melebihi pembiayaan, kelebihan dana disetor ke Kantor Pusat dan menjadi dasar FTP Credit.'},
+ n_aset_tetap:{t:'Aset tetap',b:'Aset tetap Rp1,3 Miliar mencakup bangunan, kendaraan dinas, dan perangkat operasional cabang.'},
+ n_aset_lain:{t:'Aset lain',b:'Aset lain Rp0,5 Miliar memuat pos aset di luar kategori utama.'},
+ n_total_aset:{t:'Total Aset Cabang',b:'Total aset Rp65,5 Miliar adalah penjumlahan pembiayaan bruto dengan seluruh pos kas dan cadangan. Angka ini wajib sama persis dengan total liabilitas dan modal.'},
+ n_sect_dpk:{t:'Blok liabilitas \u00b7 DPK per produk',b:'DPK adalah Dana Pihak Ketiga, himpunan dana nasabah. Tiap produk memiliki tingkat bagi hasil atau bonus berbeda, menentukan beban dana cabang.'},
+ n_h_bagihasil:{t:'Bagi Hasil / Bonus',b:'Tingkat imbalan tahunan kepada nasabah penyimpan. Pada akad Wadiah berbentuk bonus sukarela, pada akad Mudharabah berbentuk bagi hasil sesuai nisbah.'},
+ n_h_bebanbh:{t:'Beban Bagi Hasil per Tahun',b:'Hasil kali outstanding DPK dengan tingkat bagi hasil. Inilah biaya dana langsung yang ditanggung cabang atas simpanan nasabah.'},
+ n_d_wadiah:{t:'Tabungan Easy Wadiah',b:'Simpanan berakad Wadiah dengan bonus 0,5%, outstanding Rp24 Miliar, produk DPK terbesar. Dana murah karena imbalannya rendah dan bersifat bonus sukarela.'},
+ n_d_mudharabah:{t:'Tabungan Easy Mudharabah',b:'Simpanan bagi hasil berakad Mudharabah Muthlaqah dengan imbalan 1,8%, outstanding Rp14 Miliar.'},
+ n_d_giro:{t:'Giro Rupiah',b:'Berakad Wadiah Yad Dhamanah dengan bonus 0,3%, outstanding Rp6 Miliar. Sumber dana paling murah karena imbalannya minimal.'},
+ n_d_depo6:{t:'Deposito 1-6 Bulan',b:'Berakad Mudharabah Muthlaqah dengan bagi hasil 2,8%, outstanding Rp9 Miliar. Dana mahal namun bertenor jelas.'},
+ n_d_depo12:{t:'Deposito 12 Bulan',b:'Berakad Mudharabah Muthlaqah dengan bagi hasil 3,2%, tertinggi di antara produk DPK, outstanding Rp7 Miliar. Dana paling mahal namun paling stabil.'},
+ n_bh_calc:{t:'Sel beban bagi hasil',b:'Sel ini dihitung dengan rumus outstanding DPK dikali tingkat bagi hasil. Hasilnya adalah biaya dana tahunan tiap produk simpanan.'},
+ n_total_dpk:{t:'Total DPK',b:'Total DPK Rp60 Miliar adalah penjumlahan saldo lima produk simpanan. Angka ini menjadi basis FTP Credit pada sheet PnL.'},
+ n_f36:{t:'Total Beban Bagi Hasil',b:'Total beban bagi hasil Rp0,866 Miliar adalah akumulasi imbalan kepada seluruh nasabah penyimpan. Angka ini mengalir menjadi baris bagi hasil DPK di sheet PnL.'},
+ n_sect_liabmodal:{t:'Blok liabilitas lain & modal',b:'Blok ini melengkapi sisi pendanaan cabang di luar DPK.'},
+ n_liab_lain:{t:'Liabilitas lain',b:'Liabilitas lain Rp1,5 Miliar memuat kewajiban cabang di luar simpanan nasabah.'},
+ n_modal_alokasi:{t:'Modal alokasi dari Kantor Pusat',b:'Modal kerja Rp4,0 Miliar yang ditempatkan Kantor Pusat pada cabang.'},
+ n_total_liabmodal:{t:'Total Liabilitas & Modal',b:'Total liabilitas dan modal Rp65,5 Miliar adalah penjumlahan DPK, liabilitas lain, dan modal alokasi. Angka ini wajib sama persis dengan total aset cabang.'},
+ n_selisih:{t:'Selisih Neraca',b:'Selisih neraca harus nol. Sel ini menguji keseimbangan, total aset dikurangi total liabilitas dan modal. Nilai bukan nol menandakan kesalahan pencatatan.'},
+ n_narasi:{t:'Narasi penutup Neraca',b:'Bacalah narasi sebagai konteks, bukan sebagai penilaian kinerja. Kinerja cabang dibaca pada sheet PnL melalui Contribution Margin.'},
+ n_disclaimer:{t:'Disclaimer dokumen',b:'Seluruh angka, nama cabang, dan nama tokoh dalam workbook ini bersifat fiktif, disusun untuk pembelajaran Next BM School dan tidak mewakili data cabang BSI yang sebenarnya.'},
+
+ p_title:{t:'Sheet PnL \u00b7 Laba Rugi',b:'Sheet PnL menyajikan Laporan Laba Rugi cabang berbasis Fund Transfer Pricing. Berbeda dari Neraca yang memotret posisi, PnL mengukur kinerja sepanjang periode. Dibaca dalam tiga blok, Pendapatan, Beban, dan Contribution Margin.'},
+ p_a7:{t:'Basis dan periode',b:'Laporan disusun berbasis FTP untuk Tahun Buku 2025. Basis FTP berarti kinerja cabang dipisahkan dari peran Treasury melalui mekanisme harga dana internal.'},
+ p_sect_pendapatan:{t:'Blok A \u00b7 Pendapatan Operasional',b:'Memuat seluruh sumber pendapatan operasional cabang, termasuk FTP Credit yang merupakan imbalan internal atas DPK.'},
+ p_h_komponen:{t:'Kolom komponen',b:'Merinci tiap pos pendapatan dan beban menurut sumbernya.'},
+ p_h_nilai:{t:'Kolom nilai',b:'Menyatakan besaran dalam Rp Miliar. Pendapatan bertanda positif, beban bertanda negatif, sehingga total dapat langsung dijumlahkan.'},
+ p_h_basis:{t:'Kolom basis perhitungan',b:'Menerangkan asal angka, baik berupa rujukan dari sheet Neraca maupun parameter FTP.'},
+ p_pend_margin:{t:'Pendapatan margin pembiayaan',b:'Rp3,825 Miliar, dirujuk langsung dari total pendapatan margin di Neraca sel F18. Inilah pendapatan kotor dari penyaluran pembiayaan.'},
+ p_ftp_credit:{t:'FTP Credit atas DPK',b:'Rp2,58 Miliar, imbalan internal dari Kantor Pusat atas dana nasabah yang disetor. Dihitung dari total DPK Rp60 Miliar dikali FTP Credit Rate 4,3%. Inilah cara cabang memperoleh nilai dari kelebihan dananya.'},
+ p_fee:{t:'Fee-Based Income',b:'Rp0,4 Miliar, pendapatan dari komisi, administrasi, dan fee transaksi. Pendapatan ini tidak bergantung pada margin maupun biaya dana.'},
+ p_pend_lain:{t:'Pendapatan operasional lain',b:'Rp0,16 Miliar, memuat sumber pendapatan non-margin di luar fee.'},
+ p_total_pendapatan:{t:'Total Pendapatan',b:'Rp6,965 Miliar, penjumlahan empat pos pendapatan. Angka ini menjadi penyebut dalam perhitungan BOPO.'},
+ p_sect_beban:{t:'Blok B \u00b7 Beban Operasional',b:'Memuat seluruh beban operasional cabang, termasuk FTP Charge sebagai biaya dana internal atas pembiayaan.'},
+ p_bagihasil:{t:'Bagi hasil DPK',b:'Minus Rp0,866 Miliar, dirujuk dari total beban bagi hasil di Neraca sel F36. Inilah imbalan yang dibayarkan kepada nasabah penyimpan.'},
+ p_ftp_charge:{t:'FTP Charge atas pembiayaan',b:'Minus Rp2,35 Miliar, biaya dana internal yang dibayar cabang ke Kantor Pusat atas dana yang dipakai membiayai pembiayaan. Dihitung dari total pembiayaan Rp47 Miliar dikali FTP Charge Rate 5,0%. Pos ini menjadikan margin akad yang terlihat besar belum tentu menguntungkan.'},
+ p_beban_tk:{t:'Beban tenaga kerja',b:'Minus Rp2,3 Miliar, mencakup gaji dan tunjangan sembilan FTE cabang. Beban tetap terbesar dalam struktur biaya.'},
+ p_beban_sewa:{t:'Beban sewa',b:'Minus Rp0,68 Miliar, biaya sewa gedung dan fasilitas cabang.'},
+ p_beban_umum:{t:'Beban umum & administrasi',b:'Minus Rp0,579 Miliar, mencakup listrik, alat tulis, pemeliharaan, dan operasional harian.'},
+ p_beban_marketing:{t:'Beban marketing',b:'Minus Rp0,26 Miliar, biaya promosi, akuisisi, dan retensi nasabah.'},
+ p_beban_ckpn:{t:'Beban CKPN',b:'Minus Rp0,33 Miliar, pembentukan cadangan kerugian penurunan nilai sepanjang periode, sejalan dengan posisi NPF 1,7%.'},
+ p_total_beban:{t:'Total Beban',b:'Minus Rp7,365 Miliar, akumulasi tujuh pos beban. Nilai ini melebihi total pendapatan, itulah akar Contribution Margin negatif.'},
+ p_sect_cm:{t:'Blok C \u00b7 Contribution Margin',b:'Menutup laporan dengan Contribution Margin dan dua rasio pembacanya, BOPO serta CM terhadap outstanding.'},
+ p_cm:{t:'Contribution Margin Cabang',b:'Minus Rp0,4 Miliar, total pendapatan dikurangi total beban. Angka negatif berarti cabang belum menutup biayanya sendiri. Inilah metrik kinerja sejati yang menjadi titik berangkat RBB 2026.'},
+ p_bopo:{t:'BOPO',b:'105,7%, rasio total beban terhadap total pendapatan. Di atas 100% berarti cabang membakar lebih banyak daripada yang dihasilkan. Setiap rupiah pendapatan disertai 1,057 rupiah beban.'},
+ p_cm_out:{t:'CM terhadap Outstanding',b:'Minus 0,85%, Contribution Margin dibagi total pembiayaan. Rasio ini menunjukkan imbal hasil bersih tiap rupiah pembiayaan setelah seluruh biaya, termasuk biaya dana FTP.'},
+ p_narasi:{t:'Narasi blok Contribution Margin',b:'CM negatif bukan vonis, melainkan diagnosis. Tugas Branch Manager adalah mengenali tuas mana yang membalik angka ini menjadi positif.'},
+ p_sect_tren:{t:'Tren 4 Kuartal TB2025',b:'Menampilkan pergerakan empat triwulan sepanjang tahun buku. Tren memperlihatkan arah, bukan sekadar posisi akhir.'},
+ p_h_tw:{t:'Kolom triwulan',b:'TW I hingga TW IV adalah triwulan pertama hingga keempat Tahun Buku 2025.'},
+ p_tren_dpk:{t:'Tren DPK',b:'Penghimpunan dana tumbuh stabil dari Rp57 Miliar pada TW I menjadi Rp60 Miliar pada TW IV.'},
+ p_tren_pemb:{t:'Tren Pembiayaan',b:'Penyaluran naik dari Rp45 Miliar menjadi Rp47 Miliar, tumbuh lebih lambat dibanding penghimpunan dana.'},
+ p_tren_cmk:{t:'CM kuartalan',b:'Contribution Margin yang dihasilkan pada masing-masing triwulan. Seluruhnya negatif dan kian dalam, dari minus Rp0,06 menjadi minus Rp0,14 Miliar.'},
+ p_tren_cmkum:{t:'CM kumulatif',b:'Akumulasi berjalan CM kuartalan. Sel ini berantai, tiap kuartal menambah kuartal sebelumnya, berakhir di minus Rp0,4 Miliar yang sama persis dengan CM pada blok C.'},
+ p_sect_param:{t:'Parameter FTP',b:'Memuat dua tarif FTP yang menjadi mesin perhitungan seluruh sheet ini.'},
+ p_ftp_charge_rate:{t:'FTP Charge Rate',b:'5,0%, tarif biaya dana internal yang dikenakan atas pembiayaan. Tarif ini mengalikan total pembiayaan untuk menghasilkan FTP Charge.'},
+ p_ftp_credit_rate:{t:'FTP Credit Rate',b:'4,3%, tarif imbalan internal yang diterima atas DPK. Selisih 0,7% terhadap FTP Charge Rate adalah margin yang dipegang Treasury Kantor Pusat.'},
+ p_narasi_param:{t:'Narasi parameter FTP',b:'Mengubah dua tarif ini akan menggeser FTP Charge dan FTP Credit, dan pada akhirnya menggeser Contribution Margin. Itulah sebabnya parameter FTP ditetapkan Kantor Pusat, bukan cabang.'},
+
+ r_title:{t:'Sheet RBB \u00b7 Rencana Bisnis Bank',b:'Sheet RBB memuat Rencana Bisnis Bank untuk Tahun Buku 2026. Sheet ini menghadapkan realisasi TB2025 dengan target yang disepakati, sehingga gap yang harus ditutup terbaca jelas.'},
+ r_a7:{t:'Periode rencana',b:'Rencana Bisnis Bank Tahun Buku 2026 menjadi tolok ukur pencapaian cabang. Realisasi TB2025 pada kolom kiri adalah titik berangkat.'},
+ r_sect:{t:'Blok target RBB',b:'Memuat lima metrik inti cabang beserta sasaran pertumbuhannya untuk 2026.'},
+ r_h_metrik:{t:'Kolom metrik',b:'Lima indikator utama, DPK, Pembiayaan, Contribution Margin, FDR, dan NPF.'},
+ r_h_real:{t:'Realisasi TB2025',b:'Capaian aktual tahun berjalan, dirujuk dari posisi Neraca dan PnL.'},
+ r_h_target:{t:'Target RBB 2026',b:'Sasaran yang disepakati cabang dengan Kantor Pusat untuk tahun buku berikutnya.'},
+ r_h_growth:{t:'Kolom pertumbuhan',b:'Selisih target terhadap realisasi, besaran yang harus dicapai sepanjang 2026.'},
+ r_dpk:{t:'Target DPK',b:'DPK ditargetkan tumbuh dari Rp60 Miliar menjadi Rp68 Miliar, pertumbuhan Rp8 Miliar. Penghimpunan dana murah menjadi kunci menekan biaya dana.'},
+ r_pemb:{t:'Target Pembiayaan',b:'Pembiayaan ditargetkan tumbuh dari Rp47 Miliar menjadi Rp56 Miliar, pertumbuhan Rp9 Miliar. Pertumbuhan harus diarahkan ke produk bermargin bersih sehat, bukan produk promo.'},
+ r_cm:{t:'Target Contribution Margin',b:'Contribution Margin ditargetkan berbalik dari minus Rp0,4 Miliar menjadi positif Rp0,25 Miliar. Pembalikan Rp0,65 Miliar inilah misi inti Branch Manager pada 2026.'},
+ r_fdr:{t:'FDR \u00b7 Financing to Deposit Ratio',b:'Rasio pembiayaan terhadap DPK. Naik dari 78,3% menjadi 82,4%, menandakan dana nasabah disalurkan lebih produktif sebagai pembiayaan.'},
+ r_npf:{t:'NPF \u00b7 Non Performing Financing',b:'Rasio pembiayaan bermasalah, berjalan di 1,7% dengan ambang target 2,0%. Kolom pertumbuhan tidak diisi angka karena NPF bukan untuk dikejar naik, melainkan dijaga di bawah ambang.'},
+ r_narasi:{t:'Narasi penutup RBB',b:'RBB bukan sekadar angka, melainkan kontrak kinerja. Setiap target harus diterjemahkan menjadi tuas keputusan yang nyata di lapangan.'}
 };
-const ARK_ORDER=["Mature","Tumbuh","Recovery","Greenfield","Premium"];
-const arkTabs=document.getElementById("arkTabs");
-const arkPanel=document.getElementById("arkPanel");
-function renderArk(key){
-  const a=ARK[key];const b=BR[a.br];
-  arkPanel.innerHTML=
-    '<div class="ark-banner">'+
-      '<div><h3>'+key+'</h3><div class="ab-meta">KCP '+a.br+' \u00b7 '+a.sub+'</div></div>'+
-      '<div class="ab-cm"><div class="v">Rp '+fmt(b.cmBase)+'</div>'+
-        '<div class="l">CM Baseline Setahun &middot; Rp Juta</div></div>'+
-    '</div>'+
-    '<div class="ark-grid">'+
-      '<div class="ark-cell focus"><div class="ac-h">Baca lebih dulu</div><p>'+a.bacaDulu+'</p></div>'+
-      '<div class="ark-cell"><div class="ac-h">Tuas utama</div><p>'+a.tuas+'</p></div>'+
-      '<div class="ark-cell"><div class="ac-h">Jebakan membaca</div><p>'+a.jebakan+'</p></div>'+
-      '<div class="ark-cell"><div class="ac-h">Titik fokus di P&amp;L</div><p>'+a.fokus+'</p></div>'+
-    '</div>';
-  arkTabs.querySelectorAll("button").forEach(btn=>
-    btn.classList.toggle("on",btn.dataset.k===key));
-}
-ARK_ORDER.forEach(k=>{
-  const btn=document.createElement("button");
-  btn.textContent=k;btn.dataset.k=k;
-  btn.addEventListener("click",()=>renderArk(k));
-  arkTabs.appendChild(btn);
-});
-renderArk("Mature");
 
-/* ============ REVEAL ON SCROLL ============ */
-const io=new IntersectionObserver(es=>{
-  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");
-    io.unobserve(e.target);}});
-},{threshold:.12});
-document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+/* ================= GLOSSARY ================= */
+var GLOSSARY=[
+ {a:'FTP',f:'Fund Transfer Pricing',c:'dana',d:'Mekanisme harga dana internal antara cabang dan Treasury Kantor Pusat. Cabang membayar FTP Charge atas dana yang dipakai membiayai pembiayaan, dan menerima FTP Credit atas DPK yang disetor ke pusat. FTP memisahkan kinerja murni cabang dari peran Treasury.'},
+ {a:'FTP Charge',f:'Biaya Dana Internal',c:'dana',d:'Tarif yang dibayar cabang ke Kantor Pusat atas dana yang dipakai untuk membiayai pembiayaan. Pada template ini 5,0%, menjadikan margin akad yang besar belum tentu menguntungkan.'},
+ {a:'FTP Credit',f:'Imbalan Dana Internal',c:'dana',d:'Tarif yang diterima cabang dari Kantor Pusat atas DPK yang disetor ke pusat. Pada template ini 4,3%. Inilah cara cabang dengan kelebihan dana tetap menghasilkan pendapatan.'},
+ {a:'CKPN',f:'Cadangan Kerugian Penurunan Nilai',c:'dana',d:'Cadangan yang dibentuk atas potensi gagal bayar pembiayaan, mengikuti PSAK 71. Di Neraca tampil sebagai pengurang aset, di PnL tampil sebagai beban. Menggantikan istilah lama PPAP.'},
+ {a:'BOPO',f:'Beban Operasional thd Pendapatan Operasional',c:'rasio',d:'Rasio efisiensi cabang. Di bawah 100% berarti pendapatan menutup beban. Di atas 100% berarti cabang membakar lebih banyak daripada yang dihasilkan.'},
+ {a:'CM',f:'Contribution Margin',c:'rasio',d:'Kontribusi laba cabang setelah seluruh pendapatan dikurangi seluruh beban berbasis FTP. Ukuran sejati kinerja cabang, sekaligus titik berangkat target RBB.'},
+ {a:'DPK',f:'Dana Pihak Ketiga',c:'dana',d:'Himpunan dana nasabah berupa tabungan, giro, dan deposito. Sumber pendanaan utama cabang.'},
+ {a:'FDR',f:'Financing to Deposit Ratio',c:'rasio',d:'Rasio pembiayaan terhadap DPK. Mengukur seberapa besar dana nasabah disalurkan kembali menjadi pembiayaan.'},
+ {a:'NPF',f:'Non Performing Financing',c:'rasio',d:'Rasio pembiayaan bermasalah terhadap total pembiayaan. Padanan syariah dari NPL pada bank konvensional.'},
+ {a:'RBB',f:'Rencana Bisnis Bank',c:'umum',d:'Rencana target tahunan yang disepakati cabang dengan Kantor Pusat, menjadi tolok ukur pencapaian.'},
+ {a:'FTE',f:'Full Time Equivalent',c:'umum',d:'Satuan jumlah pegawai setara penuh waktu. Cabang pada template ini memiliki 9 FTE.'},
+ {a:'BBS',f:'Branch Banking Simulation',c:'umum',d:'Simulasi pengambilan keputusan tingkat cabang dalam program Next BM School.'},
+ {a:'TB',f:'Tahun Buku',c:'umum',d:'Periode akuntansi satu tahun. TB2025 berarti tahun buku 2025.'},
+ {a:'KCP',f:'Kantor Cabang Pembantu',c:'umum',d:'Unit cabang di bawah Kantor Cabang, melayani area tertentu.'},
+ {a:'KP',f:'Kantor Pusat',c:'umum',d:'Pusat kendali bank, tempat Treasury dan kebijakan FTP dikelola.'},
+ {a:'PSAK 71',f:'Standar Akuntansi Instrumen Keuangan',c:'umum',d:'Standar akuntansi yang mengatur pembentukan CKPN berbasis ekspektasi kerugian.'},
+ {a:'Murabahah',f:'Akad Jual Beli',c:'akad',d:'Akad jual beli dengan margin yang disepakati di muka. Bank membeli barang lalu menjualnya kepada nasabah seharga pokok plus margin.'},
+ {a:'MMQ',f:'Musyarakah Mutanaqishah',c:'akad',d:'Kemitraan kepemilikan yang menurun. Porsi bank atas aset berkurang seiring angsuran nasabah hingga aset penuh menjadi milik nasabah.'},
+ {a:'Ijarah',f:'Akad Sewa',c:'akad',d:'Akad sewa atas manfaat barang atau jasa. Nasabah membayar ujrah atau imbal sewa.'},
+ {a:'Rahn',f:'Akad Gadai',c:'akad',d:'Akad gadai. Barang berharga nasabah menjadi jaminan atas pembiayaan.'},
+ {a:'Ujrah',f:'Imbalan Jasa',c:'akad',d:'Imbalan atau upah atas jasa, termasuk jasa penyimpanan dan pemeliharaan barang gadai.'},
+ {a:'Wadiah',f:'Akad Titipan',c:'akad',d:'Akad titipan. Dana nasabah dititipkan ke bank, bank boleh memberi bonus sukarela tanpa diperjanjikan.'},
+ {a:'Wadiah Yad Dhamanah',f:'Titipan dengan Tanggungan',c:'akad',d:'Titipan yang boleh dimanfaatkan bank, dengan jaminan pengembalian penuh kepada nasabah.'},
+ {a:'Mudharabah Muthlaqah',f:'Bagi Hasil Tanpa Batasan',c:'akad',d:'Kerja sama bagi hasil tanpa batasan penggunaan. Nasabah sebagai pemilik dana, bank sebagai pengelola, hasil dibagi sesuai nisbah.'}
+];
+
+/* ================= RENDER ENGINE ================= */
+var STATE={sheet:'neraca',mode:'val',sel:null};
+
+function cellText(cell){
+  if(cell.fmt==='num') return fmtNum(cell.v);
+  if(cell.fmt==='pct') return fmtPct(cell.v,1);
+  if(cell.fmt==='pct2') return fmtPct(cell.v,2);
+  return cell.v;
+}
+function cellDisplay(cell){
+  if(STATE.mode==='fx' && cell.f) return cell.f;
+  return cellText(cell);
+}
+function isNum(cell){return cell.fmt==='num'||cell.fmt==='pct'||cell.fmt==='pct2';}
+
+function cellClass(cell){
+  var c=['xl-cell'];
+  var tmap={title:'t-title',sub:'t-sub',note:'t-note',sect:'t-sect',hdr:'t-hdr',hdrL:'t-hdr lbl',total:'t-total',kpi:'t-kpi'};
+  if(cell.t && tmap[cell.t]) c.push(tmap[cell.t]);
+  if(isNum(cell)){ c.push('num'); if(typeof cell.v==='number' && cell.v<0) c.push('neg'); }
+  if(cell.f) c.push('fx-dot');
+  if(cell.ref) c.push('link-dot');
+  return c.join(' ');
+}
+
+function renderSheet(){
+  var sh=SHEETS[STATE.sheet], cols=sh.cols;
+  var h='<table class="xl"><thead><tr><th class="xl-corner"></th>';
+  cols.forEach(function(c){ h+='<th class="xl-colh" style="min-width:'+sh.w[c]+'px">'+c+'</th>'; });
+  h+='</tr></thead><tbody>';
+  for(var r=1;r<=sh.rows;r++){
+    h+='<tr><th class="xl-rowh">'+r+'</th>';
+    var skip=0;
+    for(var ci=0;ci<cols.length;ci++){
+      if(skip>0){skip--;continue;}
+      var coord=cols[ci]+r, cell=sh.cells[coord];
+      if(cell){
+        var span=cell.span||1; if(span>1) skip=span-1;
+        var sp=span>1?(' colspan="'+span+'"'):'';
+        var selc=(STATE.sel===coord)?' sel':'';
+        h+='<td class="'+cellClass(cell)+selc+'"'+sp+' data-coord="'+coord+'" onclick="selectCell(\''+coord+'\')">'+cellDisplay(cell)+'</td>';
+      } else {
+        h+='<td class="xl-cell empty" data-coord="'+coord+'" onclick="selectCell(\''+coord+'\')"></td>';
+      }
+    }
+    h+='</tr>';
+  }
+  h+='</tbody></table>';
+  document.getElementById('xlScroll').innerHTML=h;
+}
+
+function renderTabs(){
+  var t='';
+  ['neraca','pnl','rbb'].forEach(function(k){
+    t+='<button class="'+(STATE.sheet===k?'on':'')+'" onclick="switchSheet(\''+k+'\')">'+SHEETS[k].tab+'</button>';
+  });
+  document.getElementById('wbTabs').innerHTML=t;
+}
+
+function switchSheet(k){
+  STATE.sheet=k; STATE.sel=null;
+  renderTabs(); renderSheet();
+  document.getElementById('nameBox').textContent='A1';
+  document.getElementById('fxBar').textContent='';
+  resetPanel();
+}
+
+function setMode(m){
+  STATE.mode=m;
+  document.getElementById('modeVal').classList.toggle('on',m==='val');
+  document.getElementById('modeFx').classList.toggle('on',m==='fx');
+  renderSheet();
+}
+
+function selectCell(coord){
+  STATE.sel=coord;
+  renderSheet();
+  var sh=SHEETS[STATE.sheet], cell=sh.cells[coord];
+  document.getElementById('nameBox').textContent=coord;
+  var pnC=document.getElementById('pnCoord'), pnM=document.getElementById('pnMeta'), pnB=document.getElementById('pnBody');
+  pnC.textContent=sh.tab+'!'+coord;
+  if(!cell){
+    document.getElementById('fxBar').textContent='';
+    pnM.textContent='Sel kosong';
+    pnB.innerHTML='<h4>Sel kosong</h4><p>Sel ini tidak memuat data. Sel kosong tetap menjadi bagian dari kisi agar tata letak identik dengan berkas Excel asli.</p>';
+  } else {
+    document.getElementById('fxBar').textContent= cell.f ? cell.f : cellText(cell);
+    var meta = cell.f ? 'Sel berumus' : (isNum(cell)?'Nilai tetap':'Sel teks');
+    if(cell.ref) meta+=' \u00b7 merujuk sheet '+SHEETS[cell.ref.s].tab;
+    pnM.textContent=meta;
+    var e=EX[cell.ex]||{t:coord,b:'Sel ini bagian dari struktur sheet.'};
+    var body='<h4>'+e.t+'</h4><p>'+e.b+'</p>';
+    if(cell.f) body+='<p style="font-family:\'IBM Plex Mono\',monospace;font-size:12px;background:#F4FBFA;border:1px solid #CDE9E7;border-radius:8px;padding:9px 11px;color:#0E625E"><b>Rumus</b> &nbsp;'+cell.f+'</p>';
+    if(cell.ref) body+='<button class="wb-jump" onclick="jumpTo(\''+cell.ref.s+'\',\''+cell.ref.c+'\')">Buka sel sumber \u2192 '+SHEETS[cell.ref.s].tab+'!'+cell.ref.c+'</button>';
+    pnB.innerHTML=body;
+  }
+  if(window.innerWidth<860){
+    document.querySelector('.wb-panel').scrollIntoView({behavior:'smooth',block:'nearest'});
+  }
+}
+
+function jumpTo(s,c){
+  STATE.sheet=s; renderTabs(); renderSheet();
+  selectCell(c);
+}
+
+function resetPanel(){
+  document.getElementById('pnCoord').textContent=SHEETS[STATE.sheet].tab+'!A1';
+  document.getElementById('pnMeta').textContent='Pilih sel';
+  document.getElementById('pnBody').innerHTML='<h4>Mulai dari sel mana pun</h4><p>Klik sel di kisi sebelah. Panel ini akan menerangkan isi sel itu, cara angkanya dihitung, dan artinya bagi keputusan seorang Branch Manager.</p><div class="wb-legend"><span><span class="lg-dot"></span> sel berumus</span><span><span class="lg-tri"></span> merujuk sheet lain</span></div>';
+}
+
+/* ================= GLOSSARY RENDER ================= */
+var catLabel={rasio:'Rasio',dana:'Dana',akad:'Akad',umum:'Umum'};
+function renderGloss(filter){
+  var h='';
+  GLOSSARY.forEach(function(g){
+    if(filter!=='all' && g.c!==filter) return;
+    h+='<div class="gitem cat-'+g.c+'"><div class="gab"><span class="gabbr">'+g.a+'</span><span class="gfull">'+g.f+'</span><span class="gtag">'+catLabel[g.c]+'</span></div><p>'+g.d+'</p></div>';
+  });
+  document.getElementById('gList').innerHTML=h;
+}
+
+/* ================= INIT ================= */
+document.addEventListener('DOMContentLoaded',function(){
+  renderTabs(); renderSheet(); renderGloss('all');
+  document.querySelectorAll('#gCtl button').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#gCtl button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on'); renderGloss(b.dataset.f);
+    });
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+  }
+});
 </script>
 </body>
 </html>
